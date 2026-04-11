@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KiraMY – Free Malaysian Financial Calculators</title>
+<meta name="description" content="Free financial calculators for Malaysia. Income tax, home loan, EPF, PTPTN, stamp duty calculators. Updated for 2026 (YA 2025).">
+<meta name="keywords" content="Malaysia income tax calculator, Malaysia home loan calculator, EPF calculator, PTPTN calculator, stamp duty Malaysia">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0a1628;
+  --navy-light: #111d35;
+  --teal: #14b8a6;
+  --teal-glow: rgba(20,184,166,0.15);
+  --gold: #f5c542;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --card: rgba(17,29,53,0.7);
+  --border: rgba(148,163,184,0.12);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); line-height: 1.6; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(10,22,40,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-family: 'Fraunces', serif; font-size: 22px; color: var(--teal); font-weight: 700; text-decoration: none; }
+.logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 80px 24px 60px;
+  background: radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 50%);
+  position: relative;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.25);
+  border-radius: 100px; padding: 6px 16px; font-size: 13px; color: var(--teal);
+  margin-bottom: 24px;
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+.hero h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 30%, var(--teal) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p { font-size: 18px; color: var(--muted); max-width: 540px; margin-bottom: 36px; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal); color: var(--navy); font-weight: 700;
+  padding: 14px 32px; border-radius: 12px; text-decoration: none;
+  font-size: 16px; transition: all 0.3s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(20,184,166,0.3); }
+
+/* ─── TOOLS GRID ─── */
+.tools-section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
+.section-label {
+  font-size: 13px; font-weight: 700; color: var(--teal);
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Fraunces', serif; font-size: clamp(24px, 4vw, 36px);
+  margin-bottom: 40px; color: #fff;
+}
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+.tool-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px; text-decoration: none;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.tool-card:hover {
+  border-color: rgba(20,184,166,0.4); transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.tool-card .icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 16px;
+}
+.tool-card h3 { font-size: 18px; color: #fff; margin-bottom: 8px; font-weight: 700; }
+.tool-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.tool-card .tag {
+  display: inline-block; margin-top: 12px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 4px 10px; border-radius: 6px;
+}
+.tag-live { background: rgba(20,184,166,0.15); color: var(--teal); }
+.tag-soon { background: rgba(245,197,66,0.15); color: var(--gold); }
+
+.icon-tax { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.icon-home { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.icon-epf { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.icon-stamp { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.icon-ptptn { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.icon-car { background: linear-gradient(135deg, #ec4899, #db2777); }
+.icon-rent { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+
+/* ─── FEATURES ─── */
+.features { padding: 60px 24px 80px; max-width: 1000px; margin: 0 auto; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+.feature { text-align: center; padding: 20px; }
+.feature .f-icon { font-size: 28px; margin-bottom: 12px; }
+.feature h4 { font-size: 15px; color: #fff; margin-bottom: 6px; }
+.feature p { font-size: 13px; color: var(--muted); }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px; text-align: center;
+  font-size: 13px; color: var(--muted);
+}
+footer a { color: var(--teal); text-decoration: none; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Kira<span>MY</span></a>
+  <ul class="nav-links">
+    <li><a href="#tools">Calculators</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Updated for YA 2025 (Filing 2026)</div>
+  <h1>Malaysian Financial Calculators</h1>
+  <p>Free, accurate, and instant. Calculate your income tax, home loan, EPF, and more — no signup required.</p>
+  <a href="#tools" class="hero-cta">Explore Calculators ↓</a>
+</section>
+
+<section class="tools-section" id="tools">
+  <div class="section-label">Calculators</div>
+  <h2 class="section-title">Choose a tool</h2>
+  <div class="tools-grid">
+
+    <a href="income-tax.html" class="tool-card fade-in">
+      <div class="icon icon-tax">💰</div>
+      <h3>Income Tax Calculator</h3>
+      <p>Calculate your Malaysian income tax based on the latest YA 2025 brackets. Includes EPF, reliefs, and rebates.</p>
+      <span class="tag tag-live">LIVE</span>
+    </a>
+
+    <a href="home-loan.html" class="tool-card fade-in">
+      <div class="icon icon-home">🏠</div>
+      <h3>Home Loan Calculator</h3>
+      <p>Estimate monthly repayments, total interest, and amortization schedule for your property loan.</p>
+      <span class="tag tag-live">LIVE</span>
+    </a>
+
+    <a href="epf.html" class="tool-card fade-in">
+      <div class="icon icon-epf">📊</div>
+      <h3>EPF Retirement Calculator</h3>
+      <p>Project your EPF savings at retirement based on salary, contribution rate, and dividend growth.</p>
+      <span class="tag tag-live">LIVE</span>
+    </a>
+
+    <a href="#" class="tool-card fade-in">
+      <div class="icon icon-stamp">📋</div>
+      <h3>Stamp Duty Calculator</h3>
+      <p>Calculate stamp duty and legal fees for property purchases in Malaysia.</p>
+      <span class="tag tag-soon">COMING SOON</span>
+    </a>
+
+    <a href="#" class="tool-card fade-in">
+      <div class="icon icon-ptptn">🎓</div>
+      <h3>PTPTN Loan Calculator</h3>
+      <p>Plan your PTPTN student loan repayment with monthly payment and interest projections.</p>
+      <span class="tag tag-soon">COMING SOON</span>
+    </a>
+
+    <a href="#" class="tool-card fade-in">
+      <div class="icon icon-car">🚗</div>
+      <h3>Car Loan Calculator</h3>
+      <p>Estimate monthly payments for your car hire purchase with different loan terms and interest rates.</p>
+      <span class="tag tag-soon">COMING SOON</span>
+    </a>
+
+    <a href="#" class="tool-card fade-in">
+      <div class="icon icon-rent">🏢</div>
+      <h3>Rent vs Buy Comparison</h3>
+      <p>Should you rent or buy? Compare the true cost of renting versus owning property in Malaysia.</p>
+      <span class="tag tag-soon">COMING SOON</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="features" id="about">
+  <div class="section-label">Why KiraMY</div>
+  <h2 class="section-title">Built for Malaysians</h2>
+  <div class="features-grid">
+    <div class="feature fade-in">
+      <div class="f-icon">🇲🇾</div>
+      <h4>Malaysia-Specific</h4>
+      <p>All calculations follow LHDN rules and Malaysian financial regulations.</p>
+    </div>
+    <div class="feature fade-in">
+      <div class="f-icon">⚡</div>
+      <h4>Instant Results</h4>
+      <p>No signup, no loading. Enter your numbers and get results immediately.</p>
+    </div>
+    <div class="feature fade-in">
+      <div class="f-icon">🔒</div>
+      <h4>100% Private</h4>
+      <p>All calculations run in your browser. Your data never leaves your device.</p>
+    </div>
+    <div class="feature fade-in">
+      <div class="f-icon">📱</div>
+      <h4>Mobile Friendly</h4>
+      <p>Works perfectly on any device — phone, tablet, or desktop.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
+  <p style="margin-top:8px;">Calculations are for reference only. Consult a tax professional for official advice.</p>
+  <p style="margin-top:8px;"><a href="#">Privacy Policy</a> · <a href="#">Disclaimer</a></p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

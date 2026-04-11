@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent vs Buy Calculator Malaysia 2026 – Should You Rent or Buy? | KiraMY</title>
+<meta name="description" content="Compare the true cost of renting versus buying property in Malaysia. Factor in stamp duty, maintenance, appreciation, and opportunity cost.">
+<meta name="keywords" content="rent vs buy Malaysia, sewa atau beli rumah, property comparison calculator Malaysia">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1628;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--red:#ef4444;--orange:#f59e0b;--cyan:#06b6d4}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,22,40,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Fraunces',serif;font-size:22px;color:var(--teal);font-weight:700;text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--muted);text-decoration:none;font-size:14px}.back:hover{color:var(--teal)}
+.page-header{padding:90px 24px 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,var(--teal-glow) 0%,transparent 50%)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(24px,5vw,38px);font-weight:700;color:#fff;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:15px}
+.container{max-width:960px;margin:0 auto;padding:30px 24px 80px}
+
+/* Two column input */
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+@media(max-width:700px){.input-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.card-title{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.card-title.buy-t{color:var(--cyan)}.card-title.rent-t{color:var(--orange)}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px;font-weight:500}
+.field input{width:100%;padding:10px 12px;background:rgba(10,22,40,0.6);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color 0.2s}
+.field input:focus{border-color:var(--teal)}
+.field .hint{font-size:10px;color:var(--muted);margin-top:3px}
+.calc-btn{width:100%;padding:14px;background:var(--teal);color:var(--navy);font-weight:700;font-size:16px;border:none;border-radius:12px;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;margin-bottom:24px}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,184,166,0.3)}
+
+/* Verdict */
+.verdict{text-align:center;padding:30px;border-radius:16px;margin-bottom:24px}
+.verdict.buy{background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.3)}
+.verdict.rent{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3)}
+.verdict .v-label{font-size:14px;color:var(--muted);margin-bottom:8px}
+.verdict .v-result{font-family:'Fraunces',serif;font-size:28px;font-weight:700}
+.verdict.buy .v-result{color:var(--cyan)}.verdict.rent .v-result{color:var(--orange)}
+.verdict .v-save{font-size:14px;margin-top:8px;color:var(--green)}
+
+/* Comparison */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{border-radius:16px;padding:24px}
+.compare-card.buy-c{background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.2)}
+.compare-card.rent-c{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2)}
+.compare-card h3{font-size:16px;font-weight:700;margin-bottom:16px}
+.compare-card.buy-c h3{color:var(--cyan)}.compare-card.rent-c h3{color:var(--orange)}
+.c-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.c-row:last-child{border-bottom:none}
+.c-row .c-label{color:var(--muted)}.c-row .c-val{font-family:'JetBrains Mono',monospace;font-weight:500}
+.c-total{margin-top:12px;padding:12px;border-radius:10px;text-align:center}
+.buy-c .c-total{background:rgba(6,182,212,0.1)}.rent-c .c-total{background:rgba(245,158,11,0.1)}
+.c-total .ct-val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700}
+.buy-c .ct-val{color:var(--cyan)}.rent-c .ct-val{color:var(--orange)}
+.c-total .ct-label{font-size:11px;color:var(--muted);margin-top:2px}
+
+.info-section{max-width:960px;margin:0 auto;padding:24px 24px 80px}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.info-card h2{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:16px}
+.info-card p{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.8}
+.info-card h3{font-size:16px;color:var(--teal);margin:20px 0 10px}
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;font-size:13px;color:var(--muted)}
+#results{display:none}
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← All Calculators</a></nav>
+<div class="page-header"><h1>Rent vs Buy Comparison</h1><p>Find out which option is better for you over the long term</p></div>
+<div class="container">
+  <div class="input-grid">
+    <div class="card">
+      <div class="card-title buy-t">🏠 Buying</div>
+      <div class="field"><label>Property Price (RM)</label><input type="number" id="price" placeholder="500000"></div>
+      <div class="field"><label>Down Payment (%)</label><input type="number" id="down" value="10"></div>
+      <div class="field"><label>Loan Interest Rate (% p.a.)</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
+      <div class="field"><label>Loan Tenure (Years)</label><input type="number" id="tenure" value="30"></div>
+      <div class="field"><label>Property Appreciation (% p.a.)</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">Malaysian property avg ~3-5% p.a.</div></div>
+      <div class="field"><label>Maintenance & Upkeep (RM/month)</label><input type="number" id="maintenance" value="300"></div>
+    </div>
+    <div class="card">
+      <div class="card-title rent-t">🏢 Renting</div>
+      <div class="field"><label>Monthly Rent (RM)</label><input type="number" id="rent" placeholder="1500"></div>
+      <div class="field"><label>Annual Rent Increase (%)</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">Typical 3-5% annual increase</div></div>
+      <div class="field"><label>Investment Return on Savings (% p.a.)</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">If you invest the down payment instead</div></div>
+      <div class="field"><label>Comparison Period (Years)</label><input type="number" id="period" value="10" min="1" max="30"></div>
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calculate()">Compare Rent vs Buy</button>
+  <div id="results">
+    <div class="verdict" id="verdict"></div>
+    <div class="compare-grid">
+      <div class="compare-card buy-c">
+        <h3>🏠 Cost of Buying</h3>
+        <div class="c-row"><span class="c-label">Down Payment</span><span class="c-val" id="bDown">-</span></div>
+        <div class="c-row"><span class="c-label">Stamp Duty & Legal</span><span class="c-val" id="bStamp">-</span></div>
+        <div class="c-row"><span class="c-label">Total Loan Repayment</span><span class="c-val" id="bLoanTotal">-</span></div>
+        <div class="c-row"><span class="c-label">Maintenance</span><span class="c-val" id="bMaint">-</span></div>
+        <div class="c-row"><span class="c-label">Property Value (end)</span><span class="c-val" id="bPropVal" style="color:var(--green)">-</span></div>
+        <div class="c-row"><span class="c-label">Remaining Loan</span><span class="c-val" id="bRemLoan" style="color:var(--red)">-</span></div>
+        <div class="c-total"><div class="ct-val" id="bNet">-</div><div class="ct-label">Net Cost of Buying</div></div>
+      </div>
+      <div class="compare-card rent-c">
+        <h3>🏢 Cost of Renting</h3>
+        <div class="c-row"><span class="c-label">Total Rent Paid</span><span class="c-val" id="rRentTotal">-</span></div>
+        <div class="c-row"><span class="c-label">Investment Growth</span><span class="c-val" id="rInvest" style="color:var(--green)">-</span></div>
+        <div class="c-total"><div class="ct-val" id="rNet">-</div><div class="ct-label">Net Cost of Renting</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="info-section">
+  <div class="info-card">
+    <h2>Rent or Buy: What to Consider</h2>
+    <p>The rent-vs-buy decision depends on property prices, rental rates, how long you plan to stay, and the opportunity cost of your down payment.</p>
+    <h3>When Buying Makes Sense</h3>
+    <p>If you plan to stay long-term (7+ years), property appreciation outpaces your investment returns, and monthly mortgage payments are close to rental costs, buying often wins.</p>
+    <h3>When Renting Makes Sense</h3>
+    <p>If you need flexibility, property prices are high relative to rents, or you can earn higher returns investing your down payment elsewhere, renting can be more cost-effective.</p>
+    <h3>Malaysian Context</h3>
+    <p>Property in Malaysia has appreciated at roughly 3-5% annually over the past decade. Meanwhile, EPF dividends average 5.5% and equity markets 7-8%. Factor these into your decision.</p>
+  </div>
+</div>
+<footer><p>KiraMY © 2026 · Free Malaysian Financial Calculators</p></footer>
+<script>
+function val(id){return parseFloat(document.getElementById(id).value)||0}
+function fmt(n){return'RM '+Math.round(n).toLocaleString('en-MY')}
+
+function calculate(){
+  const price=val('price'),rent=val('rent');if(price<=0||rent<=0)return;
+  const downPct=val('down')/100,loanRate=val('loanRate')/100/12,tenure=val('tenure'),
+        appreciation=val('appreciation')/100,maint=val('maintenance'),
+        rentInc=val('rentIncrease')/100,investReturn=val('investReturn')/100,period=val('period');
+
+  // BUY calculations
+  const downPayment=price*downPct;
+  const loan=price-downPayment;
+  const months=tenure*12;
+  const monthlyMortgage=loanRate>0?loan*(loanRate*Math.pow(1+loanRate,months))/(Math.pow(1+loanRate,months)-1):loan/months;
+  const periodMonths=period*12;
+
+  // Stamp duty estimate (simplified)
+  let stampDuty=0;
+  if(price>1000000)stampDuty+=(price-1000000)*0.04;
+  if(price>500000)stampDuty+=Math.min(price-500000,500000)*0.03;
+  if(price>100000)stampDuty+=Math.min(price-100000,400000)*0.02;
+  stampDuty+=Math.min(price,100000)*0.01;
+  const legalFees=price*0.01;
+  const totalStamp=stampDuty+legalFees+loan*0.005;
+
+  const totalMortgage=monthlyMortgage*periodMonths;
+  const totalMaint=maint*periodMonths;
+
+  // Remaining loan balance after period
+  let balance=loan;
+  for(let m=0;m<periodMonths;m++){
+    const intPmt=balance*loanRate;
+    balance=balance+intPmt-monthlyMortgage;
+  }
+  if(balance<0)balance=0;
+
+  const propValue=price*Math.pow(1+appreciation,period);
+  const equity=propValue-balance;
+  const netBuy=downPayment+totalStamp+totalMortgage+totalMaint-equity;
+
+  // RENT calculations
+  let totalRent=0,monthlyRent=rent;
+  for(let y=0;y<period;y++){
+    totalRent+=monthlyRent*12;
+    monthlyRent*=(1+rentInc);
+  }
+  // Investment of down payment + stamp
+  const invested=downPayment+totalStamp;
+  const investValue=invested*Math.pow(1+investReturn,period);
+  const investGain=investValue-invested;
+  const netRent=totalRent-investGain;
+
+  // Display
+  document.getElementById('results').style.display='block';
+  const v=document.getElementById('verdict');
+  const diff=Math.abs(netBuy-netRent);
+  if(netBuy<netRent){
+    v.className='verdict buy';
+    v.innerHTML=`<div class="v-label">Over ${period} years, the better option is</div><div class="v-result">🏠 Buying</div><div class="v-save">You save ${fmt(diff)} compared to renting</div>`;
+  }else{
+    v.className='verdict rent';
+    v.innerHTML=`<div class="v-label">Over ${period} years, the better option is</div><div class="v-result">🏢 Renting</div><div class="v-save">You save ${fmt(diff)} compared to buying</div>`;
+  }
+
+  document.getElementById('bDown').textContent=fmt(downPayment);
+  document.getElementById('bStamp').textContent=fmt(totalStamp);
+  document.getElementById('bLoanTotal').textContent=fmt(totalMortgage);
+  document.getElementById('bMaint').textContent=fmt(totalMaint);
+  document.getElementById('bPropVal').textContent='+'+fmt(propValue);
+  document.getElementById('bRemLoan').textContent='-'+fmt(balance);
+  document.getElementById('bNet').textContent=fmt(netBuy);
+  document.getElementById('rRentTotal').textContent=fmt(totalRent);
+  document.getElementById('rInvest').textContent='+'+fmt(investGain);
+  document.getElementById('rNet').textContent=fmt(netRent);
+}
+</script>
+</body>
+</html>

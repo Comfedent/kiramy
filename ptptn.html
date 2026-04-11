@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTPTN Loan Repayment Calculator Malaysia 2026 | KiraMY</title>
+<meta name="description" content="Calculate your PTPTN student loan repayment in Malaysia. Estimate monthly payments, total interest, and repayment duration.">
+<meta name="keywords" content="PTPTN calculator, PTPTN repayment calculator, student loan Malaysia, pinjaman PTPTN kalkulator">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1628;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--red:#ef4444}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,22,40,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Fraunces',serif;font-size:22px;color:var(--teal);font-weight:700;text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--muted);text-decoration:none;font-size:14px}.back:hover{color:var(--teal)}
+.page-header{padding:90px 24px 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,var(--teal-glow) 0%,transparent 50%)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(24px,5vw,38px);font-weight:700;color:#fff;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:15px}
+.container{max-width:900px;margin:0 auto;padding:30px 24px 80px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.card-title{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.field input,.field select{width:100%;padding:12px 14px;background:rgba(10,22,40,0.6);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:16px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color 0.2s}
+.field input:focus,.field select:focus{border-color:var(--teal)}
+.field .hint{font-size:11px;color:var(--muted);margin-top:4px}
+.field select option{background:var(--navy)}
+.calc-btn{width:100%;padding:14px;margin-top:10px;background:var(--teal);color:var(--navy);font-weight:700;font-size:16px;border:none;border-radius:12px;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,184,166,0.3)}
+.result-hero{text-align:center;padding:24px 0;margin-bottom:20px;border-bottom:1px solid var(--border)}
+.result-hero .label{font-size:13px;color:var(--muted);margin-bottom:4px}
+.result-hero .amount{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:700;color:var(--teal)}
+.result-hero .sub{font-size:14px;color:var(--muted);margin-top:4px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-box{background:rgba(10,22,40,0.5);border-radius:12px;padding:16px;text-align:center}
+.stat-box .s-val{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;margin-bottom:2px}
+.stat-box .s-label{font-size:11px;color:var(--muted)}
+.stat-box.blue .s-val{color:var(--blue)}.stat-box.gold .s-val{color:var(--gold)}.stat-box.green .s-val{color:var(--green)}.stat-box.red .s-val{color:var(--red)}
+.tip-box{margin-top:16px;padding:14px;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.2);border-radius:10px;font-size:13px;color:var(--teal)}
+.info-section{max-width:900px;margin:0 auto;padding:0 24px 80px}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.info-card h2{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:16px}
+.info-card p{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.8}
+.info-card h3{font-size:16px;color:var(--teal);margin:20px 0 10px}
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;font-size:13px;color:var(--muted)}
+#results{display:none}
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← All Calculators</a></nav>
+<div class="page-header"><h1>PTPTN Loan Calculator</h1><p>Plan your student loan repayment schedule</p></div>
+<div class="container">
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Loan Details</div>
+      <div class="field"><label>Total PTPTN Loan (RM)</label><input type="number" id="loan" placeholder="e.g. 30000"><div class="hint">Total amount borrowed including ujrah/interest</div></div>
+      <div class="field"><label>Ujrah / Interest Rate (% p.a.)</label>
+        <select id="rate"><option value="1">1% (Conventional – current)</option><option value="0">0% (If eligible for waiver)</option><option value="3">3% (Older loans)</option></select>
+      </div>
+      <div class="field"><label>Monthly Payment (RM)</label><input type="number" id="monthly" placeholder="e.g. 300"><div class="hint">Minimum RM50/month. Salary deduction or voluntary.</div></div>
+      <button class="calc-btn" onclick="calculate()">Calculate Repayment</button>
+    </div>
+    <div>
+      <div class="card" id="results">
+        <div class="card-title">Repayment Summary</div>
+        <div class="result-hero"><div class="label">Time to Fully Repay</div><div class="amount" id="duration">-</div><div class="sub" id="durationSub">-</div></div>
+        <div class="stat-grid">
+          <div class="stat-box blue"><div class="s-val" id="sLoan">-</div><div class="s-label">Total Loan</div></div>
+          <div class="stat-box red"><div class="s-val" id="sInterest">-</div><div class="s-label">Total Interest</div></div>
+          <div class="stat-box gold"><div class="s-val" id="sTotal">-</div><div class="s-label">Total Payment</div></div>
+          <div class="stat-box green"><div class="s-val" id="sMonthly">-</div><div class="s-label">Monthly Payment</div></div>
+        </div>
+        <div class="tip-box" id="tipBox"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="info-section">
+  <div class="info-card">
+    <h2>About PTPTN Loans</h2>
+    <p>Perbadanan Tabung Pendidikan Tinggi Nasional (PTPTN) provides education financing for Malaysian students pursuing higher education at local institutions.</p>
+    <h3>Repayment</h3>
+    <p>Repayment begins 12 months after graduation or course completion. The minimum payment is RM50 per month. Borrowers can also opt for salary deduction through employers or set up auto-debit.</p>
+    <h3>Interest / Ujrah Rate</h3>
+    <p>Current PTPTN loans charge 1% ujrah (administrative fee). Older loans may carry rates of up to 3%. The government periodically offers discounts for early or lump-sum repayment.</p>
+    <h3>Discount Incentives</h3>
+    <p>PTPTN periodically offers 10-20% discounts for full settlement or consistent repayment. Check the PTPTN website for current promotions.</p>
+  </div>
+</div>
+<footer><p>KiraMY © 2026 · Free Malaysian Financial Calculators</p></footer>
+<script>
+function val(id){return parseFloat(document.getElementById(id).value)||0}
+function fmt(n){return'RM '+Math.round(n).toLocaleString('en-MY')}
+function calculate(){
+  const loan=val('loan'),rate=parseFloat(document.getElementById('rate').value)/100,monthly=val('monthly');
+  if(loan<=0||monthly<=0)return;
+  let balance=loan,totalPaid=0,months=0,maxMonths=600;
+  const monthlyRate=rate/12;
+  while(balance>0&&months<maxMonths){
+    const interest=balance*monthlyRate;
+    const payment=Math.min(monthly,balance+interest);
+    balance=balance+interest-payment;
+    totalPaid+=payment;months++;
+    if(balance<0.01)balance=0;
+  }
+  const years=Math.floor(months/12),rem=months%12;
+  const totalInterest=totalPaid-loan;
+  document.getElementById('results').style.display='block';
+  document.getElementById('duration').textContent=years+'y '+rem+'m';
+  document.getElementById('durationSub').textContent=months+' months total';
+  document.getElementById('sLoan').textContent=fmt(loan);
+  document.getElementById('sInterest').textContent=fmt(totalInterest);
+  document.getElementById('sTotal').textContent=fmt(totalPaid);
+  document.getElementById('sMonthly').textContent=fmt(monthly);
+  // Tip
+  const extra=monthly*1.5;
+  let bal2=loan,m2=0;
+  while(bal2>0&&m2<maxMonths){bal2=bal2+bal2*monthlyRate-Math.min(extra,bal2+bal2*monthlyRate);m2++;if(bal2<0.01)bal2=0;}
+  const saved=months-m2;
+  document.getElementById('tipBox').textContent='💡 Tip: Paying RM'+Math.round(extra)+'/month instead would clear your loan '+saved+' months earlier and save '+fmt(totalPaid-(m2*extra))+' in interest.';
+}
+</script>
+</body>
+</html>

@@ -160,6 +160,7 @@ footer a { color: var(--teal); text-decoration: none; }
 
 #results { display: none; }
 </style>
+<link rel="stylesheet" href="trust.css">
 </head>
 <body>
 
@@ -270,7 +271,7 @@ footer a { color: var(--teal); text-decoration: none; }
           <span class="r-value" id="rGross">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">EPF Deduction (Employee)</span>
+          <span class="r-label">EPF Relief (capped at RM4,000)</span>
           <span class="r-value green" id="rEpf">-</span>
         </div>
         <div class="result-row">
@@ -335,9 +336,18 @@ footer a { color: var(--teal); text-decoration: none; }
     <p>If your chargeable income is RM35,000 or below, you are entitled to a RM400 tax rebate that directly reduces your tax payable. Married couples filing jointly may receive a combined rebate of RM800.</p>
 
     <h3>Filing Deadline</h3>
-    <p>Tax returns for YA 2025 must be filed by April 30, 2026. E-filing through MyTax typically receives an extension to May 15, 2026.</p>
+    <p>Filing deadlines and relief eligibility can change. Check the current guidance in LHDN MyTax before submitting a return.</p>
   </div>
 </div>
+
+<section class="trust-panel" aria-labelledby="method-title">
+  <div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 20 June 2026</span></div>
+  <div class="trust-grid">
+    <div class="trust-box"><strong>Worked example</strong><p>Gross income RM60,000, standard EPF contribution, and no optional reliefs → EPF relief capped at RM4,000 → chargeable income RM47,000 → estimated tax before other rebates: RM1,320.</p></div>
+    <div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">LHDN — Individual tax</a></li><li><a href="https://mytax.hasil.gov.my/" target="_blank" rel="noreferrer">LHDN MyTax</a></li></ul></div>
+  </div>
+  <p class="trust-warning">Simplified resident-individual estimate for YA 2025. It does not cover every income type, relief condition, PCB credit, spouse assessment, or special case. Verify against your EA form and LHDN guidance.</p>
+</section>
 
 <footer>
   <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
@@ -398,7 +408,7 @@ function calculate() {
   const totalReliefs = PERSONAL_RELIEF + epfRelief + additionalReliefs;
 
   // Chargeable income
-  const chargeable = Math.max(0, income - epfDeduction - PERSONAL_RELIEF - additionalReliefs);
+  const chargeable = Math.max(0, income - totalReliefs);
 
   // Calculate tax bracket by bracket
   let taxBeforeRebate = 0;
@@ -445,7 +455,7 @@ function calculate() {
   document.getElementById('totalTax').textContent = fmt(finalTax);
   document.getElementById('monthlyTax').textContent = fmt(monthlyTax) + ' / month';
   document.getElementById('rGross').textContent = fmt(income);
-  document.getElementById('rEpf').textContent = '- ' + fmt(epfDeduction);
+  document.getElementById('rEpf').textContent = '- ' + fmt(epfRelief);
   document.getElementById('rPersonal').textContent = '- ' + fmt(PERSONAL_RELIEF);
   document.getElementById('rAdditional').textContent = '- ' + fmt(additionalReliefs);
   document.getElementById('rChargeable').textContent = fmt(chargeable);

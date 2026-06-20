@@ -59,6 +59,7 @@
     h1 { margin: 0; font-family: "Newsreader", serif; font-size: clamp(62px, 9.4vw, 124px); line-height: .88; font-weight: 500; letter-spacing: -.055em; }
     h1 em { display: block; color: var(--orange); font-weight: 500; }
     .hero-copy { max-width: 610px; margin: 34px 0 0; font-size: clamp(18px, 2vw, 24px); color: var(--muted); letter-spacing: -.02em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
     .hero-side { align-self: end; padding-bottom: 22px; }
     .hero-side p { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
     .scroll-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
@@ -154,9 +155,14 @@
   <main id="top">
     <header class="shell hero">
       <div>
-        <div class="status mono"><span class="status-dot"></span> Independent web builder</div>
-        <h1>Useful things,<em>built with care.</em></h1>
-        <p class="hero-copy">A growing collection of focused web products: clear interfaces, practical tools, and small ideas made real.</p>
+        <div class="status mono"><span class="status-dot"></span> You Ruheng · Malaysia</div>
+        <h1>Real problems,<em>useful web tools.</em></h1>
+        <p class="hero-copy">I design and build fast, privacy-first web products for local use cases. Open to internships, freelance web development, and product design opportunities in Malaysia.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#work">View work ↓</a>
+          <a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="button button-ghost" href="#contact">Contact me</a>
+        </div>
       </div>
       <div class="hero-side">
         <div class="orbit" aria-hidden="true"></div>
@@ -183,6 +189,7 @@
           <div class="frame-copy">
             <strong>Seven calculators.<br />Zero sign-ups.</strong>
             <p>Income tax, home loans, EPF retirement, stamp duty, PTPTN, car loans, and rent-vs-buy — all calculated locally in the browser.</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/kiramy.html">Read case study →</a></div>
             <div class="tool-links">
               <a href="income-tax.html">Income tax</a><a href="home-loan.html">Home loan</a><a href="epf.html">EPF</a><a href="stamp-duty.html">Stamp duty</a><a href="ptptn.html">PTPTN</a><a href="car-loan.html">Car loan</a><a href="rent-vs-buy.html">Rent vs buy</a>
             </div>
@@ -203,7 +210,8 @@
             <strong>A quieter place<br />for passing thoughts.</strong>
             <p>Create, search, pin, and edit notes in a warm editorial interface. No account and no server required.</p>
             <div class="project-actions">
-              <a class="button button-dark" href="projects/shiye-notes/">Open app →</a>
+              <a class="button button-dark" href="case-studies/shiye-notes.html">Read case study →</a>
+              <a class="button button-ghost" href="projects/shiye-notes/">Open app ↗</a>
               <a class="button button-ghost" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">View source ↗</a>
             </div>
           </div>
@@ -212,9 +220,9 @@
     </section>
 
     <section class="shell about reveal" id="about">
-      <div><div class="mono">About the work</div><h2>Small scope.<br />Sharp edges.</h2></div>
+      <div><div class="mono">About me</div><h2>Learning by<br />shipping.</h2></div>
       <div>
-        <div class="about-copy"><p>I like web products that explain themselves: useful from the first click, fast on ordinary devices, and considerate with people's data.</p></div>
+        <div class="about-copy"><p>I’m You Ruheng, a management student in Malaysia learning to build practical web products. I take projects from problem and interface design through frontend development, testing, SEO, and deployment.</p></div>
         <div class="principles">
           <div class="principle"><strong>Useful first</strong>Each project starts with one clear job to do.</div>
           <div class="principle"><strong>Private by default</strong>Browser-first tools keep personal data personal.</div>
@@ -226,8 +234,8 @@
 
   <section class="contact" id="contact">
     <div class="shell contact-inner">
-      <div><div class="mono">Explore the process</div><h2>See what's<br /><em>being built.</em></h2></div>
-      <div class="contact-links"><a class="button button-light" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">Visit GitHub ↗</a><a class="button button-ghost" href="#top">Back to top ↑</a></div>
+      <div><div class="mono">Open to opportunities</div><h2>Let's build<br /><em>something useful.</em></h2><p style="max-width:540px;color:rgba(255,255,255,.62);margin:24px 0 0;">Available for internships, junior web roles, freelance development, and product design work in Malaysia. For now, the fastest way to reach me is through GitHub.</p></div>
+      <div class="contact-links"><a class="button button-light" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">Contact via GitHub ↗</a><a class="button button-ghost" href="#work">View work ↑</a></div>
     </div>
   </section>
   <footer><div class="shell footer-inner"><span>© 2026 Kira. Built for the open web.</span><span>Malaysia · Worldwide web</span></div></footer>

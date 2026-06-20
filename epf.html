@@ -76,6 +76,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 footer a{color:var(--teal);text-decoration:none}
 #results{display:none}
 </style>
+<link rel="stylesheet" href="trust.css">
 </head>
 <body>
 
@@ -126,15 +127,15 @@ footer a{color:var(--teal);text-decoration:none}
           <label>Employee Rate (%)</label>
           <select id="empRate">
             <option value="11" selected>11% (Standard)</option>
-            <option value="7">7% (Reduced)</option>
-            <option value="9">9%</option>
+            <option value="9">9% (Custom scenario)</option>
+            <option value="7">7% (Custom scenario)</option>
           </select>
         </div>
         <div class="field">
           <label>Employer Rate (%)</label>
           <select id="erRate">
-            <option value="12" selected>12% (Salary ≤ RM5k)</option>
-            <option value="13">13% (Salary > RM5k)</option>
+            <option value="13" selected>13% (Salary ≤ RM5k)</option>
+            <option value="12">12% (Salary > RM5k)</option>
           </select>
         </div>
       </div>
@@ -208,7 +209,7 @@ footer a{color:var(--teal);text-decoration:none}
     <p>The Employees Provident Fund (EPF), or Kumpulan Wang Simpanan Pekerja (KWSP), is Malaysia's mandatory retirement savings scheme. Both employees and employers contribute a percentage of the employee's monthly salary.</p>
 
     <h3>Contribution Rates (2025-2026)</h3>
-    <p>Employees contribute 11% of their monthly salary (can opt for 7% or 9%). Employers contribute 12% for salaries RM5,000 and below, and 13% for salaries above RM5,000.</p>
+    <p>For Malaysian members below age 60, the standard employee share is 11%. The standard employer share is 13% for monthly wages of RM5,000 and below, and 12% for wages above RM5,000. Actual payroll contributions follow KWSP's Third Schedule wage table rather than simple percentage multiplication.</p>
 
     <h3>EPF Dividends</h3>
     <p>EPF declares annual dividends on members' savings. The conventional dividend rate has averaged approximately 5.5% over the past decade. Simpanan Shariah averages around 5.0%.</p>
@@ -216,10 +217,16 @@ footer a{color:var(--teal);text-decoration:none}
     <h3>Withdrawal at Retirement</h3>
     <p>Members can make full withdrawals at age 55. Partial withdrawals from Account 2 are available for housing, education, and medical purposes before retirement age.</p>
 
-    <h3>Basic Savings Benchmark</h3>
-    <p>EPF recommends a basic savings of RM240,000 at age 55 to sustain a basic retirement. However, financial advisors suggest having at least RM600,000 - RM1,000,000 for a comfortable retirement in Malaysia.</p>
+    <h3>Retirement adequacy</h3>
+    <p>KWSP savings benchmarks are periodically revised. Treat this projection as a planning scenario and compare it with the latest Retirement Income Adequacy guidance published by KWSP.</p>
   </div>
 </div>
+
+<section class="trust-panel" aria-labelledby="method-title">
+  <div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 20 June 2026</span></div>
+  <div class="trust-grid"><div class="trust-box"><strong>Worked example</strong><p>At RM5,000 monthly wages, the simplified 11% employee + 13% employer model adds about RM1,200 monthly, or RM14,400 yearly, before dividends. Payroll figures may differ because KWSP uses a wage table.</p></div><div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP — Mandatory contribution</a></li><li><a href="https://www.kwsp.gov.my/en/member/savings/dividend" target="_blank" rel="noreferrer">KWSP — Dividend</a></li></ul></div></div>
+  <p class="trust-warning">Projection only. It assumes steady annual salary growth and a constant dividend rate; it excludes contribution-table rounding, withdrawals, age-based rate changes, and future policy changes.</p>
+</section>
 
 <footer>
   <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>

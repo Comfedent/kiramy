@@ -32,6 +32,12 @@ A privacy-first first-year financial planner for Malaysian students, interns, an
 
 [Case study](https://www.kira-malaysia.com/case-studies/kirastart-my.html) · [Open planner](https://www.kira-malaysia.com/projects/kirastart-my/)
 
+### Bukit Pala
+
+A Balik Pulau nutmeg gift-set concept exploring local opportunity discovery, product bundling, brand storytelling, packaging direction and a low-risk pre-order pilot. Clearly presented as a concept for validation rather than a launched business.
+
+[Case study](https://www.kira-malaysia.com/case-studies/balik-pulau-nutmeg.html) · [View concept](https://www.kira-malaysia.com/projects/balik-pulau-nutmeg/)
+
 ## Why I built this
 
 Many useful web tasks do not need accounts, a large framework, or a server. These projects explore how clear interfaces and small, transparent codebases can solve real local problems while keeping user data private.
@@ -59,6 +65,7 @@ index.html                 Portfolio home
 case-studies/              Detailed project case studies
 projects/shiye-notes/      Notes application
 projects/kirastart-my/     First-year financial planner
+projects/balik-pulau-nutmeg/ Local business concept
 *-loan.html, epf.html...   KiraMY calculators
 sitemap.xml                Search engine sitemap
 ```

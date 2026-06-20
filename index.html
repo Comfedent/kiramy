@@ -85,6 +85,8 @@
     .notes::after { content: "拾页"; position: absolute; right: -6px; bottom: -34px; font: 600 150px/1 "Newsreader", serif; color: rgba(255, 100, 51, .08); }
     .starter { color: #f8f8ef; background: #102a2a; }
     .starter::after { content: "1ST"; position: absolute; right: -18px; bottom: -72px; font: 600 220px/1 "Newsreader", serif; color: rgba(216, 255, 84, .1); }
+    .nutmeg { color: #fffaf0; background: linear-gradient(90deg, rgba(23,55,47,.96) 0%, rgba(23,55,47,.87) 45%, rgba(23,55,47,.24) 100%), url("projects/balik-pulau-nutmeg/assets/bukit-pala-gift-set.webp") center/cover; }
+    .nutmeg::after { content: "PALA"; position: absolute; right: -5px; bottom: -45px; font: 600 150px/1 "Newsreader", serif; color: rgba(200,227,107,.1); }
     .frame-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
     .frame-mark { font: 600 26px "Newsreader", serif; }
     .live { display: inline-flex; align-items: center; gap: 7px; font: 10px "DM Mono", monospace; letter-spacing: .1em; }
@@ -173,7 +175,7 @@
       <div>
         <div class="status mono"><span class="status-dot"></span> You Ruheng · Malaysia</div>
         <h1>Real problems, <em>useful web tools.</em></h1>
-        <p class="hero-copy">I design and build fast, privacy-first web products for local use cases. Open to internships, freelance web development, and product design opportunities in Malaysia.</p>
+        <p class="hero-copy">I build small, useful, privacy-first products for Malaysian students, young workers, and local businesses. Open to internships, freelance development, and product design opportunities.</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#work">View work ↓</a>
           <a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -190,7 +192,7 @@
     <section class="shell" id="work">
       <div class="section-head reveal">
         <h2>Selected work</h2>
-        <span class="mono">03 projects</span>
+        <span class="mono">04 projects</span>
       </div>
 
       <article class="project reveal">
@@ -253,13 +255,30 @@
           </div>
         </div>
       </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">04 / Local business concept</div>
+          <h3>Bukit Pala</h3>
+          <p class="project-summary">A Balik Pulau nutmeg gift-set concept combining local products, place-based storytelling and a low-risk pre-order pilot.</p>
+          <div class="tags"><span class="tag">Product strategy</span><span class="tag">Brand concept</span><span class="tag">Pilot design</span></div>
+        </div>
+        <div class="project-frame nutmeg">
+          <div class="frame-top"><span class="frame-mark">BUKIT PALA</span><span class="live" style="color:var(--acid)">CONCEPT</span></div>
+          <div class="frame-copy">
+            <strong>Penang's nutmeg story,<br />packed to give.</strong>
+            <p>From product bundle and packaging direction to landing page, pre-order flow, cost categories and validation criteria.</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/balik-pulau-nutmeg.html">Read case study →</a><a class="button button-ghost" href="projects/balik-pulau-nutmeg/">View concept ↗</a></div>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="shell skills reveal" id="skills">
       <div class="skills-head"><h2>Skills</h2><p>A product-minded toolkit for taking a focused web idea from rough problem to tested, deployed experience.</p></div>
       <div class="skills-grid">
         <div class="skill-group"><div class="mono">Frontend</div><h3>Build</h3><p>Semantic HTML, responsive CSS, vanilla JavaScript, accessibility, LocalStorage, and browser testing.</p></div>
-        <div class="skill-group"><div class="mono">Product</div><h3>Shape</h3><p>Problem framing, interface design, UX writing, financial UX, local-first products, and privacy-by-default decisions.</p></div>
+        <div class="skill-group"><div class="mono">Product</div><h3>Shape</h3><p>Problem framing, interface design, UX writing, financial UX, brand positioning, pilot design, and privacy-by-default decisions.</p></div>
         <div class="skill-group"><div class="mono">Delivery</div><h3>Ship</h3><p>Git and GitHub, Vercel deployment, technical SEO, source documentation, responsive QA, and iterative improvement.</p></div>
       </div>
     </section>
@@ -267,7 +286,7 @@
     <section class="shell about reveal" id="about">
       <div><div class="mono">About me</div><h2>Learning by<br />shipping.</h2></div>
       <div>
-        <div class="about-copy"><p>I’m You Ruheng, a management student in Malaysia learning to build practical web products. I take projects from problem and interface design through frontend development, testing, SEO, and deployment.</p></div>
+        <div class="about-copy"><p>I’m You Ruheng, a management student in Malaysia building practical digital products and local business concepts. I take projects from opportunity and interface design through frontend development, testing, storytelling, and deployment.</p></div>
         <div class="principles">
           <div class="principle"><strong>Useful first</strong>Each project starts with one clear job to do.</div>
           <div class="principle"><strong>Private by default</strong>Browser-first tools keep personal data personal.</div>

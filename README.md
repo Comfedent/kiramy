@@ -22,6 +22,10 @@ Seven privacy-friendly Malaysian financial calculators:
 
 A calm, browser-based notes application with automatic saving, search, pinning, responsive navigation, and local-only storage.
 
+### KiraStart MY
+
+A privacy-first first-year financial planner for Malaysian students, interns, and fresh graduates. It combines simplified statutory deductions, living costs, commitments, recommendations, and a 36-month milestone timeline.
+
 ## Why I built this
 
 Many useful web tasks do not need accounts, a large framework, or a server. These projects explore how clear interfaces and small, transparent codebases can solve real local problems while keeping user data private.
@@ -48,6 +52,7 @@ Many useful web tasks do not need accounts, a large framework, or a server. Thes
 index.html                 Portfolio home
 case-studies/              Detailed project case studies
 projects/shiye-notes/      Notes application
+projects/kirastart-my/     First-year financial planner
 *-loan.html, epf.html...   KiraMY calculators
 sitemap.xml                Search engine sitemap
 ```

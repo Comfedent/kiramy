@@ -83,6 +83,8 @@
     .finance::after { content: "RM"; position: absolute; right: -15px; bottom: -80px; font: 600 250px/1 "Newsreader", serif; color: rgba(46, 197, 167, .1); }
     .notes { color: #171916; background: #f8f5eb; }
     .notes::after { content: "拾页"; position: absolute; right: -6px; bottom: -34px; font: 600 150px/1 "Newsreader", serif; color: rgba(255, 100, 51, .08); }
+    .starter { color: #f8f8ef; background: #102a2a; }
+    .starter::after { content: "1ST"; position: absolute; right: -18px; bottom: -72px; font: 600 220px/1 "Newsreader", serif; color: rgba(216, 255, 84, .1); }
     .frame-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
     .frame-mark { font: 600 26px "Newsreader", serif; }
     .live { display: inline-flex; align-items: center; gap: 7px; font: 10px "DM Mono", monospace; letter-spacing: .1em; }
@@ -174,7 +176,7 @@
     <section class="shell" id="work">
       <div class="section-head reveal">
         <h2>Selected work</h2>
-        <span class="mono">02 projects</span>
+        <span class="mono">03 projects</span>
       </div>
 
       <article class="project reveal">
@@ -213,6 +215,26 @@
               <a class="button button-dark" href="case-studies/shiye-notes.html">Read case study →</a>
               <a class="button button-ghost" href="projects/shiye-notes/">Open app ↗</a>
               <a class="button button-ghost" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">View source ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">03 / Financial planner</div>
+          <h3>KiraStart MY</h3>
+          <p class="project-summary">A privacy-first first-year money planner for Malaysian students, interns, and fresh graduates.</p>
+          <div class="tags"><span class="tag">Product design</span><span class="tag">Financial UX</span><span class="tag">Local-first</span></div>
+        </div>
+        <div class="project-frame starter">
+          <div class="frame-top"><span class="frame-mark">KiraStart <span style="color:var(--acid)">MY</span></span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>Your first salary,<br />turned into a plan.</strong>
+            <p>Estimate real take-home pay, pressure-test living costs and commitments, then see concrete milestones for the next 36 months.</p>
+            <div class="project-actions">
+              <a class="button button-light" href="case-studies/kirastart-my.html">Read case study →</a>
+              <a class="button button-ghost" href="projects/kirastart-my/">Open planner ↗</a>
             </div>
           </div>
         </div>

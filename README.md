@@ -10,6 +10,8 @@ Live site: [kira-malaysia.com](https://www.kira-malaysia.com/)
 
 Seven privacy-friendly Malaysian financial calculators:
 
+[Case study](https://www.kira-malaysia.com/case-studies/kiramy.html) · [Try Income Tax](https://www.kira-malaysia.com/income-tax.html)
+
 - Income tax (YA 2025)
 - Home loan and amortisation
 - EPF retirement projection
@@ -22,9 +24,13 @@ Seven privacy-friendly Malaysian financial calculators:
 
 A calm, browser-based notes application with automatic saving, search, pinning, responsive navigation, and local-only storage.
 
+[Case study](https://www.kira-malaysia.com/case-studies/shiye-notes.html) · [Open app](https://www.kira-malaysia.com/projects/shiye-notes/)
+
 ### KiraStart MY
 
 A privacy-first first-year financial planner for Malaysian students, interns, and fresh graduates. It combines simplified statutory deductions, living costs, commitments, recommendations, and a 36-month milestone timeline.
+
+[Case study](https://www.kira-malaysia.com/case-studies/kirastart-my.html) · [Open planner](https://www.kira-malaysia.com/projects/kirastart-my/)
 
 ## Why I built this
 
@@ -64,6 +70,16 @@ The Shiye Notes state layer includes tests for creation, editing, deletion, sort
 ```powershell
 node --test tests/note-store.test.js
 ```
+
+## Run locally
+
+No build step or package installation is required. Clone the repository and serve its root with any static server:
+
+```powershell
+python -m http.server 8080
+```
+
+Then open `http://localhost:8080`.
 
 ## Roadmap
 

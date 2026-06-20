@@ -109,6 +109,16 @@
     .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 46px; }
     .principle { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--muted); }
     .principle strong { display: block; color: var(--ink); margin-bottom: 7px; }
+    .skills { padding: 110px 0 30px; border-bottom: 1px solid var(--line); }
+    .skills-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
+    .skills h2 { margin: 0; font: 500 clamp(42px, 6vw, 70px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .skills-head p { max-width: 480px; margin: 0; color: var(--muted); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .skill-group { padding: 28px 28px 36px 0; border-right: 1px solid var(--line); }
+    .skill-group + .skill-group { padding-left: 28px; }
+    .skill-group:last-child { border-right: 0; }
+    .skill-group h3 { margin: 0 0 14px; font: 600 28px "Newsreader", serif; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: 14px; }
 
     .contact { background: var(--ink); color: var(--white); border-radius: 34px 34px 0 0; padding: 90px 0; }
     .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
@@ -136,6 +146,9 @@
       .project { padding: 48px 0; }
       .project-frame { min-height: 360px; padding: 22px; }
       .principles { grid-template-columns: 1fr; }
+      .skills-head { align-items: start; flex-direction: column; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-group, .skill-group + .skill-group { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .about { padding: 90px 0; }
       .contact-inner { align-items: start; flex-direction: column; }
       .footer-inner { flex-direction: column; }
@@ -148,6 +161,7 @@
       <a class="brand" href="#top">Kira</a>
       <div class="nav-links">
         <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a class="github-link" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
@@ -158,7 +172,7 @@
     <header class="shell hero">
       <div>
         <div class="status mono"><span class="status-dot"></span> You Ruheng · Malaysia</div>
-        <h1>Real problems,<em>useful web tools.</em></h1>
+        <h1>Real problems, <em>useful web tools.</em></h1>
         <p class="hero-copy">I design and build fast, privacy-first web products for local use cases. Open to internships, freelance web development, and product design opportunities in Malaysia.</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#work">View work ↓</a>
@@ -239,6 +253,15 @@
           </div>
         </div>
       </article>
+    </section>
+
+    <section class="shell skills reveal" id="skills">
+      <div class="skills-head"><h2>Skills</h2><p>A product-minded toolkit for taking a focused web idea from rough problem to tested, deployed experience.</p></div>
+      <div class="skills-grid">
+        <div class="skill-group"><div class="mono">Frontend</div><h3>Build</h3><p>Semantic HTML, responsive CSS, vanilla JavaScript, accessibility, LocalStorage, and browser testing.</p></div>
+        <div class="skill-group"><div class="mono">Product</div><h3>Shape</h3><p>Problem framing, interface design, UX writing, financial UX, local-first products, and privacy-by-default decisions.</p></div>
+        <div class="skill-group"><div class="mono">Delivery</div><h3>Ship</h3><p>Git and GitHub, Vercel deployment, technical SEO, source documentation, responsive QA, and iterative improvement.</p></div>
+      </div>
     </section>
 
     <section class="shell about reveal" id="about">

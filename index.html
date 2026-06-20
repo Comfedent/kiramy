@@ -1,258 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KiraMY – Free Malaysian Financial Calculators</title>
-<meta name="description" content="Free financial calculators for Malaysia. Income tax, home loan, EPF, PTPTN, stamp duty calculators. Updated for 2026 (YA 2025).">
-<meta name="keywords" content="Malaysia income tax calculator, Malaysia home loan calculator, EPF calculator, PTPTN calculator, stamp duty Malaysia">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --navy: #0a1628;
-  --navy-light: #111d35;
-  --teal: #14b8a6;
-  --teal-glow: rgba(20,184,166,0.15);
-  --gold: #f5c542;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --card: rgba(17,29,53,0.7);
-  --border: rgba(148,163,184,0.12);
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); line-height: 1.6; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0f0e" />
+  <title>Kira — Web Portfolio</title>
+  <meta name="description" content="Kira's portfolio of thoughtful, practical web products — from Malaysian financial calculators to a private browser-based notes app." />
+  <meta property="og:title" content="Kira — Web Portfolio" />
+  <meta property="og:description" content="Useful web products, built with care." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.kira-malaysia.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #171916;
+      --paper: #f2f0e8;
+      --paper-deep: #e5e0d4;
+      --white: #fbfaf5;
+      --muted: #686b63;
+      --line: rgba(23, 25, 22, .14);
+      --acid: #d8ff54;
+      --orange: #ff6433;
+      --teal: #2ec5a7;
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .mono { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .11em; font-size: 12px; }
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(242, 240, 232, .86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { font-family: "Newsreader", serif; font-size: 30px; font-weight: 600; text-decoration: none; }
+    .brand::after { content: "."; color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .github-link { border: 1px solid var(--ink); border-radius: 999px; padding: 9px 15px; color: var(--ink) !important; }
 
-/* ─── NAV ─── */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 100;
-  background: rgba(10,22,40,0.85); backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 24px; height: 60px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.logo { font-family: 'Fraunces', serif; font-size: 22px; color: var(--teal); font-weight: 700; text-decoration: none; }
-.logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 24px; list-style: none; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-.nav-links a:hover { color: var(--teal); }
+    .hero { min-height: 760px; display: grid; grid-template-columns: 1.5fr .5fr; align-items: center; gap: 48px; padding: 90px 0; }
+    .status { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 6px rgba(46, 197, 167, .14); }
+    h1 { margin: 0; font-family: "Newsreader", serif; font-size: clamp(62px, 9.4vw, 124px); line-height: .88; font-weight: 500; letter-spacing: -.055em; }
+    h1 em { display: block; color: var(--orange); font-weight: 500; }
+    .hero-copy { max-width: 610px; margin: 34px 0 0; font-size: clamp(18px, 2vw, 24px); color: var(--muted); letter-spacing: -.02em; }
+    .hero-side { align-self: end; padding-bottom: 22px; }
+    .hero-side p { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+    .scroll-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+    .orbit { width: 150px; aspect-ratio: 1; margin: 0 0 56px auto; border: 1px solid var(--line); border-radius: 50%; position: relative; animation: spin 18s linear infinite; }
+    .orbit::before { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--acid); border: 1px solid var(--ink); top: 10px; left: 18px; }
+    .orbit::after { content: "BUILD / TEST / REFINE"; position: absolute; font: 10px "DM Mono", monospace; letter-spacing: .12em; top: 66px; left: -20px; white-space: nowrap; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ─── HERO ─── */
-.hero {
-  min-height: 100vh; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center;
-  padding: 80px 24px 60px;
-  background: radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 50%);
-  position: relative;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.25);
-  border-radius: 100px; padding: 6px 16px; font-size: 13px; color: var(--teal);
-  margin-bottom: 24px;
-}
-.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
-.hero h1 {
-  font-family: 'Fraunces', serif; font-size: clamp(32px, 6vw, 56px);
-  font-weight: 700; line-height: 1.15; margin-bottom: 16px;
-  background: linear-gradient(135deg, #fff 30%, var(--teal) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero p { font-size: 18px; color: var(--muted); max-width: 540px; margin-bottom: 36px; }
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--teal); color: var(--navy); font-weight: 700;
-  padding: 14px 32px; border-radius: 12px; text-decoration: none;
-  font-size: 16px; transition: all 0.3s;
-}
-.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(20,184,166,0.3); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 100px 0 36px; border-bottom: 1px solid var(--line); }
+    .section-head h2 { margin: 0; font: 500 clamp(42px, 6vw, 76px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .section-head span { color: var(--muted); }
+    .project { display: grid; grid-template-columns: .75fr 1.25fr; gap: 56px; padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .project-number { color: var(--muted); margin-bottom: 20px; }
+    .project h3 { margin: 0 0 16px; font: 600 clamp(36px, 5vw, 64px)/1 "Newsreader", serif; letter-spacing: -.035em; }
+    .project-summary { max-width: 430px; margin: 0 0 28px; color: var(--muted); font-size: 17px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; font: 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .07em; }
+    .project-frame { min-height: 390px; border: 1px solid var(--ink); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; transition: transform .25s ease, box-shadow .25s ease; }
+    .project-frame:hover { transform: translateY(-5px); box-shadow: 0 16px 0 rgba(23, 25, 22, .08); }
+    .finance { color: #eef7f3; background: #0a1628; }
+    .finance::after { content: "RM"; position: absolute; right: -15px; bottom: -80px; font: 600 250px/1 "Newsreader", serif; color: rgba(46, 197, 167, .1); }
+    .notes { color: #171916; background: #f8f5eb; }
+    .notes::after { content: "拾页"; position: absolute; right: -6px; bottom: -34px; font: 600 150px/1 "Newsreader", serif; color: rgba(255, 100, 51, .08); }
+    .frame-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+    .frame-mark { font: 600 26px "Newsreader", serif; }
+    .live { display: inline-flex; align-items: center; gap: 7px; font: 10px "DM Mono", monospace; letter-spacing: .1em; }
+    .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acid); }
+    .frame-copy { max-width: 540px; position: relative; z-index: 2; }
+    .frame-copy strong { display: block; font: 500 clamp(32px, 4vw, 52px)/1 "Newsreader", serif; margin-bottom: 14px; }
+    .frame-copy p { margin: 0; opacity: .72; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { background: var(--acid); color: var(--ink); }
+    .button-dark { background: var(--ink); color: var(--white); }
+    .button-ghost { border: 1px solid currentColor; }
+    .tool-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 2; }
+    .tool-links a { color: inherit; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 7px 10px; text-decoration: none; font-size: 11px; }
+    .tool-links a:hover { border-color: var(--teal); }
 
-/* ─── TOOLS GRID ─── */
-.tools-section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
-.section-label {
-  font-size: 13px; font-weight: 700; color: var(--teal);
-  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;
-}
-.section-title {
-  font-family: 'Fraunces', serif; font-size: clamp(24px, 4vw, 36px);
-  margin-bottom: 40px; color: #fff;
-}
-.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .about { display: grid; grid-template-columns: .65fr 1.35fr; gap: 64px; padding: 130px 0; }
+    .about h2 { margin: 0; font: 500 56px/1 "Newsreader", serif; letter-spacing: -.04em; }
+    .about-copy { font: 500 clamp(26px, 3vw, 42px)/1.25 "Newsreader", serif; letter-spacing: -.025em; }
+    .about-copy p { margin: 0 0 30px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 46px; }
+    .principle { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--muted); }
+    .principle strong { display: block; color: var(--ink); margin-bottom: 7px; }
 
-.tool-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 28px; text-decoration: none;
-  transition: all 0.3s; position: relative; overflow: hidden;
-}
-.tool-card:hover {
-  border-color: rgba(20,184,166,0.4); transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-}
-.tool-card .icon {
-  width: 48px; height: 48px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; margin-bottom: 16px;
-}
-.tool-card h3 { font-size: 18px; color: #fff; margin-bottom: 8px; font-weight: 700; }
-.tool-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.tool-card .tag {
-  display: inline-block; margin-top: 12px;
-  font-size: 11px; font-weight: 700; letter-spacing: 1px;
-  padding: 4px 10px; border-radius: 6px;
-}
-.tag-live { background: rgba(20,184,166,0.15); color: var(--teal); }
-.tag-soon { background: rgba(245,197,66,0.15); color: var(--gold); }
+    .contact { background: var(--ink); color: var(--white); border-radius: 34px 34px 0 0; padding: 90px 0; }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+    .contact h2 { margin: 10px 0 0; font: 500 clamp(52px, 8vw, 104px)/.9 "Newsreader", serif; letter-spacing: -.05em; }
+    .contact h2 em { color: var(--acid); font-weight: 500; }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact .button-ghost { border-color: rgba(255,255,255,.4); }
+    footer { background: var(--ink); color: rgba(255,255,255,.5); border-top: 1px solid rgba(255,255,255,.12); padding: 24px 0; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
 
-.icon-tax { background: linear-gradient(135deg, #14b8a6, #0d9488); }
-.icon-home { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.icon-epf { background: linear-gradient(135deg, #f59e0b, #d97706); }
-.icon-stamp { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-.icon-ptptn { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.icon-car { background: linear-gradient(135deg, #ec4899, #db2777); }
-.icon-rent { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-
-/* ─── FEATURES ─── */
-.features { padding: 60px 24px 80px; max-width: 1000px; margin: 0 auto; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
-.feature { text-align: center; padding: 20px; }
-.feature .f-icon { font-size: 28px; margin-bottom: 12px; }
-.feature h4 { font-size: 15px; color: #fff; margin-bottom: 6px; }
-.feature p { font-size: 13px; color: var(--muted); }
-
-/* ─── FOOTER ─── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 24px; text-align: center;
-  font-size: 13px; color: var(--muted);
-}
-footer a { color: var(--teal); text-decoration: none; }
-
-/* ─── ANIMATIONS ─── */
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .tools-grid { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: 1fr 1fr; }
-}
-</style>
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 800px) {
+      .shell { width: min(calc(100% - 28px), 1180px); }
+      .nav-inner { gap: 14px; }
+      .github-link { padding: 8px 12px; }
+      .nav-links a:not(.github-link) { display: none; }
+      .hero { min-height: 680px; grid-template-columns: 1fr; gap: 20px; padding: 70px 0; }
+      .hero > * { min-width: 0; }
+      h1 { font-size: clamp(48px, 14vw, 62px); overflow-wrap: anywhere; }
+      .hero-copy { font-size: 17px; }
+      .hero-side { display: none; }
+      .project, .about { grid-template-columns: 1fr; gap: 28px; }
+      .project { padding: 48px 0; }
+      .project-frame { min-height: 360px; padding: 22px; }
+      .principles { grid-template-columns: 1fr; }
+      .about { padding: 90px 0; }
+      .contact-inner { align-items: start; flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <a href="/" class="logo">Kira<span>MY</span></a>
-  <ul class="nav-links">
-    <li><a href="#tools">Calculators</a></li>
-    <li><a href="#about">About</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-badge"><span class="dot"></span> Updated for YA 2025 (Filing 2026)</div>
-  <h1>Malaysian Financial Calculators</h1>
-  <p>Free, accurate, and instant. Calculate your income tax, home loan, EPF, and more — no signup required.</p>
-  <a href="#tools" class="hero-cta">Explore Calculators ↓</a>
-</section>
-
-<section class="tools-section" id="tools">
-  <div class="section-label">Calculators</div>
-  <h2 class="section-title">Choose a tool</h2>
-  <div class="tools-grid">
-
-    <a href="income-tax.html" class="tool-card fade-in">
-      <div class="icon icon-tax">💰</div>
-      <h3>Income Tax Calculator</h3>
-      <p>Calculate your Malaysian income tax based on the latest YA 2025 brackets. Includes EPF, reliefs, and rebates.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="home-loan.html" class="tool-card fade-in">
-      <div class="icon icon-home">🏠</div>
-      <h3>Home Loan Calculator</h3>
-      <p>Estimate monthly repayments, total interest, and amortization schedule for your property loan.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="epf.html" class="tool-card fade-in">
-      <div class="icon icon-epf">📊</div>
-      <h3>EPF Retirement Calculator</h3>
-      <p>Project your EPF savings at retirement based on salary, contribution rate, and dividend growth.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="stamp-duty.html" class="tool-card fade-in">
-      <div class="icon icon-stamp">📋</div>
-      <h3>Stamp Duty Calculator</h3>
-      <p>Calculate stamp duty and legal fees for property purchases in Malaysia.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="ptptn.html" class="tool-card fade-in">
-      <div class="icon icon-ptptn">🎓</div>
-      <h3>PTPTN Loan Calculator</h3>
-      <p>Plan your PTPTN student loan repayment with monthly payment and interest projections.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="car-loan.html" class="tool-card fade-in">
-      <div class="icon icon-car">🚗</div>
-      <h3>Car Loan Calculator</h3>
-      <p>Estimate monthly payments for your car hire purchase with different loan terms and interest rates.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-    <a href="rent-vs-buy.html" class="tool-card fade-in">
-      <div class="icon icon-rent">🏢</div>
-      <h3>Rent vs Buy Comparison</h3>
-      <p>Should you rent or buy? Compare the true cost of renting versus owning property in Malaysia.</p>
-      <span class="tag tag-live">LIVE</span>
-    </a>
-
-  </div>
-</section>
-
-<section class="features" id="about">
-  <div class="section-label">Why KiraMY</div>
-  <h2 class="section-title">Built for Malaysians</h2>
-  <div class="features-grid">
-    <div class="feature fade-in">
-      <div class="f-icon">🇲🇾</div>
-      <h4>Malaysia-Specific</h4>
-      <p>All calculations follow LHDN rules and Malaysian financial regulations.</p>
+  <nav>
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Kira</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="github-link" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
     </div>
-    <div class="feature fade-in">
-      <div class="f-icon">⚡</div>
-      <h4>Instant Results</h4>
-      <p>No signup, no loading. Enter your numbers and get results immediately.</p>
-    </div>
-    <div class="feature fade-in">
-      <div class="f-icon">🔒</div>
-      <h4>100% Private</h4>
-      <p>All calculations run in your browser. Your data never leaves your device.</p>
-    </div>
-    <div class="feature fade-in">
-      <div class="f-icon">📱</div>
-      <h4>Mobile Friendly</h4>
-      <p>Works perfectly on any device — phone, tablet, or desktop.</p>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<footer>
-  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
-  <p style="margin-top:8px;">Calculations are for reference only. Consult a tax professional for official advice.</p>
-  <p style="margin-top:8px;"><a href="#">Privacy Policy</a> · <a href="#">Disclaimer</a></p>
-</footer>
+  <main id="top">
+    <header class="shell hero">
+      <div>
+        <div class="status mono"><span class="status-dot"></span> Independent web builder</div>
+        <h1>Useful things,<em>built with care.</em></h1>
+        <p class="hero-copy">A growing collection of focused web products: clear interfaces, practical tools, and small ideas made real.</p>
+      </div>
+      <div class="hero-side">
+        <div class="orbit" aria-hidden="true"></div>
+        <p>Selected work · 2026</p>
+        <a class="scroll-link" href="#work">See the projects <span>↓</span></a>
+      </div>
+    </header>
 
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+    <section class="shell" id="work">
+      <div class="section-head reveal">
+        <h2>Selected work</h2>
+        <span class="mono">02 projects</span>
+      </div>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">01 / Product suite</div>
+          <h3>KiraMY</h3>
+          <p class="project-summary">A suite of fast, privacy-friendly financial calculators designed around Malaysian rules and everyday decisions.</p>
+          <div class="tags"><span class="tag">Product design</span><span class="tag">Vanilla JS</span><span class="tag">Finance</span></div>
+        </div>
+        <div class="project-frame finance">
+          <div class="frame-top"><span class="frame-mark">KiraMY</span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>Seven calculators.<br />Zero sign-ups.</strong>
+            <p>Income tax, home loans, EPF retirement, stamp duty, PTPTN, car loans, and rent-vs-buy — all calculated locally in the browser.</p>
+            <div class="tool-links">
+              <a href="income-tax.html">Income tax</a><a href="home-loan.html">Home loan</a><a href="epf.html">EPF</a><a href="stamp-duty.html">Stamp duty</a><a href="ptptn.html">PTPTN</a><a href="car-loan.html">Car loan</a><a href="rent-vs-buy.html">Rent vs buy</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">02 / Web application</div>
+          <h3>Shiye Notes</h3>
+          <p class="project-summary">A calm, distraction-free writing space. Notes stay private on the device and save automatically as you type.</p>
+          <div class="tags"><span class="tag">UI design</span><span class="tag">LocalStorage</span><span class="tag">Responsive</span></div>
+        </div>
+        <div class="project-frame notes">
+          <div class="frame-top"><span class="frame-mark">拾页<span style="color:var(--orange)">。</span></span><span class="live" style="color:#4d766b">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>A quieter place<br />for passing thoughts.</strong>
+            <p>Create, search, pin, and edit notes in a warm editorial interface. No account and no server required.</p>
+            <div class="project-actions">
+              <a class="button button-dark" href="projects/shiye-notes/">Open app →</a>
+              <a class="button button-ghost" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">View source ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="shell about reveal" id="about">
+      <div><div class="mono">About the work</div><h2>Small scope.<br />Sharp edges.</h2></div>
+      <div>
+        <div class="about-copy"><p>I like web products that explain themselves: useful from the first click, fast on ordinary devices, and considerate with people's data.</p></div>
+        <div class="principles">
+          <div class="principle"><strong>Useful first</strong>Each project starts with one clear job to do.</div>
+          <div class="principle"><strong>Private by default</strong>Browser-first tools keep personal data personal.</div>
+          <div class="principle"><strong>Made to last</strong>Simple technology means fewer moving parts.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="contact">
+    <div class="shell contact-inner">
+      <div><div class="mono">Explore the process</div><h2>See what's<br /><em>being built.</em></h2></div>
+      <div class="contact-links"><a class="button button-light" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">Visit GitHub ↗</a><a class="button button-ghost" href="#top">Back to top ↑</a></div>
+    </div>
+  </section>
+  <footer><div class="shell footer-inner"><span>© 2026 Kira. Built for the open web.</span><span>Malaysia · Worldwide web</span></div></footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>

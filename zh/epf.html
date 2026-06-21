@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马来西亚 EPF 退休计算器 2026 – KWSP 储蓄预测 |基拉米</title>
+<meta name="description" content="预测您在马来西亚的 EPF (KWSP) 退休储蓄。根据工资、缴款率和股息增长计算您在 55/60 岁时将拥有多少钱。">
+<meta name="keywords" content="EPF calculator Malaysia, KWSP calculator, EPF retirement calculator, Malaysia EPF dividend, Kalkulator KWSP">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1628;--navy-light:#111d35;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--orange:#f59e0b;--purple:#8b5cf6}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,22,40,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Fraunces',serif;font-size:22px;color:var(--teal);font-weight:700;text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--muted);text-decoration:none;font-size:14px}.back:hover{color:var(--teal)}
+.page-header{padding:90px 24px 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,var(--teal-glow) 0%,transparent 50%)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(24px,5vw,38px);font-weight:700;color:#fff;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:15px}
+.container{max-width:900px;margin:0 auto;padding:30px 24px 80px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.card-title{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.field input,.field select{width:100%;padding:12px 14px;background:rgba(10,22,40,0.6);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:16px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color 0.2s}
+.field input:focus,.field select:focus{border-color:var(--teal)}
+.field .hint{font-size:11px;color:var(--muted);margin-top:4px}
+.field select option{background:var(--navy)}
+.field-row{display:flex;gap:12px}.field-row .field{flex:1}
+.calc-btn{width:100%;padding:14px;margin-top:10px;background:var(--teal);color:var(--navy);font-weight:700;font-size:16px;border:none;border-radius:12px;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,184,166,0.3)}
+
+.result-hero{text-align:center;padding:24px 0;margin-bottom:20px;border-bottom:1px solid var(--border)}
+.result-hero .label{font-size:13px;color:var(--muted);margin-bottom:4px}
+.result-hero .amount{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:700;color:var(--teal)}
+.result-hero .sub{font-size:14px;color:var(--muted);margin-top:4px}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-box{background:rgba(10,22,40,0.5);border-radius:12px;padding:16px;text-align:center}
+.stat-box .s-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;margin-bottom:2px}
+.stat-box .s-label{font-size:11px;color:var(--muted)}
+.stat-box.blue .s-val{color:var(--blue)}
+.stat-box.gold .s-val{color:var(--gold)}
+.stat-box.green .s-val{color:var(--green)}
+.stat-box.purple .s-val{color:var(--purple)}
+
+/* Bar chart */
+.bar-chart{margin:20px 0}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-year{font-size:11px;color:var(--muted);width:50px;text-align:right;font-family:'JetBrains Mono',monospace}
+.bar-track{flex:1;height:20px;background:rgba(10,22,40,0.5);border-radius:6px;overflow:hidden;display:flex}
+.bar-contrib{height:100%;background:var(--blue);transition:width 0.5s}
+.bar-dividend{height:100%;background:var(--green);transition:width 0.5s}
+.bar-val{font-size:11px;color:var(--muted);width:80px;font-family:'JetBrains Mono',monospace}
+
+.bar-legend{display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:12px;color:var(--muted)}
+.bar-legend div{display:flex;align-items:center;gap:6px}
+.bar-legend .dot{width:10px;height:10px;border-radius:3px}
+
+/* Monthly income */
+.monthly-box{margin-top:20px;padding:20px;text-align:center;background:rgba(245,197,66,0.08);border-radius:12px;border:1px solid rgba(245,197,66,0.2)}
+.monthly-box .m-val{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--gold)}
+.monthly-box .m-label{font-size:12px;color:var(--muted);margin-top:4px}
+.monthly-box .m-sub{font-size:11px;color:var(--muted);margin-top:8px}
+
+.info-section{max-width:900px;margin:0 auto;padding:0 24px 80px}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.info-card h2{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:16px}
+.info-card p{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.8}
+.info-card h3{font-size:16px;color:var(--teal);margin:20px 0 10px}
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;font-size:13px;color:var(--muted)}
+footer a{color:var(--teal);text-decoration:none}
+#results{display:none}
+</style>
+<link rel="stylesheet" href="trust.css">
+<link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/epf.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/epf.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/epf.html">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Kira<span>MY</span></a>
+  <a href="index.html" class="back">← 所有计算器</a>
+</nav>
+
+<div class="page-header">
+  <h1>EPF 退休计算器</h1>
+  <p>根据工资、缴款和股息预测您退休时的 KWSP 储蓄</p>
+</div>
+
+<div class="container">
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-title">您的详细信息</div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>当前年龄</label>
+          <input type="number" id="age" value="25" min="18" max="59">
+        </div>
+        <div class="field">
+          <label>退休年龄</label>
+          <select id="retireAge">
+            <option value="55">55（公积金提款）</option>
+            <option value="60" selected>60（标准）</option>
+            <option value="65">65（扩展）</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>每月工资总额 (RM)</label>
+        <input type="number" id="salary" placeholder="例如5000">
+      </div>
+
+      <div class="field">
+        <label>当前 EPF 余额 (RM)</label>
+        <input type="number" id="balance" value="0" placeholder="0">
+        <div class="hint">在 i-Akaun (KWSP) 上查看您的余额</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>员工比例（%）</label>
+          <select id="empRate">
+            <option value="11" selected>11%（标准）</option>
+            <option value="9">9%（自定义场景）</option>
+            <option value="7">7%（自定义场景）</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>雇主率（%）</label>
+          <select id="erRate">
+            <option value="13" selected>13% (薪水 ≤ RM5k)</option>
+            <option value="12">12% (薪水 &gt; RM5,000)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>预期年薪增幅 (%)</label>
+        <input type="number" id="increment" value="3" step="0.5" min="0">
+      </div>
+
+      <div class="field">
+        <label>预期 EPF 股息率（每年%）</label>
+        <input type="number" id="dividend" value="5.5" step="0.1" min="0">
+        <div class="hint">10年平均常规：~5.5%</div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">项目退休储蓄</button>
+    </div>
+
+    <div>
+      <div class="card" id="results">
+        <div class="card-title">退休预测</div>
+
+        <div class="result-hero">
+          <div class="label">退休时的公积金总额</div>
+          <div class="amount" id="totalEpf">RM 0</div>
+          <div class="sub" id="retireInfo">60 岁 · 35 年后</div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-box blue">
+            <div class="s-val" id="sContrib">-</div>
+            <div class="s-label">总贡献</div>
+          </div>
+          <div class="stat-box green">
+            <div class="s-val" id="sDividend">-</div>
+            <div class="s-label">总股息</div>
+          </div>
+          <div class="stat-box gold">
+            <div class="s-val" id="sYears">-</div>
+            <div class="s-label">退休年数</div>
+          </div>
+          <div class="stat-box purple">
+            <div class="s-val" id="sFinalSalary">-</div>
+            <div class="s-label">最终月薪</div>
+          </div>
+        </div>
+
+        <div class="monthly-box">
+          <div class="m-val" id="monthlyIncome">RM 0</div>
+          <div class="m-label">预计每月退休收入</div>
+          <div class="m-sub" id="monthlyNote">基于退休后20年的提款</div>
+        </div>
+
+        <!-- 成长图 -->
+        <div style="margin-top:24px">
+          <div class="card-title">随着时间的推移增长</div>
+          <div class="bar-chart" id="barChart"></div>
+          <div class="bar-legend">
+            <div><span class="dot" style="background:var(--blue)"></span> 贡献</div>
+            <div><span class="dot" style="background:var(--green)"></span> 股息</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="info-section">
+  <div class="info-card">
+    <h2>了解马来西亚的 EPF (KWSP)</h2>
+    <p>雇员公积金 (EPF) 或 Kumpulan Wang Simpanan Pekerja (KWSP) 是马来西亚的强制性退休储蓄计划。雇员和雇主均按雇员月薪的一定比例缴纳。</p>
+
+    <h3>贡献率（2025-2026）</h3>
+    <p>对于60岁以下的马来西亚会员，标准员工份额为11%。月薪5,000令吉或以下的标准雇主份额为13%，月薪5,000令吉以上的标准雇主份额为12%。实际工资缴款遵循 KWSP 的第三附表工资表，而不是简单的百分比乘法。</p>
+
+    <h3>公积金股息</h3>
+    <p>EPF 宣派会员储蓄的年度红利。过去十年传统股息率平均约为 5.5%。 Simpanan Shariah 平均为 5.0% 左右。</p>
+
+    <h3>退休时提款</h3>
+    <p>会员可在 55 岁时全额提款。账户 2 的部分提款可用于退休年龄前的住房、教育和医疗用途。</p>
+
+    <h3>退休充足性</h3>
+    <p>KWSP 储蓄基准定期修订。将此预测视为规划方案，并将其与 KWSP 发布的最新退休收入充足性指南进行比较。</p>
+  </div>
+</div>
+
+<section class="trust-panel" aria-labelledby="method-title">
+  <div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">最后更新：2026 年 6 月 21 日</span></div>
+  <div class="trust-grid"><div class="trust-box"><strong>假设与计算示例</strong><p>按月薪 5,000 令吉计算，简化的 11% 雇员 + 13% 雇主模式在股息前增加每月约 1,200 令吉，或每年约 14,400 令吉。由于 KWSP 使用工资表，工资数字可能有所不同。</p></div><div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP：强制性缴款</a></li><li><a href="https://www.kwsp.gov.my/en/member/savings/dividend" target="_blank" rel="noreferrer">KWSP：股息</a></li></ul></div></div>
+  <p class="trust-warning">仅作教育估算。已知限制：它假设年薪稳定增长和股息率恒定；它不包括缴费表四舍五入、提款、基于年龄的利率变化和未来的政策变化。</p>
+</section>
+
+<footer>
+  <p>KiraMY © 2026 · 免费马来西亚金融计算器</p>
+  <p style="margin-top:8px;">此计算器仅供参考。检查 i-Akaun 了解您的实际 EPF 余额。</p>
+</footer>
+
+<script>
+function val(id){return parseFloat(document.getElementById(id).value)||0}
+function fmt(n){return'RM '+Math.round(n).toLocaleString('en-MY')}
+
+function calculate(){
+  const currentAge=val('age');
+  const retireAge=parseInt(document.getElementById('retireAge').value);
+  const salary=val('salary');
+  if(salary<=0||currentAge>=retireAge)return;
+
+  const empRate=parseFloat(document.getElementById('empRate').value)/100;
+  const erRate=parseFloat(document.getElementById('erRate').value)/100;
+  const increment=val('increment')/100;
+  const dividendRate=val('dividend')/100;
+  const startBalance=val('balance');
+
+  const years=retireAge-currentAge;
+  let balance=startBalance;
+  let totalContrib=0;
+  let totalDividend=0;
+  let currentSalary=salary;
+  const chartData=[];
+
+  for(let y=1;y<=years;y++){
+    const yearlyContrib=currentSalary*12*(empRate+erRate);
+    totalContrib+=yearlyContrib;
+    balance+=yearlyContrib;
+
+    const dividend=balance*dividendRate;
+    totalDividend+=dividend;
+    balance+=dividend;
+
+    if(y%5===0||y===years||y===1){
+      chartData.push({year:currentAge+y, balance, contrib:totalContrib, dividend:totalDividend});
+    }
+
+    currentSalary*=(1+increment);
+  }
+
+  const finalSalary=salary*Math.pow(1+increment,years);
+  const monthlyRetirement=balance/(20*12); // 20-year drawdown
+
+  // Display
+  document.getElementById('results').style.display='block';
+  document.getElementById('totalEpf').textContent=fmt(balance);
+  document.getElementById('retireInfo').textContent=`At age ${retireAge} · In ${years} years`;
+  document.getElementById('sContrib').textContent=fmt(totalContrib);
+  document.getElementById('sDividend').textContent=fmt(totalDividend);
+  document.getElementById('sYears').textContent=years+' years';
+  document.getElementById('sFinalSalary').textContent=fmt(finalSalary);
+  document.getElementById('monthlyIncome').textContent=fmt(monthlyRetirement);
+  document.getElementById('monthlyNote').textContent=`Based on 20-year drawdown · RM${Math.round(balance).toLocaleString()} ÷ 240 months`;
+
+  // Bar chart
+  const maxBal=balance;
+  const chart=document.getElementById('barChart');
+  chart.innerHTML='';
+  chartData.forEach(d=>{
+    const contribPct=d.contrib/maxBal*100;
+    const divPct=d.dividend/maxBal*100;
+    chart.innerHTML+=`
+      <div class="bar-row">
+        <div class="bar-year">Age ${d.year}</div>
+        <div class="bar-track">
+          <div class="bar-contrib" style="width:${contribPct}%"></div>
+          <div class="bar-dividend" style="width:${divPct}%"></div>
+        </div>
+        <div class="bar-val">${fmt(d.balance)}</div>
+      </div>`;
+  });
+
+  if(window.innerWidth<700){
+    document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+</script>
+<script src="/calculator-next-steps.js"></script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

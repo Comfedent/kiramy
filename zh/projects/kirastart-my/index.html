@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a2a">
+  <meta name="description" content="为马来西亚学生和应届毕业生提供隐私第一的第一年财务规划师。">
+  <title>KiraStart MY — 您的第一年资金计划</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/local-storage-safety.css">
+  <link rel="stylesheet" href="styles.css">
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/projects/kirastart-my/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/projects/kirastart-my/">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/projects/kirastart-my/">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="KiraStart 我的家">
+      <span class="brand-mark">K</span>
+      <span>KiraStart <b>MY</b></span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="../../">作品集 ↗</a>
+      <a href="#how">它是如何运作的</a>
+      <a href="#sources">来源</a>
+      <button class="text-button" id="loadPlanButton" type="button">我保存的计划</button>
+      <button class="text-button" id="importPlanButton" type="button">导入 JSON</button>
+      <input id="importPlanInput" type="file" accept="application/json,.json" hidden>
+      <button class="nav-cta" data-start type="button">开始规划 <span>→</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active" aria-labelledby="heroTitle">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> 为马来西亚的新篇章而建</div>
+          <h1 id="heroTitle">你的第一份工资<br>不是你的 <em>真实的</em> 预算。</h1>
+          <p class="hero-lede">看看 EPF、租金、PTPTN、交通和现实生活之后实际还剩下什么，然后将其变成您可以接受的计划。</p>
+          <div class="hero-actions">
+            <button class="primary-button" data-start type="button">检查我的第一年 <span>↗</span></button>
+            <span class="privacy-note">
+              <svg viewbox="0 0 24 24" aria-hidden="true"><path d="M8 11V7a4 4 0 1 1 8 0v4m-9 0h10v9H7z"></path></svg>
+              No sign-up. Your data stays here.
+            </span>
+          </div>
+          <div class="trust-row">
+            <div><strong>5分钟</strong><span>得到你的计划</span></div>
+            <div><strong>100%</strong><span>本地和私人</span></div>
+            <div><strong>RM</strong><span>马来西亚优先逻辑</span></div>
+          </div>
+
+          <section class="local-data-card kirastart-storage-card" aria-labelledby="kirastartStorageTitle">
+            <p class="local-data-kicker">本地优先规划</p>
+            <h2 id="kirastartStorageTitle">数据留在这里，所以你应该备份。</h2>
+            <p>KiraStart 只把草稿保存在当前浏览器中。这样保护隐私，也不需要账户；但它不会跨设备同步，清理浏览器数据后也可能消失。</p>
+            <div class="local-data-actions">
+              <button class="local-data-button primary" id="exportDraftButton" type="button">导出当前计划</button>
+              <button class="local-data-button" id="importPlanHeroButton" type="button">导入计划 JSON</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="hero-visual" aria-label="每月现金流量卡样本">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="sample-card">
+            <div class="sample-head"><span>你的月份，解释一下</span><span class="live-dot">实时计划</span></div>
+            <div class="salary-label">工资总额</div>
+            <div class="salary-value">RM3,500</div>
+            <div class="money-flow">
+              <div class="flow-row"><span><i class="dot mint"></i>实得工资</span><strong>RM3,010</strong></div>
+              <div class="bar"><i style="width:86%"></i></div>
+              <div class="flow-row"><span><i class="dot coral"></i>生活必需品</span><strong>– RM 1,780</strong></div>
+              <div class="bar coral-bar"><i style="width:51%"></i></div>
+              <div class="flow-row"><span><i class="dot yellow"></i>目标与PTPTN</span><strong>– RM 550</strong></div>
+              <div class="bar yellow-bar"><i style="width:16%"></i></div>
+            </div>
+            <div class="sample-left"><span>其实离开了</span><strong>RM 680</strong><small>你正在建立喘息空间。</small></div>
+          </div>
+          <div class="float-tag tag-one"><span>✓</span> 应急基金<br><b>还剩10个月</b></div>
+          <div class="float-tag tag-two">汽车检查<br><b>现在等一下</b></div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true"><span>第一份薪水</span><i>✦</i><span>PTPTN</span><i>✦</i><span>租</span><i>✦</i><span>运输</span><i>✦</i><span>节省</span><i>✦</i><span>现实生活</span></div>
+
+      <section class="problem-section" id="how">
+        <div class="section-kicker">现实检验</div>
+        <div class="problem-grid">
+          <div>
+            <h2>工资数字说明一切<br>这只是故事的一半。</h2>
+            <p>KiraStart 将通常分散在五个不同计算器中的各个部分结合在一起。</p>
+          </div>
+          <div class="feature-list">
+            <article><span>01</span><div><h3>了解你真正的收获</h3><p>在一个清晰的视图中估算 EPF、SOCSO、EIS 和所得税。</p></div></article>
+            <article><span>02</span><div><h3>对您的选择进行压力测试</h3><p>看看租金、汽车或您的 PTPTN 计划是否留有足够的喘息空间。</p></div></article>
+            <article><span>03</span><div><h3>获取时间表，而不是讲座</h3><p>将每月盈余转化为未来 36 个月的具体里程碑。</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="source-strip" id="sources">
+        <p>根据马来西亚官方指南提供的规划估算</p>
+        <div>
+          <a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP / EPF ↗</a>
+          <a href="https://www.perkeso.gov.my/en/rate-of-contribution.html" target="_blank" rel="noreferrer">佩克索 ↗</a>
+          <a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">内陆税收局 ↗</a>
+          <a href="https://www.ptptn.gov.my/en/bayaran-balik/" target="_blank" rel="noreferrer">PTPTN ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <section id="plannerView" class="view planner-view" aria-labelledby="plannerTitle">
+      <div class="planner-topbar">
+        <button class="back-link" data-home type="button">← 返回首页</button>
+        <div class="step-indicator"><span id="stepLabel">第 1 步（共 3 步）</span><div><i id="stepProgress"></i></div></div>
+        <button class="save-link" id="saveDraftButton" type="button">保存草稿</button>
+      </div>
+      <div class="planner-shell">
+        <aside class="planner-aside">
+          <div class="aside-orb"></div>
+          <span class="aside-kicker">你的第一年计划</span>
+          <h2 id="asideTitle">让我们从资金进来开始吧。</h2>
+          <p id="asideCopy">还没有工资单吗？使用录用通知书中的工资。您以后可以随时更改它。</p>
+          <div class="aside-tip"><span>💡</span><p><b>很高兴知道</b><br><span id="asideTip">EPF 和其他扣除意味着您的实得收入将低于您的报价。</span></p></div>
+        </aside>
+
+        <form id="plannerForm" class="planner-form" novalidate>
+          <div class="form-step active" data-step="1">
+            <div class="form-heading"><span>01 — 收入</span><h1 id="plannerTitle">你的工作生活是什么样的？</h1><p>从您的最佳估计开始。这是一个规划工具，而不是报税表。</p></div>
+            <label class="field field-large"><span>每月工资总额</span><div class="money-input"><b>RM</b><input name="salary" type="number" min="0" max="100000" step="50" value="3500" required inputmode="decimal"></div><small>未计 EPF、SOCSO、EIS 和预估税费</small></label>
+            <div class="two-fields">
+              <label class="field"><span>你将在哪里工作？</span><select name="city"><option value="kl">吉隆坡/雪兰莪</option><option value="penang">Penang</option><option value="johor">新山</option><option value="ipoh">怡保</option><option value="kk">亚庇</option><option value="other">其他城市</option></select></label>
+              <label class="field"><span>现阶段</span><select name="stage"><option>应届毕业生</option><option>最后一年的学生</option><option>实习生</option><option>早期职业工人</option></select></label>
+            </div>
+            <label class="toggle-card"><input name="epf" type="checkbox" checked><span class="toggle"></span><span><b>我向 EPF 做出贡献</b><small>使用 11% 的员工估计值</small></span></label>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="form-heading"><span>02 — 现实生活</span><h1>你的钱需要花到哪里？</h1><p>月平均值非常完美。诚实的粗略数字胜过精确的幻想数字。</p></div>
+            <div class="expense-grid">
+              <label class="field"><span>租金和水电费</span><div class="compact-money"><b>RM</b><input name="rent" type="number" min="0" value="900"></div></label>
+              <label class="field"><span>食品和杂货</span><div class="compact-money"><b>RM</b><input name="food" type="number" min="0" value="650"></div></label>
+              <label class="field"><span>运输</span><div class="compact-money"><b>RM</b><input name="transport" type="number" min="0" value="250"></div></label>
+              <label class="field"><span>电话和订阅</span><div class="compact-money"><b>RM</b><input name="bills" type="number" min="0" value="120"></div></label>
+              <label class="field"><span>家庭/保险</span><div class="compact-money"><b>RM</b><input name="family" type="number" min="0" value="150"></div></label>
+              <label class="field"><span>乐趣和其他一切</span><div class="compact-money"><b>RM</b><input name="lifestyle" type="number" min="0" value="250"></div></label>
+            </div>
+            <div class="preset-row"><span>快速生活方式预设</span><div><button type="button" data-preset="lean">倾斜</button><button type="button" data-preset="balanced" class="selected">均衡</button><button type="button" data-preset="comfortable">舒服的</button></div></div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="form-heading"><span>03 — 承诺和目标</span><h1>您携带什么以及构建什么？</h1><p>这就是预算成为您的计划的地方。</p></div>
+            <div class="commitment-card">
+              <div class="card-title"><span class="icon-chip">磷</span><div><b>PTPTN还款</b><small>使用您计划的每月付款</small></div></div>
+              <div class="two-fields"><label class="field"><span>未结余额</span><div class="compact-money"><b>RM</b><input name="ptptnBalance" type="number" min="0" value="18000"></div></label><label class="field"><span>每月付款</span><div class="compact-money"><b>RM</b><input name="ptptn" type="number" min="0" value="150"></div></label></div>
+            </div>
+            <div class="commitment-card">
+              <div class="card-title"><span class="icon-chip car">C</span><div><b>用车承诺</b><small>仅包括分期付款；运行成本计入运输费用</small></div></div>
+              <label class="field"><span>每月汽车分期付款</span><div class="compact-money"><b>RM</b><input name="car" type="number" min="0" value="0"></div></label>
+            </div>
+            <div class="commitment-card goals-card">
+              <div class="card-title"><span class="icon-chip goal">◎</span><div><b>您的安全目标</b><small>我们建议从 3 个月的必需品开始</small></div></div>
+              <div class="two-fields"><label class="field"><span>当前储蓄</span><div class="compact-money"><b>RM</b><input name="currentSavings" type="number" min="0" value="500"></div></label><label class="field"><span>应急基金目标</span><div class="compact-money"><b>RM</b><input name="emergencyGoal" type="number" min="0" value="5000"></div></label></div>
+            </div>
+          </div>
+
+          <div class="form-actions"><button class="secondary-button" id="previousButton" type="button" disabled>后退</button><button class="primary-button" id="nextButton" type="button">继续 <span>→</span></button></div>
+          <p class="form-error" id="formError" role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="resultView" class="view result-view" aria-labelledby="resultTitle">
+      <div class="result-header">
+        <div><button class="back-link" id="editPlanButton" type="button">← 编辑我的号码</button><span class="result-kicker">第一年现实预算</span><h1 id="resultTitle">你有 <em id="headlineAmount">RM 0</em> 的呼吸空间。</h1><p id="resultSummary">你的计划已经准备好了。</p></div>
+        <div class="score-card"><span>计划健康度</span><strong id="healthScore">0</strong><small>/ 100</small><div class="score-track"><i id="scoreBar"></i></div><b id="healthLabel">入门</b></div>
+      </div>
+
+      <div class="result-grid">
+        <article class="result-card cash-card">
+          <div class="result-card-head"><div><span>每月现金流</span><h2>你的工资花在哪里</h2></div><button class="icon-button" id="copySummaryButton" type="button" title="复制摘要">⧉</button></div>
+          <div class="cash-total"><span>工资总额</span><strong id="grossSalary">RM 0</strong></div>
+          <div id="breakdownBars" class="breakdown-bars"></div>
+          <div class="cash-footer"><span>每月实际余量</span><strong id="monthlyLeft">RM 0</strong></div>
+        </article>
+
+        <article class="result-card verdict-card">
+          <span class="card-overline">真实评估</span>
+          <div class="verdict-icon" id="verdictIcon">↗</div>
+          <h2 id="verdictTitle">你有空间去建造。</h2>
+          <p id="verdictCopy">您的必需品已得到满足，并且您仍然有空间实现您的目标。</p>
+          <div class="ratio-row"><span>基本成本比率</span><strong id="essentialRatio">0%</strong></div>
+          <div class="ratio-track"><i id="ratioBar"></i></div>
+          <small id="ratioNote">一个有用的目标是低于实得工资的 60%。</small>
+        </article>
+
+        <article class="result-card action-card">
+          <span class="card-overline">下一步建议</span>
+          <div id="recommendations" class="recommendations"></div>
+        </article>
+
+        <article class="result-card timeline-card">
+          <div class="result-card-head"><div><span>你的生活时间线</span><h2>小动作，看得见的进步</h2></div><span class="timeline-horizon">36 个月</span></div>
+          <div id="timeline" class="timeline"></div>
+        </article>
+      </div>
+
+      <div class="result-actions"><button class="secondary-button" id="resetButton" type="button">重新开始</button><button class="secondary-button" id="printSummaryButton" type="button">打印摘要</button><button class="secondary-button" id="exportResultButton" type="button">导出 JSON</button><button class="primary-button" id="saveResultButton" type="button">保存此计划 <span>✓</span></button></div>
+      <p class="disclaimer">仅规划估算。税收和法定扣除额已简化，可能与您的工资单不同。务必通过官方消息来源或合格的顾问确认重要决定。</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">计划已保存在此设备上</div>
+  <script src="/projects/kirastart-my/plan-store.js"></script>
+  <script src="app.js"></script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0f0e" />
+  <title>Kira — Product Portfolio</title>
+  <meta name="description" content="Product portfolio by You Ruheng: testable prototypes, Malaysian decision tools, local-first web products, and commercial validation concepts." />
+  <meta property="og:title" content="Kira — Product Portfolio" />
+  <meta property="og:description" content="Local problems shaped into testable products, decision tools, and validation concepts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.kira-malaysia.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #171916;
+      --paper: #f2f0e8;
+      --paper-deep: #e5e0d4;
+      --white: #fbfaf5;
+      --muted: #686b63;
+      --line: rgba(23, 25, 22, .14);
+      --acid: #d8ff54;
+      --orange: #ff6433;
+      --teal: #2ec5a7;
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .mono { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .11em; font-size: 12px; }
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(242, 240, 232, .86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { font-family: "Newsreader", serif; font-size: 30px; font-weight: 600; text-decoration: none; }
+    .brand::after { content: "."; color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .github-link { border: 1px solid var(--ink); border-radius: 999px; padding: 9px 15px; color: var(--ink) !important; }
+
+    .hero { min-height: 760px; display: grid; grid-template-columns: 1.5fr .5fr; align-items: center; gap: 48px; padding: 90px 0; }
+    .status { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 6px rgba(46, 197, 167, .14); }
+    h1 { margin: 0; font-family: "Newsreader", serif; font-size: clamp(62px, 9.4vw, 124px); line-height: .88; font-weight: 500; letter-spacing: -.055em; }
+    h1 em { display: block; color: var(--orange); font-weight: 500; }
+    .hero-copy { max-width: 610px; margin: 34px 0 0; font-size: clamp(18px, 2vw, 24px); color: var(--muted); letter-spacing: -.02em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .hero-side { align-self: end; padding-bottom: 22px; }
+    .hero-side p { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+    .scroll-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+    .orbit { width: 150px; aspect-ratio: 1; margin: 0 0 56px auto; border: 1px solid var(--line); border-radius: 50%; position: relative; animation: spin 18s linear infinite; }
+    .orbit::before { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--acid); border: 1px solid var(--ink); top: 10px; left: 18px; }
+    .orbit::after { content: "BUILD / TEST / REFINE"; position: absolute; font: 10px "DM Mono", monospace; letter-spacing: .12em; top: 66px; left: -20px; white-space: nowrap; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 100px 0 36px; border-bottom: 1px solid var(--line); }
+    .section-head h2 { margin: 0; font: 500 clamp(42px, 6vw, 76px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .section-head span { color: var(--muted); }
+    .project { display: grid; grid-template-columns: .75fr 1.25fr; gap: 56px; padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .project-number { color: var(--muted); margin-bottom: 20px; }
+    .project h3 { margin: 0 0 16px; font: 600 clamp(36px, 5vw, 64px)/1 "Newsreader", serif; letter-spacing: -.035em; }
+    .project-summary { max-width: 430px; margin: 0 0 28px; color: var(--muted); font-size: 17px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; font: 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .07em; }
+    .maturity-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .maturity { border: 1px solid currentColor; border-radius: 999px; padding: 6px 11px; font: 10px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .maturity-solid { background: var(--ink); border-color: var(--ink); color: var(--white); }
+    .project-frame { min-height: 390px; border: 1px solid var(--ink); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; transition: transform .25s ease, box-shadow .25s ease; }
+    .project-frame:hover { transform: translateY(-5px); box-shadow: 0 16px 0 rgba(23, 25, 22, .08); }
+    .finance { color: #eef7f3; background: #0a1628; }
+    .finance::after { content: "RM"; position: absolute; right: -15px; bottom: -80px; font: 600 250px/1 "Newsreader", serif; color: rgba(46, 197, 167, .1); }
+    .notes { color: #171916; background: #f8f5eb; }
+    .notes::after { content: "拾页"; position: absolute; right: -6px; bottom: -34px; font: 600 150px/1 "Newsreader", serif; color: rgba(255, 100, 51, .08); }
+    .starter { color: #f8f8ef; background: #102a2a; }
+    .starter::after { content: "1ST"; position: absolute; right: -18px; bottom: -72px; font: 600 220px/1 "Newsreader", serif; color: rgba(216, 255, 84, .1); }
+    .nutmeg { color: #fffaf0; background: linear-gradient(90deg, rgba(23,55,47,.96) 0%, rgba(23,55,47,.87) 45%, rgba(23,55,47,.24) 100%), url("projects/balik-pulau-nutmeg/assets/bukit-pala-gift-set.webp") center/cover; }
+    .nutmeg::after { content: "PALA"; position: absolute; right: -5px; bottom: -45px; font: 600 150px/1 "Newsreader", serif; color: rgba(200,227,107,.1); }
+    .frame-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+    .frame-mark { font: 600 26px "Newsreader", serif; }
+    .live { display: inline-flex; align-items: center; gap: 7px; font: 10px "DM Mono", monospace; letter-spacing: .1em; }
+    .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acid); }
+    .frame-copy { max-width: 540px; position: relative; z-index: 2; }
+    .frame-copy strong { display: block; font: 500 clamp(32px, 4vw, 52px)/1 "Newsreader", serif; margin-bottom: 14px; }
+    .frame-copy p { margin: 0; opacity: .72; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { background: var(--acid); color: var(--ink); }
+    .button-dark { background: var(--ink); color: var(--white); }
+    .button-ghost { border: 1px solid currentColor; }
+    .tool-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 2; }
+    .tool-links a { color: inherit; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 7px 10px; text-decoration: none; font-size: 11px; }
+    .tool-links a:hover { border-color: var(--teal); }
+    .project-next { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid currentColor; font-size: 12px; line-height: 1.55; opacity: .72; }
+    .project-next strong { display: inline; color: inherit; font: inherit; font-weight: 700; }
+
+    .product-thinking { padding: 120px 0 110px; border-bottom: 1px solid var(--line); }
+    .thinking-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 56px; align-items: end; margin-bottom: 44px; }
+    .thinking-head h2 { margin: 10px 0 0; font: 500 clamp(42px, 6vw, 70px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .thinking-head p { max-width: 600px; margin: 0; color: var(--muted); font-size: 18px; }
+    .thinking-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); }
+    .thinking-card { min-height: 230px; padding: 24px 20px 28px 0; border-right: 1px solid var(--line); }
+    .thinking-card + .thinking-card { padding-left: 20px; }
+    .thinking-card:last-child { border-right: 0; }
+    .thinking-card span { color: var(--orange); }
+    .thinking-card h3 { margin: 28px 0 10px; font: 600 25px/1.1 "Newsreader", serif; }
+    .thinking-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+
+    .about { display: grid; grid-template-columns: .65fr 1.35fr; gap: 64px; padding: 130px 0; }
+    .about h2 { margin: 0; font: 500 56px/1 "Newsreader", serif; letter-spacing: -.04em; }
+    .about-copy { font: 500 clamp(26px, 3vw, 42px)/1.25 "Newsreader", serif; letter-spacing: -.025em; }
+    .about-copy p { margin: 0 0 30px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 46px; }
+    .principle { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--muted); }
+    .principle strong { display: block; color: var(--ink); margin-bottom: 7px; }
+    .skills { padding: 110px 0 30px; border-bottom: 1px solid var(--line); }
+    .skills-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
+    .skills h2 { margin: 0; font: 500 clamp(42px, 6vw, 70px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .skills-head p { max-width: 480px; margin: 0; color: var(--muted); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .skill-group { padding: 28px 28px 36px 0; border-right: 1px solid var(--line); }
+    .skill-group + .skill-group { padding-left: 28px; }
+    .skill-group:last-child { border-right: 0; }
+    .skill-group h3 { margin: 0 0 14px; font: 600 28px "Newsreader", serif; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .contact { background: var(--ink); color: var(--white); border-radius: 34px 34px 0 0; padding: 90px 0; }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+    .contact h2 { margin: 10px 0 0; font: 500 clamp(52px, 8vw, 104px)/.9 "Newsreader", serif; letter-spacing: -.05em; }
+    .contact h2 em { color: var(--acid); font-weight: 500; }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact .button-ghost { border-color: rgba(255,255,255,.4); }
+    footer { background: var(--ink); color: rgba(255,255,255,.5); border-top: 1px solid rgba(255,255,255,.12); padding: 24px 0; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 800px) {
+      .shell { width: min(calc(100% - 28px), 1180px); }
+      .nav-inner { gap: 14px; }
+      .github-link { padding: 8px 12px; }
+      .nav-links a:not(.github-link) { display: none; }
+      .hero { min-height: 680px; grid-template-columns: 1fr; gap: 20px; padding: 70px 0; }
+      .hero > * { min-width: 0; }
+      h1 { font-size: clamp(48px, 14vw, 62px); overflow-wrap: anywhere; }
+      .hero-copy { font-size: 17px; }
+      .hero-side { display: none; }
+      .project, .about { grid-template-columns: 1fr; gap: 28px; }
+      .project { padding: 48px 0; }
+      .project-frame { min-height: 360px; padding: 22px; }
+      .principles { grid-template-columns: 1fr; }
+      .thinking-head { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+      .thinking-grid { grid-template-columns: 1fr; }
+      .thinking-card, .thinking-card + .thinking-card { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .thinking-card:last-child { border-bottom: 0; }
+      .thinking-card h3 { margin-top: 14px; }
+      .skills-head { align-items: start; flex-direction: column; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-group, .skill-group + .skill-group { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .about { padding: 90px 0; }
+      .contact-inner { align-items: start; flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/" />
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/" />
+</head>
+<body>
+  <nav>
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Kira</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#product-thinking">Approach</a>
+        <a href="evidence.html">Evidence</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a class="github-link" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="shell hero">
+      <div>
+        <div class="status mono"><span class="status-dot"></span> You Ruheng · Malaysia</div>
+        <h1>Real problems, <em>useful web tools.</em></h1>
+        <p class="hero-copy">I turn local problems into testable product prototypes, decision tools, and commercial validation pages — connecting user needs, business possibilities, technical trade-offs, and the next piece of evidence. Currently focused on Malaysian students, young workers, and local businesses.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#work">View work ↓</a>
+          <a class="button button-ghost" href="evidence.html">Evidence / Proof</a>
+          <a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="button button-ghost" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="orbit" aria-hidden="true"></div>
+        <p>Selected work · 2026</p>
+        <a class="scroll-link" href="#work">See the projects <span>↓</span></a>
+      </div>
+    </header>
+
+    <section class="shell" id="work">
+      <div class="section-head reveal">
+        <h2>Selected work</h2>
+        <span class="mono">04 projects</span>
+      </div>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">01 / Product suite</div>
+          <h3>KiraMY</h3>
+          <p class="project-summary">A Malaysian financial decision toolkit, currently positioned as a privacy-first educational product rather than a substitute for official advice.</p>
+          <div class="tags"><span class="tag">Product design</span><span class="tag">Vanilla JS</span><span class="tag">Finance</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">Live Tool</span><span class="maturity">Case Study</span><span class="maturity">Needs Rule Proof</span></div>
+        </div>
+        <div class="project-frame finance">
+          <div class="frame-top"><span class="frame-mark">KiraMY</span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>Seven decisions.<br />One transparent toolkit.</strong>
+            <p>Malaysia-specific estimates for tax, housing, retirement, education debt, and transport — calculated locally, with assumptions and official sources made visible.</p>
+            <p class="project-next"><strong>Next evidence:</strong> version the rule sets, add verified test fixtures, export results, and create a feedback loop for calculation mismatches.</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/kiramy.html">Read case study →</a></div>
+            <div class="tool-links">
+              <a href="income-tax.html">Income tax</a><a href="home-loan.html">Home loan</a><a href="epf.html">EPF</a><a href="stamp-duty.html">Stamp duty</a><a href="ptptn.html">PTPTN</a><a href="car-loan.html">Car loan</a><a href="rent-vs-buy.html">Rent vs buy</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">02 / Web application</div>
+          <h3>Shiye Notes</h3>
+          <p class="project-summary">A local-first notes app that trades cloud sync for a faster, account-free writing experience — with the storage limits made explicit.</p>
+          <div class="tags"><span class="tag">UI design</span><span class="tag">LocalStorage</span><span class="tag">Responsive</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">Live Tool</span><span class="maturity">Local-first</span><span class="maturity">Tested Core Logic</span></div>
+        </div>
+        <div class="project-frame notes">
+          <div class="frame-top"><span class="frame-mark">拾页<span style="color:var(--orange)">。</span></span><span class="live" style="color:#4d766b">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>A quieter place<br />for passing thoughts.</strong>
+            <p>No account makes writing private and quick, but LocalStorage is tied to this browser: clearing site data can remove every note.</p>
+            <p class="project-next"><strong>Next evidence:</strong> JSON export and import, backup reminders, recovery tests, and optional client-side encryption.</p>
+            <div class="project-actions">
+              <a class="button button-dark" href="case-studies/shiye-notes.html">Read case study →</a>
+              <a class="button button-ghost" href="projects/shiye-notes/">Open app ↗</a>
+              <a class="button button-ghost" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">View source ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">03 / Financial planner</div>
+          <h3>KiraStart MY</h3>
+          <p class="project-summary">A first-year money-planning workflow for Malaysian students, interns, and fresh graduates — from offer salary to realistic monthly decisions.</p>
+          <div class="tags"><span class="tag">Product design</span><span class="tag">Financial UX</span><span class="tag">Local-first</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">Live Prototype</span><span class="maturity">Case Study</span><span class="maturity">Needs Rule Proof</span></div>
+        </div>
+        <div class="project-frame starter">
+          <div class="frame-top"><span class="frame-mark">KiraStart <span style="color:var(--acid)">MY</span></span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>Your first salary,<br />turned into a plan.</strong>
+            <p>Estimate real take-home pay, pressure-test living costs and commitments, then see concrete milestones for the next 36 months.</p>
+            <p class="project-next"><strong>Next evidence:</strong> version statutory assumptions, test negative-budget scenarios, and learn whether users act on the recommendations.</p>
+            <div class="project-actions">
+              <a class="button button-light" href="case-studies/kirastart-my.html">Read case study →</a>
+              <a class="button button-ghost" href="projects/kirastart-my/">Open planner ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">04 / Local business concept</div>
+          <h3>Bukit Pala</h3>
+          <p class="project-summary">A low-risk commercial validation concept for a Balik Pulau nutmeg gift set — not a launched business and not a claim of market traction.</p>
+          <div class="tags"><span class="tag">Product strategy</span><span class="tag">Brand concept</span><span class="tag">Pilot design</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">Concept Validation</span><span class="maturity">Needs Market Proof</span><span class="maturity">Case Study</span></div>
+        </div>
+        <div class="project-frame nutmeg">
+          <div class="frame-top"><span class="frame-mark">BUKIT PALA</span><span class="live" style="color:var(--acid)">CONCEPT</span></div>
+          <div class="frame-copy">
+            <strong>Penang's nutmeg story,<br />packed to give.</strong>
+            <p>The proposed pilot covers supplier checks, cost structure, buyer interviews, shelf life, fulfilment constraints, and a small-batch pre-order test before inventory.</p>
+            <p class="project-next"><strong>Next evidence:</strong> interview likely buyers, validate makers and quotes, model unit economics, then set a clear go or stop threshold.</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/balik-pulau-nutmeg.html">Read case study →</a><a class="button button-ghost" href="projects/balik-pulau-nutmeg/">View concept ↗</a></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="shell product-thinking reveal" id="product-thinking">
+      <div class="thinking-head">
+        <div><div class="mono">Product judgement</div><h2>How I think<br />about products</h2></div>
+        <p>A shipped interface is only one part of the work. I use five questions to decide whether an idea solves a real problem, deserves more engineering, and has a credible next experiment.</p>
+      </div>
+      <div class="thinking-grid">
+        <article class="thinking-card"><span class="mono">01</span><h3>User problem</h3><p>Who is making the decision, what job are they trying to finish, and where does the current experience break down?</p></article>
+        <article class="thinking-card"><span class="mono">02</span><h3>Alternatives</h3><p>What can people use today — a spreadsheet, official portal, notes app, manual service, or simply doing nothing?</p></article>
+        <article class="thinking-card"><span class="mono">03</span><h3>Product trade-offs</h3><p>Why is a lightweight, local-first, or account-free approach appropriate, and which limitations does that choice introduce?</p></article>
+        <article class="thinking-card"><span class="mono">04</span><h3>Commercial path</h3><p>How could the product earn attention, feedback, qualified enquiries, repeat use, or another meaningful conversion?</p></article>
+        <article class="thinking-card"><span class="mono">05</span><h3>Validation</h3><p>What evidence should exist next — rule fixtures, interviews, task completion, supplier quotes, or a small demand test?</p></article>
+      </div>
+    </section>
+
+    <section class="shell skills reveal" id="skills">
+      <div class="skills-head"><h2>Skills</h2><p>A product-minded toolkit for taking a focused web idea from rough problem to tested, deployed experience.</p></div>
+      <div class="skills-grid">
+        <div class="skill-group"><div class="mono">Frontend</div><h3>Build</h3><p>Semantic HTML, responsive CSS, vanilla JavaScript, accessibility, LocalStorage, and browser testing.</p></div>
+        <div class="skill-group"><div class="mono">Product</div><h3>Shape</h3><p>Problem framing, interface design, UX writing, financial UX, brand positioning, pilot design, and privacy-by-default decisions.</p></div>
+        <div class="skill-group"><div class="mono">Delivery</div><h3>Ship</h3><p>Git and GitHub, Vercel deployment, technical SEO, source documentation, responsive QA, and iterative improvement.</p></div>
+      </div>
+    </section>
+
+    <section class="shell about reveal" id="about">
+      <div><div class="mono">About me</div><h2>Learning by<br />shipping.</h2></div>
+      <div>
+        <div class="about-copy"><p>I’m You Ruheng, a management student in Malaysia building practical digital products and local business concepts. I take projects from opportunity and interface design through frontend development, testing, storytelling, and deployment.</p></div>
+        <div class="principles">
+          <div class="principle"><strong>Useful first</strong>Each project starts with one clear job to do.</div>
+          <div class="principle"><strong>Private by default</strong>Browser-first tools keep personal data personal.</div>
+          <div class="principle"><strong>Made to last</strong>Simple technology means fewer moving parts.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="contact">
+    <div class="shell contact-inner">
+      <div><div class="mono">Open to opportunities</div><h2>Let's build<br /><em>something useful.</em></h2><p style="max-width:540px;color:rgba(255,255,255,.62);margin:24px 0 0;">Available for internships, junior web roles, freelance development, and product design work in Malaysia. Reach me directly by email, explore my code, or download my resume.</p></div>
+      <div class="contact-links"><a class="button button-light" href="mailto:yourh4464@student.usm.my">Email me ↗</a><a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">View GitHub ↗</a><a class="button button-ghost" href="assets/You-Ruheng-Resume.pdf" download>Download Resume ↓</a></div>
+    </div>
+  </section>
+  <footer><div class="shell footer-inner"><span>© 2026 Kira. Built for the open web.</span><span>Malaysia · Worldwide web</span></div></footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

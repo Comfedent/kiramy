@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>证据与验证 — 尤如恒</title>
+  <meta name="description" content="尤如恒作品集背后的产品、工程与商业证据：已上线功能、测试、规则来源、已识别风险与计划中的验证。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-studies/case-study.css">
+  <style>
+    .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}.evidence-card,.proof-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.32)}.evidence-card h3,.proof-card h3{margin:0 0 10px;font:600 28px/1.05 Newsreader,serif}.status-pill{display:inline-flex;margin-bottom:14px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font:10px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.proof-list{display:grid;gap:12px;margin-top:28px}.proof-card{display:grid;grid-template-columns:.35fr 1fr;gap:18px}.proof-card strong{font-size:15px}.proof-card p,.evidence-card p{margin:0 0 10px;color:#4f524b;font-size:14px}.evidence-card span,.proof-card span{display:block;margin-bottom:5px;color:var(--muted);font:11px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}.evidence-card ul,.proof-card ul{margin:0;padding-left:17px}.evidence-card li,.proof-card li{margin:6px 0;color:#4f524b;font-size:14px;line-height:1.5}.note{margin-top:22px;padding:16px 18px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:14px}@media(max-width:760px){.evidence-grid{grid-template-columns:1fr}.proof-card{grid-template-columns:1fr}}
+  </style>
+  <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/evidence.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/evidence.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/evidence.html">
+</head>
+<body>
+<nav><div class="shell nav-inner"><a class="brand" href="./">Kira</a><a class="back" href="./#work">← 返回作品集</a></div></nav>
+<main>
+  <header class="shell hero"><div class="eyebrow mono">作品集证据</div><h1>不只是视觉，<br><em>还有验证。</em></h1><p class="lede">这里集中展示哪些功能已经做出来、哪些经过测试、哪些仍是概念，以及哪些风险还需要验证。没有真实用户、收入或转化率数据的地方，会明确标注为尚未测量或计划验证。</p><div class="actions"><a class="button primary" href="#product-evidence">查看证据 ↓</a><a class="button" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">源码 ↗</a></div></header>
+  <section class="shell section" id="product-evidence"><h2>产品证据</h2><div class="section-body"><p>每个项目成熟度不同。这个页面把已上线功能和计划中的验证分开，避免把概念包装成结果。</p><div class="evidence-grid">
+    <article class="evidence-card"><span class="status-pill">线上 / 教育型</span><h3>KiraMY</h3><p><span>现在可用</span>七个马来西亚财务计算器、本地浏览器计算、结果拆解、下一步模块、官方来源链接，以及已迁移工具的规则元数据。</p><p><span>尚未证明</span>尚未测量：重复使用、用户信任、商业转化、合作方需求，以及所有边缘场景的规则准确性。</p><p><span>下一步验证</span>继续扩展规则版本和测试用例，并加入隐私友好的计算差异反馈。</p></article>
+    <article class="evidence-card"><span class="status-pill">线上 / 本地优先</span><h3>Shiye Notes</h3><p><span>现在可用</span>新建、编辑、搜索、置顶、删除笔记；自动保存；损坏数据恢复；JSON 导入导出和备份提醒。</p><p><span>尚未证明</span>尚未测量：长期留存、用户备份行为、跨设备需求，以及用户是否信任浏览器本地存储。</p><p><span>下一步验证</span>测试用户是否理解导入导出，并探索敏感笔记的可选客户端加密。</p></article>
+    <article class="evidence-card"><span class="status-pill">线上原型</span><h3>KiraStart MY</h3><p><span>现在可用</span>第一年预算引导流程、马来西亚到手收入估算、建议、36 个月里程碑、本地保存、JSON 导入导出和打印摘要。</p><p><span>尚未证明</span>需要用户测试：输入是否准确、建议是否有用、场景是否贴近现实，以及用户是否会采取行动。</p><p><span>下一步验证</span>加入情境对比，并补充法定扣款和 PTPTN 假设的官方规则说明。</p></article>
+    <article class="evidence-card"><span class="status-pill">概念验证</span><h3>Bukit Pala</h3><p><span>现在可用</span>Landing page、礼盒概念、商业假设、验证计划、单位经济类别、运营检查表和 go/no-go 标准。</p><p><span>尚未证明</span>概念阶段：需求、供应商稳定性、保质期、批发价、包装时间和履约问题尚未验证。</p><p><span>下一步验证</span>先做供应商和买家访谈，再测试无付款兴趣表单，之后才考虑付费小批量试点。</p></article>
+  </div></div></section>
+  <section class="shell section"><h2>工程证据</h2><div class="section-body"><p>这里的工程重点不是复杂框架，而是边界清楚、逻辑可测试、可靠性路径明确。</p><div class="proof-list">
+    <article class="proof-card"><strong>已有测试</strong><div><p>Node built-in test 覆盖 Shiye 笔记状态、LocalStorage 导入导出、KiraStart 计划存储，以及计算器规则示例。</p><ul><li>损坏笔记数据恢复</li><li>JSON 导入格式验证</li><li>合并导入不删除原有数据</li><li>所得税、房贷、EPF 和车贷计算测试样例</li></ul></div></article>
+    <article class="proof-card"><strong>计算逻辑</strong><div><p>Income tax 和 home loan 页面已接入共享规则与计算模块。EPF 和 car loan 已有纯计算模块用于测试，其余页面仍是计划迁移。</p></div></article>
+    <article class="proof-card"><strong>LocalStorage 恢复</strong><div><p>Shiye Notes 与 KiraStart MY 都能处理损坏的本地数据，不会直接崩溃；两个项目也都说明浏览器本地存储边界，并提供 JSON 可携带性。</p></div></article>
+    <article class="proof-card"><strong>响应式 QA</strong><div><p>关键中英文页面经过移动端浏览器 smoke test，测试流程中没有横向溢出。</p></div></article>
+    <article class="proof-card"><strong>可访问性说明</strong><div><p>核心页面使用语义化 section、清晰按钮文字、状态文本和键盘友好控件。更完整的屏幕阅读器测试仍属于计划验证。</p></div></article>
+    <article class="proof-card"><strong>来源和更新时间</strong><div><p>KiraMY 计算器页面展示官方来源、复核日期和规则元数据。已迁移规则包含 ruleVersion、effectiveYear、sourceName、sourceUrl、lastUpdated、assumptions 和 knownLimitations。</p></div></article>
+  </div><div class="note">当前限制：并非所有计算器页面都已完成 DOM 到模块的迁移。这个限制被明确记录为后续可靠性工作，而不是隐藏起来。</div></div></section>
+  <section class="shell section"><h2>商业证据</h2><div class="section-body"><p>商业证据和视觉包装分开呈现。没有数据的地方，不编造。</p><div class="evidence-grid"><article class="evidence-card"><h3>KiraMY</h3><p>教育型计算器套件，下一步是反馈闭环、SEO 内容闭环和可选规则更新提醒。用户量、转化和收入尚未测量。</p></article><article class="evidence-card"><h3>Shiye Notes</h3><p>本地优先写作工具，已补强数据可携带性。商业需求尚未测量；下一步是验证用户是否愿意用备份机制换取浏览器本地隐私。</p></article><article class="evidence-card"><h3>KiraStart MY</h3><p>第一年财务计划引导工具。未来证据应来自情境对比使用、导出计划和用户对建议的反馈。</p></article><article class="evidence-card"><h3>Bukit Pala</h3><p>本地礼盒概念的预购验证计划。在定价、收款或备货前，仍需要供应商和买家研究。</p></article></div></div></section>
+</main>
+<section class="next"><div class="shell"><div class="mono">证据会持续迭代</div><h2>先构建，验证，<br>再说什么是真的。</h2><p>这个页面刻意保守：已上线功能会被点名，未验证假设会保持标签，未来验证不会被写成当前成果。</p><div class="actions"><a class="button primary" href="./">返回作品集</a><a class="button" href="case-studies/kiramy.html">阅读案例 →</a></div></div></section>
+<footer><div class="shell">© 2026 尤如恒 · 马来西亚</div></footer>
+<script src="/language-switch.js"></script>
+</body>
+</html>

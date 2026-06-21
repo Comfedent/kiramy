@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102a2a" />
+  <meta name="description" content="A privacy-first first-year financial planner for Malaysian students and fresh graduates." />
+  <title>KiraStart MY — Your first-year money plan</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/local-storage-safety.css" />
+  <link rel="stylesheet" href="styles.css" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/projects/kirastart-my/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/projects/kirastart-my/" />
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/projects/kirastart-my/" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="KiraStart MY home">
+      <span class="brand-mark">K</span>
+      <span>KiraStart <b>MY</b></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="../../">Portfolio ↗</a>
+      <a href="#how">How it works</a>
+      <a href="#sources">Sources</a>
+      <button class="text-button" id="loadPlanButton" type="button">My saved plan</button>
+      <button class="text-button" id="importPlanButton" type="button">Import JSON</button>
+      <input id="importPlanInput" type="file" accept="application/json,.json" hidden />
+      <button class="nav-cta" data-start type="button">Start planning <span>→</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active" aria-labelledby="heroTitle">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> Built for Malaysia's next chapter</div>
+          <h1 id="heroTitle">Your first salary<br />is not your <em>real</em> budget.</h1>
+          <p class="hero-lede">See what is actually left after EPF, rent, PTPTN, transport and real life — then turn it into a plan you can live with.</p>
+          <div class="hero-actions">
+            <button class="primary-button" data-start type="button">Check my first year <span>↗</span></button>
+            <span class="privacy-note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11V7a4 4 0 1 1 8 0v4m-9 0h10v9H7z"/></svg>
+              No sign-up. Your data stays here.
+            </span>
+          </div>
+          <div class="trust-row">
+            <div><strong>5 min</strong><span>to get your plan</span></div>
+            <div><strong>100%</strong><span>local & private</span></div>
+            <div><strong>RM</strong><span>Malaysia-first logic</span></div>
+          </div>
+
+          <section class="local-data-card kirastart-storage-card" aria-labelledby="kirastartStorageTitle">
+            <p class="local-data-kicker">Local-first planning</p>
+            <h2 id="kirastartStorageTitle">Your data stays here — so you should back it up.</h2>
+            <p>KiraStart keeps drafts in this browser only. That protects privacy and avoids accounts, but it will not sync across devices and may disappear if browser data is cleared.</p>
+            <div class="local-data-actions">
+              <button class="local-data-button primary" id="exportDraftButton" type="button">Export current plan</button>
+              <button class="local-data-button" id="importPlanHeroButton" type="button">Import plan JSON</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="hero-visual" aria-label="Sample monthly cash flow card">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="sample-card">
+            <div class="sample-head"><span>YOUR MONTH, EXPLAINED</span><span class="live-dot">LIVE PLAN</span></div>
+            <div class="salary-label">Gross salary</div>
+            <div class="salary-value">RM 3,500</div>
+            <div class="money-flow">
+              <div class="flow-row"><span><i class="dot mint"></i>Take-home pay</span><strong>RM 3,010</strong></div>
+              <div class="bar"><i style="width:86%"></i></div>
+              <div class="flow-row"><span><i class="dot coral"></i>Life essentials</span><strong>− RM 1,780</strong></div>
+              <div class="bar coral-bar"><i style="width:51%"></i></div>
+              <div class="flow-row"><span><i class="dot yellow"></i>Goals & PTPTN</span><strong>− RM 550</strong></div>
+              <div class="bar yellow-bar"><i style="width:16%"></i></div>
+            </div>
+            <div class="sample-left"><span>Actually left</span><strong>RM 680</strong><small>You're building breathing room.</small></div>
+          </div>
+          <div class="float-tag tag-one"><span>✓</span> Emergency fund<br><b>10 months away</b></div>
+          <div class="float-tag tag-two">Car check<br><b>Wait for now</b></div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true"><span>FIRST SALARY</span><i>✦</i><span>PTPTN</span><i>✦</i><span>RENT</span><i>✦</i><span>TRANSPORT</span><i>✦</i><span>SAVINGS</span><i>✦</i><span>REAL LIFE</span></div>
+
+      <section class="problem-section" id="how">
+        <div class="section-kicker">THE REALITY CHECK</div>
+        <div class="problem-grid">
+          <div>
+            <h2>A salary number tells<br />only half the story.</h2>
+            <p>KiraStart joins the pieces that are usually scattered across five different calculators.</p>
+          </div>
+          <div class="feature-list">
+            <article><span>01</span><div><h3>Know your real take-home</h3><p>Estimate EPF, SOCSO, EIS and income tax in one clear view.</p></div></article>
+            <article><span>02</span><div><h3>Pressure-test your choices</h3><p>See whether rent, a car or your PTPTN plan leaves enough breathing room.</p></div></article>
+            <article><span>03</span><div><h3>Get a timeline, not a lecture</h3><p>Turn your monthly surplus into concrete milestones for the next 36 months.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="source-strip" id="sources">
+        <p>Planning estimates informed by official Malaysian guidance</p>
+        <div>
+          <a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP / EPF ↗</a>
+          <a href="https://www.perkeso.gov.my/en/rate-of-contribution.html" target="_blank" rel="noreferrer">PERKESO ↗</a>
+          <a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">LHDN ↗</a>
+          <a href="https://www.ptptn.gov.my/en/bayaran-balik/" target="_blank" rel="noreferrer">PTPTN ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <section id="plannerView" class="view planner-view" aria-labelledby="plannerTitle">
+      <div class="planner-topbar">
+        <button class="back-link" data-home type="button">← Back home</button>
+        <div class="step-indicator"><span id="stepLabel">Step 1 of 3</span><div><i id="stepProgress"></i></div></div>
+        <button class="save-link" id="saveDraftButton" type="button">Save draft</button>
+      </div>
+      <div class="planner-shell">
+        <aside class="planner-aside">
+          <div class="aside-orb"></div>
+          <span class="aside-kicker">YOUR FIRST-YEAR PLAN</span>
+          <h2 id="asideTitle">Let's start with the money coming in.</h2>
+          <p id="asideCopy">No payslip yet? Use the salary from your offer letter. You can always change it later.</p>
+          <div class="aside-tip"><span>💡</span><p><b>Good to know</b><br /><span id="asideTip">EPF and other deductions mean your take-home will be lower than your offer.</span></p></div>
+        </aside>
+
+        <form id="plannerForm" class="planner-form" novalidate>
+          <div class="form-step active" data-step="1">
+            <div class="form-heading"><span>01 — INCOME</span><h1 id="plannerTitle">What does your working life look like?</h1><p>Start with your best estimate. This is a planning tool, not a tax filing form.</p></div>
+            <label class="field field-large"><span>Monthly gross salary</span><div class="money-input"><b>RM</b><input name="salary" type="number" min="0" max="100000" step="50" value="3500" required inputmode="decimal" /></div><small>Before EPF, SOCSO, EIS and estimated tax</small></label>
+            <div class="two-fields">
+              <label class="field"><span>Where will you work?</span><select name="city"><option value="kl">Kuala Lumpur / Selangor</option><option value="penang">Penang</option><option value="johor">Johor Bahru</option><option value="ipoh">Ipoh</option><option value="kk">Kota Kinabalu</option><option value="other">Other city</option></select></label>
+              <label class="field"><span>Current stage</span><select name="stage"><option>Fresh graduate</option><option>Final-year student</option><option>Intern</option><option>Early-career worker</option></select></label>
+            </div>
+            <label class="toggle-card"><input name="epf" type="checkbox" checked /><span class="toggle"></span><span><b>I contribute to EPF</b><small>Uses an 11% employee estimate</small></span></label>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="form-heading"><span>02 — REAL LIFE</span><h1>Where does your money need to go?</h1><p>Monthly averages are perfect. Honest rough numbers beat precise fantasy numbers.</p></div>
+            <div class="expense-grid">
+              <label class="field"><span>Rent & utilities</span><div class="compact-money"><b>RM</b><input name="rent" type="number" min="0" value="900" /></div></label>
+              <label class="field"><span>Food & groceries</span><div class="compact-money"><b>RM</b><input name="food" type="number" min="0" value="650" /></div></label>
+              <label class="field"><span>Transport</span><div class="compact-money"><b>RM</b><input name="transport" type="number" min="0" value="250" /></div></label>
+              <label class="field"><span>Phone & subscriptions</span><div class="compact-money"><b>RM</b><input name="bills" type="number" min="0" value="120" /></div></label>
+              <label class="field"><span>Family / insurance</span><div class="compact-money"><b>RM</b><input name="family" type="number" min="0" value="150" /></div></label>
+              <label class="field"><span>Fun & everything else</span><div class="compact-money"><b>RM</b><input name="lifestyle" type="number" min="0" value="250" /></div></label>
+            </div>
+            <div class="preset-row"><span>Quick lifestyle preset</span><div><button type="button" data-preset="lean">Lean</button><button type="button" data-preset="balanced" class="selected">Balanced</button><button type="button" data-preset="comfortable">Comfortable</button></div></div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="form-heading"><span>03 — COMMITMENTS & GOALS</span><h1>What are you carrying — and building?</h1><p>This is where a budget becomes your plan.</p></div>
+            <div class="commitment-card">
+              <div class="card-title"><span class="icon-chip">P</span><div><b>PTPTN repayment</b><small>Use your planned monthly payment</small></div></div>
+              <div class="two-fields"><label class="field"><span>Outstanding balance</span><div class="compact-money"><b>RM</b><input name="ptptnBalance" type="number" min="0" value="18000" /></div></label><label class="field"><span>Monthly payment</span><div class="compact-money"><b>RM</b><input name="ptptn" type="number" min="0" value="150" /></div></label></div>
+            </div>
+            <div class="commitment-card">
+              <div class="card-title"><span class="icon-chip car">C</span><div><b>Car commitment</b><small>Include instalment only; running costs go under transport</small></div></div>
+              <label class="field"><span>Monthly car instalment</span><div class="compact-money"><b>RM</b><input name="car" type="number" min="0" value="0" /></div></label>
+            </div>
+            <div class="commitment-card goals-card">
+              <div class="card-title"><span class="icon-chip goal">◎</span><div><b>Your safety target</b><small>We recommend starting with 3 months of essentials</small></div></div>
+              <div class="two-fields"><label class="field"><span>Current savings</span><div class="compact-money"><b>RM</b><input name="currentSavings" type="number" min="0" value="500" /></div></label><label class="field"><span>Emergency fund goal</span><div class="compact-money"><b>RM</b><input name="emergencyGoal" type="number" min="0" value="5000" /></div></label></div>
+            </div>
+          </div>
+
+          <div class="form-actions"><button class="secondary-button" id="previousButton" type="button" disabled>Back</button><button class="primary-button" id="nextButton" type="button">Continue <span>→</span></button></div>
+          <p class="form-error" id="formError" role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="resultView" class="view result-view" aria-labelledby="resultTitle">
+      <div class="result-header">
+        <div><button class="back-link" id="editPlanButton" type="button">← Edit my numbers</button><span class="result-kicker">YOUR FIRST-YEAR REALITY CHECK</span><h1 id="resultTitle">You have <em id="headlineAmount">RM 0</em> of breathing room.</h1><p id="resultSummary">Your plan is ready.</p></div>
+        <div class="score-card"><span>PLAN HEALTH</span><strong id="healthScore">0</strong><small>/ 100</small><div class="score-track"><i id="scoreBar"></i></div><b id="healthLabel">Getting started</b></div>
+      </div>
+
+      <div class="result-grid">
+        <article class="result-card cash-card">
+          <div class="result-card-head"><div><span>MONTHLY CASH FLOW</span><h2>Where your salary goes</h2></div><button class="icon-button" id="copySummaryButton" type="button" title="Copy summary">⧉</button></div>
+          <div class="cash-total"><span>Gross salary</span><strong id="grossSalary">RM 0</strong></div>
+          <div id="breakdownBars" class="breakdown-bars"></div>
+          <div class="cash-footer"><span>Actually left each month</span><strong id="monthlyLeft">RM 0</strong></div>
+        </article>
+
+        <article class="result-card verdict-card">
+          <span class="card-overline">THE HONEST VERDICT</span>
+          <div class="verdict-icon" id="verdictIcon">↗</div>
+          <h2 id="verdictTitle">You have room to build.</h2>
+          <p id="verdictCopy">Your essentials are covered and you still have space for your goals.</p>
+          <div class="ratio-row"><span>Essential-cost ratio</span><strong id="essentialRatio">0%</strong></div>
+          <div class="ratio-track"><i id="ratioBar"></i></div>
+          <small id="ratioNote">A useful target is below 60% of take-home pay.</small>
+        </article>
+
+        <article class="result-card action-card">
+          <span class="card-overline">YOUR NEXT BEST MOVES</span>
+          <div id="recommendations" class="recommendations"></div>
+        </article>
+
+        <article class="result-card timeline-card">
+          <div class="result-card-head"><div><span>YOUR LIFE TIMELINE</span><h2>Small moves, visible progress</h2></div><span class="timeline-horizon">36 MONTHS</span></div>
+          <div id="timeline" class="timeline"></div>
+        </article>
+      </div>
+
+      <div class="result-actions"><button class="secondary-button" id="resetButton" type="button">Start over</button><button class="secondary-button" id="printSummaryButton" type="button">Print summary</button><button class="secondary-button" id="exportResultButton" type="button">Export JSON</button><button class="primary-button" id="saveResultButton" type="button">Save this plan <span>✓</span></button></div>
+      <p class="disclaimer">Planning estimate only. Tax and statutory deductions are simplified and may differ from your payslip. Always confirm important decisions with official sources or a qualified adviser.</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Plan saved on this device</div>
+  <script src="plan-store.js"></script>
+  <script src="app.js"></script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malaysia Income Tax Calculator 2026 (YA 2025) – Free & Accurate | KiraMY</title>
+<meta name="description" content="Calculate your Malaysian income tax for YA 2025. Free calculator with latest LHDN tax brackets, EPF deductions, tax reliefs, and rebates. Updated for 2026 filing.">
+<meta name="keywords" content="Malaysia income tax calculator 2026, LHDN tax calculator, YA 2025 tax, PCB calculator Malaysia, Malaysia tax relief 2025">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0a1628; --navy-light: #111d35; --teal: #14b8a6; --teal-glow: rgba(20,184,166,0.15);
+  --gold: #f5c542; --text: #e2e8f0; --muted: #94a3b8; --card: rgba(17,29,53,0.7);
+  --border: rgba(148,163,184,0.12); --green: #22c55e; --red: #ef4444;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); line-height: 1.6; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(10,22,40,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-family: 'Fraunces', serif; font-size: 22px; color: var(--teal); font-weight: 700; text-decoration: none; }
+.logo span { color: var(--gold); }
+.back { color: var(--muted); text-decoration: none; font-size: 14px; }
+.back:hover { color: var(--teal); }
+
+/* ─── HEADER ─── */
+.page-header {
+  padding: 90px 24px 40px; text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 50%);
+}
+.page-header h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(24px, 5vw, 38px);
+  font-weight: 700; color: #fff; margin-bottom: 8px;
+}
+.page-header p { color: var(--muted); font-size: 15px; }
+
+/* ─── LAYOUT ─── */
+.container { max-width: 900px; margin: 0 auto; padding: 30px 24px 80px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+/* ─── CARD ─── */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+}
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--teal);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+}
+
+/* ─── FORM ─── */
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+.field input, .field select {
+  width: 100%; padding: 12px 14px;
+  background: rgba(10,22,40,0.6); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none; transition: border-color 0.2s;
+}
+.field input:focus, .field select:focus { border-color: var(--teal); }
+.field .hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.field select option { background: var(--navy); }
+
+.field-row { display: flex; gap: 12px; }
+.field-row .field { flex: 1; }
+
+/* ─── RELIEF SECTION ─── */
+.relief-toggle {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; padding: 10px 0; color: var(--teal);
+  font-size: 14px; font-weight: 600; user-select: none;
+}
+.relief-toggle .arrow { transition: transform 0.3s; }
+.relief-toggle.open .arrow { transform: rotate(90deg); }
+.relief-panel { display: none; padding-top: 10px; }
+.relief-panel.open { display: block; }
+
+/* ─── BUTTON ─── */
+.calc-btn {
+  width: 100%; padding: 14px; margin-top: 10px;
+  background: var(--teal); color: var(--navy); font-weight: 700;
+  font-size: 16px; border: none; border-radius: 12px; cursor: pointer;
+  transition: all 0.3s; font-family: 'DM Sans', sans-serif;
+}
+.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,184,166,0.3); }
+
+/* ─── RESULTS ─── */
+.result-hero {
+  text-align: center; padding: 24px 0; margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.result-hero .label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+.result-hero .amount {
+  font-family: 'JetBrains Mono', monospace; font-size: 36px;
+  font-weight: 700; color: var(--teal);
+}
+.result-hero .monthly {
+  font-size: 14px; color: var(--muted); margin-top: 4px;
+}
+
+.result-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.result-row:last-child { border-bottom: none; }
+.result-row .r-label { color: var(--muted); }
+.result-row .r-value { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+.result-row .r-value.green { color: var(--green); }
+.result-row .r-value.red { color: var(--red); }
+
+.effective-rate {
+  margin-top: 20px; padding: 16px; text-align: center;
+  background: rgba(20,184,166,0.08); border-radius: 12px;
+  border: 1px solid rgba(20,184,166,0.2);
+}
+.effective-rate .rate {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px; font-weight: 700; color: var(--gold);
+}
+.effective-rate .rate-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ─── TAX BRACKET TABLE ─── */
+.bracket-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.bracket-table th, .bracket-table td {
+  padding: 8px 10px; font-size: 13px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.bracket-table th { color: var(--muted); font-weight: 600; }
+.bracket-table td { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+.bracket-table tr.active { background: rgba(20,184,166,0.08); }
+.bracket-table tr.active td { color: var(--teal); font-weight: 700; }
+
+/* ─── INFO ─── */
+.info-section { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+.info-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+}
+.info-card h2 { font-family: 'Fraunces', serif; font-size: 22px; color: #fff; margin-bottom: 16px; }
+.info-card p { font-size: 14px; color: var(--muted); margin-bottom: 12px; line-height: 1.8; }
+.info-card h3 { font-size: 16px; color: var(--teal); margin: 20px 0 10px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px; text-align: center;
+  font-size: 13px; color: var(--muted);
+}
+footer a { color: var(--teal); text-decoration: none; }
+
+#results { display: none; }
+</style>
+<link rel="stylesheet" href="trust.css">
+<link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/income-tax.html" />
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/income-tax.html" />
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/income-tax.html" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Kira<span>MY</span></a>
+  <a href="index.html" class="back">← All Calculators</a>
+</nav>
+
+<div class="page-header">
+  <h1>Malaysia Income Tax Calculator</h1>
+  <p>Year of Assessment 2025 · Filing in 2026 · Based on latest LHDN rates</p>
+</div>
+
+<div class="container">
+  <div class="grid">
+
+    <!-- INPUT -->
+    <div class="card">
+      <div class="card-title">Your Income</div>
+
+      <div class="field">
+        <label>Annual Gross Income (RM)</label>
+        <input type="number" id="income" placeholder="e.g. 72000" value="">
+        <div class="hint">Total employment income before any deductions</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>EPF Rate (%)</label>
+          <select id="epfRate">
+            <option value="11" selected>11% (Standard)</option>
+            <option value="0">0% (Exempt)</option>
+            <option value="7">7% (Reduced)</option>
+            <option value="9">9%</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Marital Status</label>
+          <select id="marital">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Relief toggle -->
+      <div class="relief-toggle" onclick="toggleRelief()" id="reliefToggle">
+        <span class="arrow">▶</span> Additional Tax Reliefs (Optional)
+      </div>
+
+      <div class="relief-panel" id="reliefPanel">
+        <div class="field">
+          <label>Lifestyle Relief (RM) — max 2,500</label>
+          <input type="number" id="lifestyle" placeholder="0" value="0">
+          <div class="hint">Books, computers, sports equipment, internet</div>
+        </div>
+        <div class="field">
+          <label>Medical & Education Insurance (RM) — max 3,000</label>
+          <input type="number" id="insurance" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Life Insurance (RM) — max 3,000</label>
+          <input type="number" id="lifeInsurance" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Education Fees (RM) — max 7,000</label>
+          <input type="number" id="education" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Medical Expenses – Self (RM) — max 8,000</label>
+          <input type="number" id="medical" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Parents Medical (RM) — max 8,000</label>
+          <input type="number" id="parentsMedical" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>SSPN Savings (RM) — max 8,000</label>
+          <input type="number" id="sspn" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Domestic Travel (RM) — max 1,000</label>
+          <input type="number" id="travel" placeholder="0" value="0">
+        </div>
+        <div class="field">
+          <label>Zakat (RM)</label>
+          <input type="number" id="zakat" placeholder="0" value="0">
+          <div class="hint">No limit — directly reduces tax payable</div>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Tax</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div>
+      <div class="card" id="results">
+        <div class="card-title">Your Tax Summary</div>
+
+        <div class="result-hero">
+          <div class="label">Annual Tax Payable</div>
+          <div class="amount" id="totalTax">RM 0</div>
+          <div class="monthly" id="monthlyTax">RM 0 / month</div>
+        </div>
+
+        <div class="result-row">
+          <span class="r-label">Gross Income</span>
+          <span class="r-value" id="rGross">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">EPF Relief (capped at RM4,000)</span>
+          <span class="r-value green" id="rEpf">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Personal Relief (RM 9,000)</span>
+          <span class="r-value green" id="rPersonal">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Additional Reliefs</span>
+          <span class="r-value green" id="rAdditional">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Chargeable Income</span>
+          <span class="r-value" id="rChargeable">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Tax Before Rebate</span>
+          <span class="r-value" id="rTaxBefore">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Tax Rebate</span>
+          <span class="r-value green" id="rRebate">-</span>
+        </div>
+        <div class="result-row">
+          <span class="r-label">Zakat Deduction</span>
+          <span class="r-value green" id="rZakat">-</span>
+        </div>
+
+        <div class="effective-rate">
+          <div class="rate" id="effectiveRate">0%</div>
+          <div class="rate-label">Effective Tax Rate</div>
+        </div>
+      </div>
+
+      <!-- Tax Brackets -->
+      <div class="card" id="bracketsCard" style="margin-top:20px; display:none;">
+        <div class="card-title">Tax Bracket Breakdown</div>
+        <table class="bracket-table">
+          <thead>
+            <tr><th>Bracket (RM)</th><th>Rate</th><th>Tax (RM)</th></tr>
+          </thead>
+          <tbody id="bracketBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEO Content -->
+<div class="info-section">
+  <div class="info-card">
+    <h2>How Malaysian Income Tax Works</h2>
+    <p>Malaysia uses a progressive tax system where different portions of your income are taxed at different rates. For Year of Assessment 2025, tax rates range from 0% (for the first RM5,000) to 30% (for income above RM2,000,000).</p>
+    
+    <h3>What is Chargeable Income?</h3>
+    <p>Your chargeable income is calculated by subtracting EPF contributions and all eligible tax reliefs from your gross annual income. This is the amount used to determine which tax brackets apply to you.</p>
+
+    <h3>Key Tax Reliefs for YA 2025</h3>
+    <p>Every Malaysian taxpayer receives an automatic RM9,000 individual relief. Additional reliefs include lifestyle purchases (up to RM2,500), medical and education insurance premiums (up to RM3,000), EPF contributions (up to RM4,000), education fees (up to RM7,000), and more.</p>
+
+    <h3>Tax Rebate</h3>
+    <p>If your chargeable income is RM35,000 or below, you are entitled to a RM400 tax rebate that directly reduces your tax payable. Married couples filing jointly may receive a combined rebate of RM800.</p>
+
+    <h3>Filing Deadline</h3>
+    <p>Filing deadlines and relief eligibility can change. Check the current guidance in LHDN MyTax before submitting a return.</p>
+  </div>
+</div>
+
+<section class="trust-panel" aria-labelledby="method-title">
+  <div class="trust-top"><h2 id="method-title">Engineering reliability</h2><span class="trust-date">Educational estimate only</span></div>
+  <div class="rule-meta">
+    <div><span>Rule version</span><strong>MY-INCOME-TAX-YA2025-v1</strong></div>
+    <div><span>Effective year</span><strong>YA 2025</strong></div>
+    <div><span>Last updated</span><strong>21 June 2026</strong></div>
+    <div><span>Source</span><a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">LHDN Malaysia ↗</a></div>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-box"><strong>Assumptions & worked example</strong><p>Gross income RM60,000, standard EPF contribution, and no optional reliefs → EPF relief capped at RM4,000 → chargeable income RM47,000 → estimated tax before other rebates: RM1,320.</p></div>
+    <div class="trust-box"><strong>Known limitations</strong><ul class="rule-list"><li>Resident-individual estimate only.</li><li>Does not cover every relief condition, PCB credit, spouse assessment detail, business income, or special case.</li><li>Always verify filing decisions in LHDN MyTax.</li></ul></div>
+  </div>
+  <p class="trust-warning">Simplified resident-individual estimate for YA 2025. It does not cover every income type, relief condition, PCB credit, spouse assessment, or special case. Verify against your EA form and LHDN guidance.</p>
+</section>
+
+<footer>
+  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
+  <p style="margin-top:8px;">This calculator is for reference only. Consult LHDN or a tax professional for official advice.</p>
+</footer>
+
+<script src="/rules/income-tax-ya2025.js"></script>
+<script src="/calculators/income-tax.js"></script>
+<script>
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function fmt(n) { return 'RM ' + n.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+function toggleRelief() {
+  const t = document.getElementById('reliefToggle');
+  const p = document.getElementById('reliefPanel');
+  t.classList.toggle('open');
+  p.classList.toggle('open');
+}
+
+function calculate() {
+  const income = val('income');
+  if (income <= 0) return;
+
+  const result = KiraMYIncomeTaxCalculator.calculateIncomeTax({
+    income,
+    epfRate: document.getElementById('epfRate').value,
+    marital: document.getElementById('marital').value,
+    lifestyle: val('lifestyle'),
+    insurance: val('insurance'),
+    lifeInsurance: val('lifeInsurance'),
+    education: val('education'),
+    medical: val('medical'),
+    parentsMedical: val('parentsMedical'),
+    sspn: val('sspn'),
+    travel: val('travel'),
+    zakat: val('zakat')
+  }, KiraMYIncomeTaxYA2025Rules);
+
+  // Display results
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('bracketsCard').style.display = 'block';
+
+  document.getElementById('totalTax').textContent = fmt(result.finalTax);
+  document.getElementById('monthlyTax').textContent = fmt(result.monthlyTax) + ' / month';
+  document.getElementById('rGross').textContent = fmt(income);
+  document.getElementById('rEpf').textContent = '- ' + fmt(result.epfRelief);
+  document.getElementById('rPersonal').textContent = '- ' + fmt(result.personalRelief);
+  document.getElementById('rAdditional').textContent = '- ' + fmt(result.additionalReliefs);
+  document.getElementById('rChargeable').textContent = fmt(result.chargeableIncome);
+  document.getElementById('rTaxBefore').textContent = fmt(result.taxBeforeRebate);
+  document.getElementById('rRebate').textContent = '- ' + fmt(result.rebate);
+  document.getElementById('rZakat').textContent = '- ' + fmt(result.zakat);
+  document.getElementById('effectiveRate').textContent = result.effectiveRate.toFixed(2) + '%';
+
+  // Bracket table
+  const tbody = document.getElementById('bracketBody');
+  tbody.innerHTML = '';
+  result.bracketDetails.forEach(b => {
+    const tr = document.createElement('tr');
+    if (b.active) tr.classList.add('active');
+    tr.innerHTML = `<td>${b.range}</td><td>${(b.rate * 100).toFixed(0)}%</td><td>${b.tax.toFixed(2)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Scroll to results on mobile
+  if (window.innerWidth < 700) {
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// Auto-calculate when income changes
+document.getElementById('income').addEventListener('input', () => {
+  if (val('income') > 0) calculate();
+});
+</script>
+<script src="/calculator-next-steps.js"></script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

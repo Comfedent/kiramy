@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0f0e">
+  <title>Kira — 产品型作品集</title>
+  <meta name="description" content="尤如恒的产品型作品集：可测试的产品原型、马来西亚决策工具、本地优先应用与商业验证概念。">
+  <meta property="og:title" content="Kira — 产品型作品集">
+  <meta property="og:description" content="把本地问题转化为可测试的产品、决策工具与商业验证概念。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kira-malaysia.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #171916;
+      --paper: #f2f0e8;
+      --paper-deep: #e5e0d4;
+      --white: #fbfaf5;
+      --muted: #686b63;
+      --line: rgba(23, 25, 22, .14);
+      --acid: #d8ff54;
+      --orange: #ff6433;
+      --teal: #2ec5a7;
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .mono { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .11em; font-size: 12px; }
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(242, 240, 232, .86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { font-family: "Newsreader", serif; font-size: 30px; font-weight: 600; text-decoration: none; }
+    .brand::after { content: "."; color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .github-link { border: 1px solid var(--ink); border-radius: 999px; padding: 9px 15px; color: var(--ink) !important; }
+
+    .hero { min-height: 760px; display: grid; grid-template-columns: 1.5fr .5fr; align-items: center; gap: 48px; padding: 90px 0; }
+    .status { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 6px rgba(46, 197, 167, .14); }
+    h1 { margin: 0; font-family: "Newsreader", serif; font-size: clamp(62px, 9.4vw, 124px); line-height: .88; font-weight: 500; letter-spacing: -.055em; }
+    h1 em { display: block; color: var(--orange); font-weight: 500; }
+    .hero-copy { max-width: 610px; margin: 34px 0 0; font-size: clamp(18px, 2vw, 24px); color: var(--muted); letter-spacing: -.02em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .hero-side { align-self: end; padding-bottom: 22px; }
+    .hero-side p { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+    .scroll-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+    .orbit { width: 150px; aspect-ratio: 1; margin: 0 0 56px auto; border: 1px solid var(--line); border-radius: 50%; position: relative; animation: spin 18s linear infinite; }
+    .orbit::before { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--acid); border: 1px solid var(--ink); top: 10px; left: 18px; }
+    .orbit::after { content: "BUILD / TEST / REFINE"; position: absolute; font: 10px "DM Mono", monospace; letter-spacing: .12em; top: 66px; left: -20px; white-space: nowrap; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 100px 0 36px; border-bottom: 1px solid var(--line); }
+    .section-head h2 { margin: 0; font: 500 clamp(42px, 6vw, 76px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .section-head span { color: var(--muted); }
+    .project { display: grid; grid-template-columns: .75fr 1.25fr; gap: 56px; padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .project-number { color: var(--muted); margin-bottom: 20px; }
+    .project h3 { margin: 0 0 16px; font: 600 clamp(36px, 5vw, 64px)/1 "Newsreader", serif; letter-spacing: -.035em; }
+    .project-summary { max-width: 430px; margin: 0 0 28px; color: var(--muted); font-size: 17px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; font: 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .07em; }
+    .maturity-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .maturity { border: 1px solid currentColor; border-radius: 999px; padding: 6px 11px; font: 10px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .maturity-solid { background: var(--ink); border-color: var(--ink); color: var(--white); }
+    .project-frame { min-height: 390px; border: 1px solid var(--ink); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; transition: transform .25s ease, box-shadow .25s ease; }
+    .project-frame:hover { transform: translateY(-5px); box-shadow: 0 16px 0 rgba(23, 25, 22, .08); }
+    .finance { color: #eef7f3; background: #0a1628; }
+    .finance::after { content: "RM"; position: absolute; right: -15px; bottom: -80px; font: 600 250px/1 "Newsreader", serif; color: rgba(46, 197, 167, .1); }
+    .notes { color: #171916; background: #f8f5eb; }
+    .notes::after { content: "拾页"; position: absolute; right: -6px; bottom: -34px; font: 600 150px/1 "Newsreader", serif; color: rgba(255, 100, 51, .08); }
+    .starter { color: #f8f8ef; background: #102a2a; }
+    .starter::after { content: "1ST"; position: absolute; right: -18px; bottom: -72px; font: 600 220px/1 "Newsreader", serif; color: rgba(216, 255, 84, .1); }
+    .nutmeg { color: #fffaf0; background: linear-gradient(90deg, rgba(23,55,47,.96) 0%, rgba(23,55,47,.87) 45%, rgba(23,55,47,.24) 100%), url("projects/balik-pulau-nutmeg/assets/bukit-pala-gift-set.webp") center/cover; }
+    .nutmeg::after { content: "PALA"; position: absolute; right: -5px; bottom: -45px; font: 600 150px/1 "Newsreader", serif; color: rgba(200,227,107,.1); }
+    .frame-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+    .frame-mark { font: 600 26px "Newsreader", serif; }
+    .live { display: inline-flex; align-items: center; gap: 7px; font: 10px "DM Mono", monospace; letter-spacing: .1em; }
+    .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acid); }
+    .frame-copy { max-width: 540px; position: relative; z-index: 2; }
+    .frame-copy strong { display: block; font: 500 clamp(32px, 4vw, 52px)/1 "Newsreader", serif; margin-bottom: 14px; }
+    .frame-copy p { margin: 0; opacity: .72; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { background: var(--acid); color: var(--ink); }
+    .button-dark { background: var(--ink); color: var(--white); }
+    .button-ghost { border: 1px solid currentColor; }
+    .tool-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 2; }
+    .tool-links a { color: inherit; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 7px 10px; text-decoration: none; font-size: 11px; }
+    .tool-links a:hover { border-color: var(--teal); }
+    .project-next { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid currentColor; font-size: 12px; line-height: 1.55; opacity: .72; }
+    .project-next strong { display: inline; color: inherit; font: inherit; font-weight: 700; }
+
+    .product-thinking { padding: 120px 0 110px; border-bottom: 1px solid var(--line); }
+    .thinking-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 56px; align-items: end; margin-bottom: 44px; }
+    .thinking-head h2 { margin: 10px 0 0; font: 500 clamp(42px, 6vw, 70px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .thinking-head p { max-width: 600px; margin: 0; color: var(--muted); font-size: 18px; }
+    .thinking-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); }
+    .thinking-card { min-height: 230px; padding: 24px 20px 28px 0; border-right: 1px solid var(--line); }
+    .thinking-card + .thinking-card { padding-left: 20px; }
+    .thinking-card:last-child { border-right: 0; }
+    .thinking-card span { color: var(--orange); }
+    .thinking-card h3 { margin: 28px 0 10px; font: 600 25px/1.1 "Newsreader", serif; }
+    .thinking-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+
+    .about { display: grid; grid-template-columns: .65fr 1.35fr; gap: 64px; padding: 130px 0; }
+    .about h2 { margin: 0; font: 500 56px/1 "Newsreader", serif; letter-spacing: -.04em; }
+    .about-copy { font: 500 clamp(26px, 3vw, 42px)/1.25 "Newsreader", serif; letter-spacing: -.025em; }
+    .about-copy p { margin: 0 0 30px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 46px; }
+    .principle { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--muted); }
+    .principle strong { display: block; color: var(--ink); margin-bottom: 7px; }
+    .skills { padding: 110px 0 30px; border-bottom: 1px solid var(--line); }
+    .skills-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
+    .skills h2 { margin: 0; font: 500 clamp(42px, 6vw, 70px)/.95 "Newsreader", serif; letter-spacing: -.04em; }
+    .skills-head p { max-width: 480px; margin: 0; color: var(--muted); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .skill-group { padding: 28px 28px 36px 0; border-right: 1px solid var(--line); }
+    .skill-group + .skill-group { padding-left: 28px; }
+    .skill-group:last-child { border-right: 0; }
+    .skill-group h3 { margin: 0 0 14px; font: 600 28px "Newsreader", serif; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .contact { background: var(--ink); color: var(--white); border-radius: 34px 34px 0 0; padding: 90px 0; }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+    .contact h2 { margin: 10px 0 0; font: 500 clamp(52px, 8vw, 104px)/.9 "Newsreader", serif; letter-spacing: -.05em; }
+    .contact h2 em { color: var(--acid); font-weight: 500; }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact .button-ghost { border-color: rgba(255,255,255,.4); }
+    footer { background: var(--ink); color: rgba(255,255,255,.5); border-top: 1px solid rgba(255,255,255,.12); padding: 24px 0; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 800px) {
+      .shell { width: min(calc(100% - 28px), 1180px); }
+      .nav-inner { gap: 14px; }
+      .github-link { padding: 8px 12px; }
+      .nav-links a:not(.github-link) { display: none; }
+      .hero { min-height: 680px; grid-template-columns: 1fr; gap: 20px; padding: 70px 0; }
+      .hero > * { min-width: 0; }
+      h1 { font-size: clamp(48px, 14vw, 62px); overflow-wrap: anywhere; }
+      .hero-copy { font-size: 17px; }
+      .hero-side { display: none; }
+      .project, .about { grid-template-columns: 1fr; gap: 28px; }
+      .project { padding: 48px 0; }
+      .project-frame { min-height: 360px; padding: 22px; }
+      .principles { grid-template-columns: 1fr; }
+      .thinking-head { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+      .thinking-grid { grid-template-columns: 1fr; }
+      .thinking-card, .thinking-card + .thinking-card { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .thinking-card:last-child { border-bottom: 0; }
+      .thinking-card h3 { margin-top: 14px; }
+      .skills-head { align-items: start; flex-direction: column; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-group, .skill-group + .skill-group { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .about { padding: 90px 0; }
+      .contact-inner { align-items: start; flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/">
+</head>
+<body>
+  <nav>
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Kira</a>
+      <div class="nav-links">
+        <a href="#work">作品</a>
+        <a href="#product-thinking">方法</a>
+        <a href="evidence.html">证据</a>
+        <a href="#skills">技能</a>
+        <a href="#about">关于</a>
+        <a class="github-link" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="shell hero">
+      <div>
+        <div class="status mono"><span class="status-dot"></span> 尤如恒·马来西亚</div>
+        <h1>真实问题， <em>实用网页产品。</em></h1>
+        <p class="hero-copy">我把本地问题转化为可测试的产品原型、决策工具和商业验证页面，并在用户需求、商业可能性、技术取舍与下一步证据之间做判断。目前关注马来西亚学生、年轻职场人和本地小企业。</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#work">查看作品↓</a>
+          <a class="button button-ghost" href="evidence.html">证据与验证</a>
+          <a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="button button-ghost" href="#contact">联系我</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="orbit" aria-hidden="true"></div>
+        <p>作品选·2026</p>
+        <a class="scroll-link" href="#work">查看项目 <span>↓</span></a>
+      </div>
+    </header>
+
+    <section class="shell" id="work">
+      <div class="section-head reveal">
+        <h2>精选作品</h2>
+        <span class="mono">04个项目</span>
+      </div>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">01 / 产品套件</div>
+          <h3>KiraMY</h3>
+          <p class="project-summary">面向马来西亚日常财务决策的工具集，目前定位为重视隐私的教育型产品，不替代官方计算或专业意见。</p>
+          <div class="tags"><span class="tag">产品设计</span><span class="tag">原生 JS</span><span class="tag">金融</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">线上工具</span><span class="maturity">案例研究</span><span class="maturity">规则待验证</span></div>
+        </div>
+        <div class="project-frame finance">
+          <div class="frame-top"><span class="frame-mark">KiraMY</span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>七类财务决策。<br>一个透明工具集。</strong>
+            <p>覆盖税务、住房、退休、教育贷款与交通成本的马来西亚本地估算；计算在浏览器内完成，并展示关键假设与官方来源。</p>
+            <p class="project-next"><strong>下一步证据：</strong>建立规则版本、加入经核对的测试夹具、支持结果导出，并收集计算差异反馈。</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/kiramy.html">阅读案例研究 →</a></div>
+            <div class="tool-links">
+              <a href="income-tax.html">所得税</a><a href="home-loan.html">房屋贷款</a><a href="epf.html">EPF</a><a href="stamp-duty.html">印花税</a><a href="ptptn.html">PTPTN</a><a href="car-loan.html">汽车贷款</a><a href="rent-vs-buy.html">租与买</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">02 / 网络应用</div>
+          <h3>Shiye Notes</h3>
+          <p class="project-summary">一款本地优先的笔记应用：以不提供云同步为取舍，换取无需账户、更快速的写作体验，同时明确存储限制。</p>
+          <div class="tags"><span class="tag">界面设计</span><span class="tag">LocalStorage</span><span class="tag">响应式</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">线上工具</span><span class="maturity">本地优先</span><span class="maturity">核心逻辑已测试</span></div>
+        </div>
+        <div class="project-frame notes">
+          <div class="frame-top"><span class="frame-mark">拾页<span style="color:var(--orange)">。</span></span><span class="live" style="color:#4d766b">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>一个更安静的地方<br>为了传递思想。</strong>
+            <p>无需账户让记录更私密、更快速，但 LocalStorage 只属于当前浏览器；清理站点数据可能删除全部笔记。</p>
+            <p class="project-next"><strong>下一步证据：</strong>JSON 导入导出、备份提醒、恢复测试，以及可选的客户端加密。</p>
+            <div class="project-actions">
+              <a class="button button-dark" href="case-studies/shiye-notes.html">阅读案例研究 →</a>
+              <a class="button button-ghost" href="projects/shiye-notes/">打开应用 ↗</a>
+              <a class="button button-ghost" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">查看来源↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">03 / 理财规划师</div>
+          <h3>KiraStart MY</h3>
+          <p class="project-summary">面向马来西亚学生、实习生和应届毕业生的第一年理财流程，把录用薪资转化为可执行的每月决策。</p>
+          <div class="tags"><span class="tag">产品设计</span><span class="tag">财务用户体验</span><span class="tag">本地优先</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">线上原型</span><span class="maturity">案例研究</span><span class="maturity">规则待验证</span></div>
+        </div>
+        <div class="project-frame starter">
+          <div class="frame-top"><span class="frame-mark">KiraStart <span style="color:var(--acid)">MY</span></span><span class="live">LIVE</span></div>
+          <div class="frame-copy">
+            <strong>你的第一份工资，<br>变成了一个计划。</strong>
+            <p>估算实际实得工资，对生活成本和承诺进行压力测试，然后查看未来 36 个月的具体里程碑。</p>
+            <p class="project-next"><strong>下一步证据：</strong>为法定扣款假设建立版本，测试负预算场景，并验证用户是否会采取建议中的行动。</p>
+            <div class="project-actions">
+              <a class="button button-light" href="case-studies/kirastart-my.html">阅读案例研究 →</a>
+              <a class="button button-ghost" href="projects/kirastart-my/">打开规划工具 ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-number mono">04 / 本土经营理念</div>
+          <h3>Bukit Pala</h3>
+          <p class="project-summary">一个用于验证浮罗山背肉豆蔻礼盒的低风险商业概念；它尚未正式经营，也不代表已经获得市场认可。</p>
+          <div class="tags"><span class="tag">产品策略</span><span class="tag">品牌理念</span><span class="tag">试点设计</span></div>
+          <div class="maturity-tags"><span class="maturity maturity-solid">概念验证</span><span class="maturity">市场待验证</span><span class="maturity">案例研究</span></div>
+        </div>
+        <div class="project-frame nutmeg">
+          <div class="frame-top"><span class="frame-mark">BUKIT PALA</span><span class="live" style="color:var(--acid)">概念</span></div>
+          <div class="frame-copy">
+            <strong>槟城的肉豆蔻故事，<br>打包赠送。</strong>
+            <p>拟议试点包括供应商核验、成本结构、买家访谈、保质期、履约限制，以及备货前的小批量预购测试。</p>
+            <p class="project-next"><strong>下一步证据：</strong>访谈潜在买家、核验供应商与报价、计算单位经济，再设定明确的继续或停止标准。</p>
+            <div class="project-actions"><a class="button button-light" href="case-studies/balik-pulau-nutmeg.html">阅读案例研究 →</a><a class="button button-ghost" href="projects/balik-pulau-nutmeg/">查看概念 ↗</a></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="shell product-thinking reveal" id="product-thinking">
+      <div class="thinking-head">
+        <div><div class="mono">产品判断</div><h2>我如何判断<br>一个产品是否成立</h2></div>
+        <p>上线一个界面只是工作的一部分。我用五个问题判断一个想法是否解决真实问题、是否值得继续投入工程，以及下一次实验应该证明什么。</p>
+      </div>
+      <div class="thinking-grid">
+        <article class="thinking-card"><span class="mono">01</span><h3>用户问题</h3><p>谁正在做这个决定？他想完成什么任务？现有体验在哪一步产生阻力？</p></article>
+        <article class="thinking-card"><span class="mono">02</span><h3>替代方案</h3><p>用户今天可以用什么替代：表格、官方网站、通用笔记应用、人工服务，还是干脆不处理？</p></article>
+        <article class="thinking-card"><span class="mono">03</span><h3>产品取舍</h3><p>为什么轻量、本地优先或无需账户适合这个场景？这种选择又会带来哪些限制？</p></article>
+        <article class="thinking-card"><span class="mono">04</span><h3>商业可能性</h3><p>产品未来如何获得关注、反馈、有效询盘、重复使用，或其他有意义的转化？</p></article>
+        <article class="thinking-card"><span class="mono">05</span><h3>验证方式</h3><p>下一步需要什么证据：规则测试、用户访谈、任务完成、供应商报价，还是小规模需求测试？</p></article>
+      </div>
+    </section>
+
+    <section class="shell skills reveal" id="skills">
+      <div class="skills-head"><h2>技能</h2><p>把一个聚焦的问题，从产品判断推进到可测试、可部署的网页体验。</p></div>
+      <div class="skills-grid">
+        <div class="skill-group"><div class="mono">前端</div><h3>开发</h3><p>语义化 HTML、响应式 CSS、原生 JavaScript、可访问性、LocalStorage 与浏览器测试。</p></div>
+        <div class="skill-group"><div class="mono">产品</div><h3>判断</h3><p>问题定义、替代方案、产品取舍、用户体验文案、财务交互、定位与试点设计。</p></div>
+        <div class="skill-group"><div class="mono">交付</div><h3>上线</h3><p>Git 与 GitHub、Vercel 部署、技术 SEO、项目文档、响应式 QA 与迭代改进。</p></div>
+      </div>
+    </section>
+
+    <section class="shell about reveal" id="about">
+      <div><div class="mono">关于我</div><h2>边做边学，<br>持续交付。</h2></div>
+      <div>
+        <div class="about-copy"><p>我是尤如恒，一名在马来西亚学习管理的学生，专注于实用数字产品和本地商业概念。我会从机会判断、用户体验和商业假设出发，推进到前端开发、测试、表达与部署。</p></div>
+        <div class="principles">
+          <div class="principle"><strong>先解决问题</strong>每个项目都从一个明确的用户任务开始。</div>
+          <div class="principle"><strong>明确数据边界</strong>尽量让数据留在本机，同时说明存储限制与风险。</div>
+          <div class="principle"><strong>简单可维护</strong>选择足够解决问题、也便于验证和迭代的技术。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="contact">
+    <div class="shell contact-inner">
+      <div><div class="mono">开放合作机会</div><h2>一起打造<br><em>真正有用的产品。</em></h2><p style="max-width:540px;color:rgba(255,255,255,.62);margin:24px 0 0;">期待马来西亚的实习、初级 Web 职位、自由开发和产品设计机会。可以直接发邮件联系我、查看代码或下载简历。</p></div>
+      <div class="contact-links"><a class="button button-light" href="mailto:yourh4464@student.usm.my">邮件联系 ↗</a><a class="button button-ghost" href="https://github.com/Comfedent" target="_blank" rel="noreferrer">查看 GitHub ↗</a><a class="button button-ghost" href="assets/You-Ruheng-Resume.pdf" download>下载简历 ↓</a></div>
+    </div>
+  </section>
+  <footer><div class="shell footer-inner"><span>© 2026 Kira · 为真实问题构建</span><span>马来西亚 · Web</span></div></footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+<script src="/language-switch.js"></script>
+</body>
+</html>

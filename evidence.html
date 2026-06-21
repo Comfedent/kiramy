@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Evidence & Proof — You Ruheng</title>
+  <meta name="description" content="Product, engineering and commercial evidence behind You Ruheng's portfolio projects: shipped features, tests, rule sources, known risks and planned validation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-studies/case-study.css">
+  <style>
+    .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}.evidence-card,.proof-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.32)}.evidence-card h3,.proof-card h3{margin:0 0 10px;font:600 28px/1.05 Newsreader,serif}.status-pill{display:inline-flex;margin-bottom:14px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font:10px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.proof-list{display:grid;gap:12px;margin-top:28px}.proof-card{display:grid;grid-template-columns:.35fr 1fr;gap:18px}.proof-card strong{font-size:15px}.proof-card p,.evidence-card p{margin:0 0 10px;color:#4f524b;font-size:14px}.evidence-card span,.proof-card span{display:block;margin-bottom:5px;color:var(--muted);font:11px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}.evidence-card ul,.proof-card ul{margin:0;padding-left:17px}.evidence-card li,.proof-card li{margin:6px 0;color:#4f524b;font-size:14px;line-height:1.5}.note{margin-top:22px;padding:16px 18px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:14px}@media(max-width:760px){.evidence-grid{grid-template-columns:1fr}.proof-card{grid-template-columns:1fr}}
+  </style>
+  <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/evidence.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/evidence.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/evidence.html">
+</head>
+<body>
+<nav><div class="shell nav-inner"><a class="brand" href="./">Kira</a><a class="back" href="./#work">← Back to portfolio</a></div></nav>
+<main>
+  <header class="shell hero">
+    <div class="eyebrow mono">Portfolio evidence</div>
+    <h1>Proof beyond<br><em>the visuals.</em></h1>
+    <p class="lede">A compact audit of what is live, what is tested, what is only a concept, and which risks still need validation. No user numbers, revenue or conversion claims are invented here.</p>
+    <div class="actions"><a class="button primary" href="#product-evidence">View evidence ↓</a><a class="button" href="https://github.com/Comfedent/kiramy" target="_blank" rel="noreferrer">Source ↗</a></div>
+  </header>
+
+  <section class="shell section" id="product-evidence"><h2>Product Evidence</h2><div class="section-body"><p>Each project has a different maturity level. The page separates live functionality from planned validation so the portfolio does not overclaim traction.</p><div class="evidence-grid">
+    <article class="evidence-card"><span class="status-pill">Live / Educational</span><h3>KiraMY</h3><p><span>What works now</span>Seven Malaysia-focused calculators, local browser calculation, result breakdowns, next-step modules, official-source links and rule metadata for migrated tools.</p><p><span>Not proven yet</span>Not yet measured: repeat use, user trust, commercial conversion, partner demand or rule accuracy across every edge case.</p><p><span>Next validation step</span>Expand rule versioning and test fixtures, then add a privacy-friendly feedback loop for calculation mismatches and missing scenarios.</p></article>
+    <article class="evidence-card"><span class="status-pill">Live / Local-first</span><h3>Shiye Notes</h3><p><span>What works now</span>Create, edit, search, pin and delete notes; automatic LocalStorage saving; malformed data recovery; JSON import/export and backup reminders.</p><p><span>Not proven yet</span>Not yet measured: long-term retention, backup behaviour, cross-device need or whether users trust browser-only storage.</p><p><span>Next validation step</span>Test export/import comprehension with users and explore optional client-side encryption for sensitive notes.</p></article>
+    <article class="evidence-card"><span class="status-pill">Live Prototype</span><h3>KiraStart MY</h3><p><span>What works now</span>Guided first-year budget flow, Malaysian take-home estimate, recommendations, 36-month milestones, local saved plan, JSON import/export and printable summary.</p><p><span>Not proven yet</span>Needs user testing: input accuracy, recommendation usefulness, scenario realism and whether users act on the plan.</p><p><span>Next validation step</span>Add scenario comparison and clearer official-rule notes for statutory deductions and PTPTN assumptions.</p></article>
+    <article class="evidence-card"><span class="status-pill">Concept Validation</span><h3>Bukit Pala</h3><p><span>What works now</span>Landing page, gift-set concept, business assumptions, validation plan, unit-economics categories, operations checklist and go/no-go criteria.</p><p><span>Not proven yet</span>Concept stage: demand, supplier reliability, shelf life, wholesale pricing, packaging time and fulfilment issues are not yet validated.</p><p><span>Next validation step</span>Run supplier and buyer interviews, then test a no-payment interest form before any paid small-batch pilot.</p></article>
+  </div></div></section>
+
+  <section class="shell section"><h2>Engineering Evidence</h2><div class="section-body"><p>The strongest engineering signal in this portfolio is not framework complexity; it is visible constraints, testable logic and a clear path for reliability work.</p><div class="proof-list">
+    <article class="proof-card"><strong>Tests available</strong><div><p>Node built-in tests cover Shiye note-store logic, LocalStorage import/export behaviour, KiraStart plan-store handling and calculator rule examples.</p><ul><li>Malformed note data recovery</li><li>JSON import validation</li><li>Merge import does not delete existing notes</li><li>Income tax, home loan, EPF and car loan calculation fixtures</li></ul></div></article>
+    <article class="proof-card"><strong>Calculator logic</strong><div><p>Income tax and home-loan pages now consume shared rule and calculator modules. EPF and car-loan pure calculation modules exist for tests; remaining pages are planned migrations.</p></div></article>
+    <article class="proof-card"><strong>LocalStorage recovery</strong><div><p>Shiye Notes and KiraStart MY handle malformed stored data without crashing. Both projects now explain browser-only storage and provide JSON portability.</p></div></article>
+    <article class="proof-card"><strong>Responsive QA</strong><div><p>Browser smoke tests were run across key English and Chinese pages with mobile viewports and no horizontal overflow in the tested flows.</p></div></article>
+    <article class="proof-card"><strong>Accessibility notes</strong><div><p>Core pages use semantic sections, visible button labels, status text and keyboard-friendly controls where applicable. Further screen-reader testing remains planned validation.</p></div></article>
+    <article class="proof-card"><strong>Sources / update dates</strong><div><p>KiraMY calculator pages expose official sources and review/update dates. Migrated rules include ruleVersion, effectiveYear, sourceName, sourceUrl, lastUpdated, assumptions and knownLimitations.</p></div></article>
+  </div><div class="note">Current limitation: not every calculator page has completed DOM-to-module migration yet. That is tracked as planned reliability work rather than hidden.</div></div></section>
+
+  <section class="shell section"><h2>Commercial Evidence</h2><div class="section-body"><p>Commercial proof is separated from product polish. Where data does not exist, the page says so plainly.</p><div class="evidence-grid">
+    <article class="evidence-card"><h3>KiraMY</h3><p>Educational calculator suite with a future feedback loop, SEO content loop and optional rule-update subscription. User volume, conversion and revenue are not yet measured.</p></article>
+    <article class="evidence-card"><h3>Shiye Notes</h3><p>Local-first writing tool with portability improvements. Commercial demand is not yet measured; the next proof is whether users value browser-only privacy enough to use backups.</p></article>
+    <article class="evidence-card"><h3>KiraStart MY</h3><p>Guided planner for first-year money decisions. Future proof should come from scenario comparison usage, exported plans and user feedback on recommendations.</p></article>
+    <article class="evidence-card"><h3>Bukit Pala</h3><p>Pre-order validation plan for a local gift-set concept. Supplier and buyer research are still needed before pricing, payment or inventory.</p></article>
+  </div></div></section>
+</main>
+<section class="next"><div class="shell"><div class="mono">Evidence is iterative</div><h2>Build, test,<br>then say what is true.</h2><p>This page is intentionally conservative: shipped features are named, unproven assumptions stay labelled, and future validation is separated from current proof.</p><div class="actions"><a class="button primary" href="./">Back to portfolio</a><a class="button" href="case-studies/kiramy.html">Read a case study →</a></div></div></section>
+<footer><div class="shell">© 2026 You Ruheng · Malaysia</div></footer>
+<script src="/language-switch.js"></script>
+</body>
+</html>

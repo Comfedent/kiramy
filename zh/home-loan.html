@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malaysia Home Loan Calculator 2026 – Monthly Repayment & Amortization | KiraMY</title>
-<meta name="description" content="Calculate your Malaysian home loan monthly repayment, total interest, and view full amortization schedule. Free property loan calculator for Malaysia.">
+<title>马来西亚房屋贷款计算器 2026 – 每月还款及摊销 |基拉米</title>
+<meta name="description" content="计算您的马来西亚住房贷款每月还款额、总利息，并查看完整的摊销时间表。马来西亚的免费房产贷款计算器。">
 <meta name="keywords" content="Malaysia home loan calculator, housing loan calculator Malaysia, property loan calculator, mortgage calculator Malaysia, pinjaman perumahan">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0a1628;--navy-light:#111d35;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--red:#ef4444}
@@ -77,101 +77,101 @@ footer a{color:var(--teal);text-decoration:none}
 #results{display:none}
 </style>
 <link rel="stylesheet" href="trust.css">
-<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/home-loan.html" />
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/home-loan.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/home-loan.html" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/home-loan.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/home-loan.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/home-loan.html">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">Kira<span>MY</span></a>
-  <a href="index.html" class="back">← All Calculators</a>
+  <a href="index.html" class="back">← 所有计算器</a>
 </nav>
 
 <div class="page-header">
-  <h1>Home Loan Calculator</h1>
-  <p>Calculate your monthly repayment, total interest, and amortization schedule</p>
+  <h1>住房贷款计算器</h1>
+  <p>计算您的每月还款额、总利息和摊销时间表</p>
 </div>
 
 <div class="container">
   <div class="grid">
 
     <div class="card">
-      <div class="card-title">Loan Details</div>
+      <div class="card-title">贷款详情</div>
 
       <div class="field">
-        <label>Property Price (RM)</label>
-        <input type="number" id="price" placeholder="e.g. 500000">
+        <label>楼价 (RM)</label>
+        <input type="number" id="price" placeholder="例如50万">
       </div>
 
       <div class="field">
-        <label>Down Payment (%)</label>
+        <label>首付 （％）</label>
         <input type="number" id="downPct" value="10" min="0" max="100">
-        <div class="hint">Minimum 10% for most Malaysian banks</div>
+        <div class="hint">大多数马来西亚银行至少 10%</div>
       </div>
 
       <div class="field">
-        <label>Loan Amount (RM)</label>
-        <input type="number" id="loanAmt" placeholder="Auto-calculated" readonly style="opacity:0.7">
+        <label>贷款金额 (RM)</label>
+        <input type="number" id="loanAmt" placeholder="自动计算" readonly style="opacity:0.7">
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>Interest Rate (% p.a.)</label>
+          <label>利率（年利率%）</label>
           <input type="number" id="rate" value="4.0" step="0.1" min="0">
         </div>
         <div class="field">
-          <label>Loan Tenure (Years)</label>
+          <label>贷款期限（年）</label>
           <input type="number" id="tenure" value="30" min="1" max="35">
         </div>
       </div>
 
-      <button class="calc-btn" onclick="calculate()">Calculate Repayment</button>
+      <button class="calc-btn" onclick="calculate()">计算还款额</button>
     </div>
 
     <div>
       <div class="card" id="results">
-        <div class="card-title">Repayment Summary</div>
+        <div class="card-title">还款概要</div>
 
         <div class="result-hero">
-          <div class="label">Monthly Repayment</div>
+          <div class="label">每月还款额</div>
           <div class="amount" id="monthly">RM 0</div>
         </div>
 
         <div class="stat-grid">
           <div class="stat-box blue">
             <div class="s-val" id="sLoan">-</div>
-            <div class="s-label">Loan Amount</div>
+            <div class="s-label">贷款金额</div>
           </div>
           <div class="stat-box red">
             <div class="s-val" id="sInterest">-</div>
-            <div class="s-label">Total Interest</div>
+            <div class="s-label">总利息</div>
           </div>
           <div class="stat-box gold">
             <div class="s-val" id="sTotal">-</div>
-            <div class="s-label">Total Payment</div>
+            <div class="s-label">付款总额</div>
           </div>
           <div class="stat-box green">
             <div class="s-val" id="sDown">-</div>
-            <div class="s-label">Down Payment</div>
+            <div class="s-label">首付</div>
           </div>
         </div>
 
         <div class="pie-container">
-          <svg class="pie-svg" viewBox="0 0 36 36" id="pieChart"></svg>
+          <svg class="pie-svg" viewbox="0 0 36 36" id="pieChart"></svg>
           <div class="pie-legend">
-            <div><span class="dot" style="background:var(--blue)"></span> Principal</div>
-            <div><span class="dot" style="background:var(--red)"></span> Interest</div>
+            <div><span class="dot" style="background:var(--blue)"></span> 主要的</div>
+            <div><span class="dot" style="background:var(--red)"></span> 兴趣</div>
           </div>
         </div>
 
-        <!-- Amortization -->
+        <!-- 摊销 -->
         <div class="amort-toggle" onclick="toggleAmort()" id="amortToggle">
-          <span class="arrow">▶</span> View Yearly Amortization Schedule
+          <span class="arrow">▶</span> 查看年度摊销表
         </div>
         <div class="amort-panel" id="amortPanel">
           <table class="amort-table">
-            <thead><tr><th>Year</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+            <thead><tr><th>年</th><th>主要的</th><th>兴趣</th><th>平衡</th></tr></thead>
             <tbody id="amortBody"></tbody>
           </table>
         </div>
@@ -182,25 +182,25 @@ footer a{color:var(--teal);text-decoration:none}
 
 <div class="info-section">
   <div class="info-card">
-    <h2>How Home Loans Work in Malaysia</h2>
-    <p>Most Malaysian banks offer home loans with tenures up to 35 years. The maximum loan-to-value (LTV) ratio is typically 90% for the first two residential properties, meaning you need a minimum 10% down payment.</p>
+    <h2>马来西亚的住房贷款如何运作</h2>
+    <p>大多数马来西亚银行提供期限长达 35 年的住房贷款。对于前两处住宅房产，最高贷款价值 (LTV) 比率通常为 90%，这意味着您需要至少 10% 的首付。</p>
 
-    <h3>Current Interest Rates</h3>
-    <p>As of 2026, Malaysian home loan interest rates typically range from 3.5% to 4.5% per annum, based on the Base Rate (BR) plus a spread. Rates vary by bank and your credit profile.</p>
+    <h3>当前利率</h3>
+    <p>截至 2026 年，马来西亚住房贷款利率通常为每年 3.5% 至 4.5%，基于基本利率 (BR) 加上利差。利率因银行和您的信用状况而异。</p>
 
-    <h3>What Affects Your Monthly Payment</h3>
-    <p>Three factors determine your monthly repayment: the loan amount (property price minus down payment), the interest rate, and the loan tenure. A longer tenure means lower monthly payments but more total interest paid.</p>
+    <h3>什么影响您的每月付款</h3>
+    <p>三个因素决定您每月的还款额：贷款金额（房价减去首付）、利率和贷款期限。期限越长意味着每月还款额越低，但支付的总利息越多。</p>
 
-    <h3>Additional Costs to Consider</h3>
-    <p>Beyond monthly repayments, property buyers in Malaysia should budget for stamp duty (1-4% of property price), legal fees (typically 0.5-1%), valuation fees, and Mortgage Reducing Term Assurance (MRTA) insurance.</p>
+    <h3>需要考虑的额外费用</h3>
+    <p>除了每月还款之外，马来西亚的购房者还应该为印花税（房产价格的 1-4%）、律师费（通常为 0.5-1%）、估价费和抵押贷款减少期限保证 (MRTA) 保险做好预算。</p>
   </div>
 </div>
 
-<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 21 June 2026</span></div><div class="trust-grid"><div class="trust-box"><strong>Worked example</strong><p>A RM450,000 loan at 4% p.a. over 30 years produces an estimated monthly instalment of about RM2,148 using the standard reducing-balance amortisation formula.</p></div><div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.bnm.gov.my/consumer-info" target="_blank" rel="noreferrer">Bank Negara Malaysia — Consumer information</a></li><li><a href="https://museum.bnm.gov.my/lat/bm/Section/files/House_Buying.pdf" target="_blank" rel="noreferrer">BNM — House-buying guide</a></li></ul></div></div><p class="trust-warning">Illustrative estimate only. Actual effective rates, lock-in periods, fees, insurance, daily-rest calculations, and approval terms vary by bank and borrower.</p></section>
+<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">审核日期：2026 年 6 月 21 日</span></div><div class="trust-grid"><div class="trust-box"><strong>计算示例</strong><p>年利率 4% 的 RM450,000 贷款使用标准余额递减摊销公式，超过 30 年的预计每月分期付款额约为 RM2,148。</p></div><div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.bnm.gov.my/consumer-info" target="_blank" rel="noreferrer">马来西亚国家银行 — 消费者信息</a></li><li><a href="https://museum.bnm.gov.my/lat/bm/Section/files/House_Buying.pdf" target="_blank" rel="noreferrer">BNM — 购房指南</a></li></ul></div></div><p class="trust-warning">仅作说明性估计。实际有效利率、锁定期、费用、保险、每日休息计算和批准条款因银行和借款人而异。</p></section>
 
 <footer>
-  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
-  <p style="margin-top:8px;">This calculator is for reference only. Contact your bank for official loan quotations.</p>
+  <p>KiraMY © 2026 · 免费马来西亚金融计算器</p>
+  <p style="margin-top:8px;">此计算器仅供参考。请联系您的银行获取正式贷款报价。</p>
 </footer>
 
 <script>

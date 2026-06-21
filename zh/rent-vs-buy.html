@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rent vs Buy Calculator Malaysia 2026 – Should You Rent or Buy? | KiraMY</title>
-<meta name="description" content="Compare the true cost of renting versus buying property in Malaysia. Factor in stamp duty, maintenance, appreciation, and opportunity cost.">
+<title>马来西亚 2026 年租房与购房计算器 – 您应该租房还是购买？ |基拉米</title>
+<meta name="description" content="比较在马来西亚租房和购买房产的真实成本。考虑印花税、维护、升值和机会成本。">
 <meta name="keywords" content="rent vs buy Malaysia, sewa atau beli rumah, property comparison calculator Malaysia">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0a1628;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--red:#ef4444;--orange:#f59e0b;--cyan:#06b6d4}
@@ -68,69 +68,69 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 #results{display:none}
 </style>
 <link rel="stylesheet" href="trust.css">
-<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/rent-vs-buy.html" />
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/rent-vs-buy.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/rent-vs-buy.html" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/rent-vs-buy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/rent-vs-buy.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/rent-vs-buy.html">
 </head>
 <body>
-<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← All Calculators</a></nav>
-<div class="page-header"><h1>Rent vs Buy Comparison</h1><p>Find out which option is better for you over the long term</p></div>
+<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← 所有计算器</a></nav>
+<div class="page-header"><h1>租与买比较</h1><p>从长远来看，找出哪种选择更适合您</p></div>
 <div class="container">
   <div class="input-grid">
     <div class="card">
-      <div class="card-title buy-t">🏠 Buying</div>
-      <div class="field"><label>Property Price (RM)</label><input type="number" id="price" placeholder="500000"></div>
-      <div class="field"><label>Down Payment (%)</label><input type="number" id="down" value="10"></div>
-      <div class="field"><label>Loan Interest Rate (% p.a.)</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
-      <div class="field"><label>Loan Tenure (Years)</label><input type="number" id="tenure" value="30"></div>
-      <div class="field"><label>Property Appreciation (% p.a.)</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">Malaysian property avg ~3-5% p.a.</div></div>
-      <div class="field"><label>Maintenance & Upkeep (RM/month)</label><input type="number" id="maintenance" value="300"></div>
+      <div class="card-title buy-t">🏠 购买</div>
+      <div class="field"><label>楼价 (RM)</label><input type="number" id="price" placeholder="500000"></div>
+      <div class="field"><label>首付 （％）</label><input type="number" id="down" value="10"></div>
+      <div class="field"><label>贷款利率（年利率%）</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
+      <div class="field"><label>贷款期限（年）</label><input type="number" id="tenure" value="30"></div>
+      <div class="field"><label>房产增值（每年%）</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">马来西亚房地产平均每年约 3-5%</div></div>
+      <div class="field"><label>维护和保养（RM/月）</label><input type="number" id="maintenance" value="300"></div>
     </div>
     <div class="card">
-      <div class="card-title rent-t">🏢 Renting</div>
-      <div class="field"><label>Monthly Rent (RM)</label><input type="number" id="rent" placeholder="1500"></div>
-      <div class="field"><label>Annual Rent Increase (%)</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">Typical 3-5% annual increase</div></div>
-      <div class="field"><label>Investment Return on Savings (% p.a.)</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">If you invest the down payment instead</div></div>
-      <div class="field"><label>Comparison Period (Years)</label><input type="number" id="period" value="10" min="1" max="30"></div>
+      <div class="card-title rent-t">🏢 出租</div>
+      <div class="field"><label>月租 (RM)</label><input type="number" id="rent" placeholder="1500"></div>
+      <div class="field"><label>年租金涨幅（%）</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">通常每年增长 3-5%</div></div>
+      <div class="field"><label>储蓄投资回报率（每年%）</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">如果您将首付用于投资</div></div>
+      <div class="field"><label>比较期（年）</label><input type="number" id="period" value="10" min="1" max="30"></div>
     </div>
   </div>
-  <button class="calc-btn" onclick="calculate()">Compare Rent vs Buy</button>
+  <button class="calc-btn" onclick="calculate()">比较租赁与购买</button>
   <div id="results">
     <div class="verdict" id="verdict"></div>
     <div class="compare-grid">
       <div class="compare-card buy-c">
-        <h3>🏠 Cost of Buying</h3>
-        <div class="c-row"><span class="c-label">Down Payment</span><span class="c-val" id="bDown">-</span></div>
-        <div class="c-row"><span class="c-label">Stamp Duty & Legal</span><span class="c-val" id="bStamp">-</span></div>
-        <div class="c-row"><span class="c-label">Total Loan Repayment</span><span class="c-val" id="bLoanTotal">-</span></div>
-        <div class="c-row"><span class="c-label">Maintenance</span><span class="c-val" id="bMaint">-</span></div>
-        <div class="c-row"><span class="c-label">Property Value (end)</span><span class="c-val" id="bPropVal" style="color:var(--green)">-</span></div>
-        <div class="c-row"><span class="c-label">Remaining Loan</span><span class="c-val" id="bRemLoan" style="color:var(--red)">-</span></div>
-        <div class="c-total"><div class="ct-val" id="bNet">-</div><div class="ct-label">Net Cost of Buying</div></div>
+        <h3>🏠 购买成本</h3>
+        <div class="c-row"><span class="c-label">首付</span><span class="c-val" id="bDown">-</span></div>
+        <div class="c-row"><span class="c-label">印花税和法律</span><span class="c-val" id="bStamp">-</span></div>
+        <div class="c-row"><span class="c-label">贷款偿还总额</span><span class="c-val" id="bLoanTotal">-</span></div>
+        <div class="c-row"><span class="c-label">维护</span><span class="c-val" id="bMaint">-</span></div>
+        <div class="c-row"><span class="c-label">房产价值（完）</span><span class="c-val" id="bPropVal" style="color:var(--green)">-</span></div>
+        <div class="c-row"><span class="c-label">剩余贷款</span><span class="c-val" id="bRemLoan" style="color:var(--red)">-</span></div>
+        <div class="c-total"><div class="ct-val" id="bNet">-</div><div class="ct-label">净购买成本</div></div>
       </div>
       <div class="compare-card rent-c">
-        <h3>🏢 Cost of Renting</h3>
-        <div class="c-row"><span class="c-label">Total Rent Paid</span><span class="c-val" id="rRentTotal">-</span></div>
-        <div class="c-row"><span class="c-label">Investment Growth</span><span class="c-val" id="rInvest" style="color:var(--green)">-</span></div>
-        <div class="c-total"><div class="ct-val" id="rNet">-</div><div class="ct-label">Net Cost of Renting</div></div>
+        <h3>🏢 租金成本</h3>
+        <div class="c-row"><span class="c-label">已付租金总额</span><span class="c-val" id="rRentTotal">-</span></div>
+        <div class="c-row"><span class="c-label">投资增长</span><span class="c-val" id="rInvest" style="color:var(--green)">-</span></div>
+        <div class="c-total"><div class="ct-val" id="rNet">-</div><div class="ct-label">净租金成本</div></div>
       </div>
     </div>
   </div>
 </div>
 <div class="info-section">
   <div class="info-card">
-    <h2>Rent or Buy: What to Consider</h2>
-    <p>The rent-vs-buy decision depends on property prices, rental rates, how long you plan to stay, and the opportunity cost of your down payment.</p>
-    <h3>When Buying Makes Sense</h3>
-    <p>If you plan to stay long-term (7+ years), property appreciation outpaces your investment returns, and monthly mortgage payments are close to rental costs, buying often wins.</p>
-    <h3>When Renting Makes Sense</h3>
-    <p>If you need flexibility, property prices are high relative to rents, or you can earn higher returns investing your down payment elsewhere, renting can be more cost-effective.</p>
-    <h3>Malaysian Context</h3>
-    <p>Property in Malaysia has appreciated at roughly 3-5% annually over the past decade. Meanwhile, EPF dividends average 5.5% and equity markets 7-8%. Factor these into your decision.</p>
+    <h2>租或买：要考虑什么</h2>
+    <p>租与买的决定取决于房价、租金、您计划居住的时间以及首付的机会成本。</p>
+    <h3>当购买有意义时</h3>
+    <p>如果您打算长期居住（7年以上），房产升值超过您的投资回报，并且每月抵押贷款付款接近租金成本，那么购买通常会获胜。</p>
+    <h3>当租房有意义时</h3>
+    <p>如果您需要灵活性，房价相对于租金较高，或者您可以将首付投资到其他地方以获得更高的回报，那么租赁可能会更具成本效益。</p>
+    <h3>马来西亚背景</h3>
+    <p>过去十年，马来西亚的房地产每年升值约 3-5%。与此同时，EPF 股息平均为 5.5%，股票市场为 7-8%。将这些因素纳入您的决定中。</p>
   </div>
 </div>
-<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 21 June 2026</span></div><div class="trust-grid"><div class="trust-box"><strong>Worked example</strong><p>The comparison models mortgage amortisation, down payment, property appreciation, maintenance, rent growth, and investment opportunity cost from the values entered. Change one assumption at a time to understand its effect.</p></div><div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.bnm.gov.my/consumer-info" target="_blank" rel="noreferrer">Bank Negara Malaysia — Consumer information</a></li><li><a href="https://www.hasil.gov.my/en/stamp-duty/" target="_blank" rel="noreferrer">LHDN — Stamp duty</a></li></ul></div></div><p class="trust-warning">Scenario model, not a forecast. It excludes some transaction costs, taxes, renovation, vacancy, insurance, and personal risk factors. Change the assumptions to test a range rather than relying on one result.</p></section>
-<footer><p>KiraMY © 2026 · Free Malaysian Financial Calculators</p></footer>
+<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">审核日期：2026 年 6 月 21 日</span></div><div class="trust-grid"><div class="trust-box"><strong>计算示例</strong><p>该比较根据输入的值对抵押贷款摊销、首付、房产增值、维护、租金增长和投资机会成本进行建模。一次改变一个假设以了解其效果。</p></div><div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.bnm.gov.my/consumer-info" target="_blank" rel="noreferrer">马来西亚国家银行 — 消费者信息</a></li><li><a href="https://www.hasil.gov.my/en/stamp-duty/" target="_blank" rel="noreferrer">LHDN — 印花税</a></li></ul></div></div><p class="trust-warning">情景模型，而不是预测。它不包括一些交易成本、税收、装修、空置、保险和个人风险因素。改变假设来测试一个范围，而不是依赖一个结果。</p></section>
+<footer><p>KiraMY © 2026 · 免费马来西亚金融计算器</p></footer>
 <script>
 function val(id){return parseFloat(document.getElementById(id).value)||0}
 function fmt(n){return'RM '+Math.round(n).toLocaleString('en-MY')}

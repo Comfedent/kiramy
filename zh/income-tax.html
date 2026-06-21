@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malaysia Income Tax Calculator 2026 (YA 2025) – Free & Accurate | KiraMY</title>
-<meta name="description" content="Calculate your Malaysian income tax for YA 2025. Free calculator with latest LHDN tax brackets, EPF deductions, tax reliefs, and rebates. Updated for 2026 filing.">
+<title>马来西亚所得税计算器 2026 (YA 2025) – 免费且准确 |基拉米</title>
+<meta name="description" content="计算 2025 年马来西亚所得税。免费计算器包含最新的 LHDN 税级、EPF 扣除、税收减免和回扣。更新为 2026 年归档。">
 <meta name="keywords" content="Malaysia income tax calculator 2026, LHDN tax calculator, YA 2025 tax, PCB calculator Malaysia, Malaysia tax relief 2025">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -161,159 +161,159 @@ footer a { color: var(--teal); text-decoration: none; }
 #results { display: none; }
 </style>
 <link rel="stylesheet" href="trust.css">
-<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/income-tax.html" />
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/income-tax.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/income-tax.html" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/income-tax.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/income-tax.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/income-tax.html">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">Kira<span>MY</span></a>
-  <a href="index.html" class="back">← All Calculators</a>
+  <a href="index.html" class="back">← 所有计算器</a>
 </nav>
 
 <div class="page-header">
-  <h1>Malaysia Income Tax Calculator</h1>
-  <p>Year of Assessment 2025 · Filing in 2026 · Based on latest LHDN rates</p>
+  <h1>马来西亚所得税计算器</h1>
+  <p>评估年份 2025 · 2026 年申报 · 基于最新的 LHDN 费率</p>
 </div>
 
 <div class="container">
   <div class="grid">
 
-    <!-- INPUT -->
+    <!-- 输入 -->
     <div class="card">
-      <div class="card-title">Your Income</div>
+      <div class="card-title">您的收入</div>
 
       <div class="field">
-        <label>Annual Gross Income (RM)</label>
-        <input type="number" id="income" placeholder="e.g. 72000" value="">
-        <div class="hint">Total employment income before any deductions</div>
+        <label>年总收入 (RM)</label>
+        <input type="number" id="income" placeholder="例如72000" value="">
+        <div class="hint">扣除任何费用前的总就业收入</div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>EPF Rate (%)</label>
+          <label>公积金率 (%)</label>
           <select id="epfRate">
-            <option value="11" selected>11% (Standard)</option>
-            <option value="0">0% (Exempt)</option>
-            <option value="7">7% (Reduced)</option>
+            <option value="11" selected>11%（标准）</option>
+            <option value="0">0%（豁免）</option>
+            <option value="7">7%（减少）</option>
             <option value="9">9%</option>
           </select>
         </div>
         <div class="field">
-          <label>Marital Status</label>
+          <label>婚姻状况</label>
           <select id="marital">
-            <option value="single">Single</option>
-            <option value="married">Married</option>
+            <option value="single">单身的</option>
+            <option value="married">已婚</option>
           </select>
         </div>
       </div>
 
-      <!-- Relief toggle -->
+      <!-- 减压开关 -->
       <div class="relief-toggle" onclick="toggleRelief()" id="reliefToggle">
-        <span class="arrow">▶</span> Additional Tax Reliefs (Optional)
+        <span class="arrow">▶</span> 额外税收减免（可选）
       </div>
 
       <div class="relief-panel" id="reliefPanel">
         <div class="field">
-          <label>Lifestyle Relief (RM) — max 2,500</label>
+          <label>生活方式救济 (RM) — 最高 2,500</label>
           <input type="number" id="lifestyle" placeholder="0" value="0">
-          <div class="hint">Books, computers, sports equipment, internet</div>
+          <div class="hint">书籍、电脑、运动器材、互联网</div>
         </div>
         <div class="field">
-          <label>Medical & Education Insurance (RM) — max 3,000</label>
+          <label>医疗和教育保险 (RM) — 最高 3,000</label>
           <input type="number" id="insurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Life Insurance (RM) — max 3,000</label>
+          <label>人寿保险 (RM) — 最高 3,000</label>
           <input type="number" id="lifeInsurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Education Fees (RM) — max 7,000</label>
+          <label>教育费用 (RM) — 最高 7,000</label>
           <input type="number" id="education" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Medical Expenses – Self (RM) — max 8,000</label>
+          <label>医疗费用 – 自己 (RM) – 最高 8,000</label>
           <input type="number" id="medical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Parents Medical (RM) — max 8,000</label>
+          <label>父母医疗费 (RM) — 最高 8,000</label>
           <input type="number" id="parentsMedical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>SSPN Savings (RM) — max 8,000</label>
+          <label>SSPN 节省 (RM) — 最多 8,000</label>
           <input type="number" id="sspn" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Domestic Travel (RM) — max 1,000</label>
+          <label>国内旅行 (RM) — 最高 1,000</label>
           <input type="number" id="travel" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Zakat (RM)</label>
+          <label>天课 (RM)</label>
           <input type="number" id="zakat" placeholder="0" value="0">
-          <div class="hint">No limit — directly reduces tax payable</div>
+          <div class="hint">无限制——直接减少应纳税额</div>
         </div>
       </div>
 
-      <button class="calc-btn" onclick="calculate()">Calculate Tax</button>
+      <button class="calc-btn" onclick="calculate()">计算税金</button>
     </div>
 
-    <!-- RESULTS -->
+    <!-- 结果 -->
     <div>
       <div class="card" id="results">
-        <div class="card-title">Your Tax Summary</div>
+        <div class="card-title">您的税务摘要</div>
 
         <div class="result-hero">
-          <div class="label">Annual Tax Payable</div>
+          <div class="label">年度应纳税额</div>
           <div class="amount" id="totalTax">RM 0</div>
-          <div class="monthly" id="monthlyTax">RM 0 / month</div>
+          <div class="monthly" id="monthlyTax">RM 0 / 月</div>
         </div>
 
         <div class="result-row">
-          <span class="r-label">Gross Income</span>
+          <span class="r-label">总收入</span>
           <span class="r-value" id="rGross">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">EPF Relief (capped at RM4,000)</span>
+          <span class="r-label">EPF 减免（上限为 RM4,000）</span>
           <span class="r-value green" id="rEpf">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Personal Relief (RM 9,000)</span>
+          <span class="r-label">个人救济（RM 9,000）</span>
           <span class="r-value green" id="rPersonal">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Additional Reliefs</span>
+          <span class="r-label">额外的减免</span>
           <span class="r-value green" id="rAdditional">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Chargeable Income</span>
+          <span class="r-label">应课税收入</span>
           <span class="r-value" id="rChargeable">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Tax Before Rebate</span>
+          <span class="r-label">退税前税</span>
           <span class="r-value" id="rTaxBefore">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Tax Rebate</span>
+          <span class="r-label">退税</span>
           <span class="r-value green" id="rRebate">-</span>
         </div>
         <div class="result-row">
-          <span class="r-label">Zakat Deduction</span>
+          <span class="r-label">天课扣除</span>
           <span class="r-value green" id="rZakat">-</span>
         </div>
 
         <div class="effective-rate">
           <div class="rate" id="effectiveRate">0%</div>
-          <div class="rate-label">Effective Tax Rate</div>
+          <div class="rate-label">有效税率</div>
         </div>
       </div>
 
-      <!-- Tax Brackets -->
+      <!-- 税级 -->
       <div class="card" id="bracketsCard" style="margin-top:20px; display:none;">
-        <div class="card-title">Tax Bracket Breakdown</div>
+        <div class="card-title">税级明细</div>
         <table class="bracket-table">
           <thead>
-            <tr><th>Bracket (RM)</th><th>Rate</th><th>Tax (RM)</th></tr>
+            <tr><th>支架（RM）</th><th>速度</th><th>税（马币）</th></tr>
           </thead>
           <tbody id="bracketBody"></tbody>
         </table>
@@ -323,38 +323,38 @@ footer a { color: var(--teal); text-decoration: none; }
   </div>
 </div>
 
-<!-- SEO Content -->
+<!-- 搜索引擎优化内容 -->
 <div class="info-section">
   <div class="info-card">
-    <h2>How Malaysian Income Tax Works</h2>
-    <p>Malaysia uses a progressive tax system where different portions of your income are taxed at different rates. For Year of Assessment 2025, tax rates range from 0% (for the first RM5,000) to 30% (for income above RM2,000,000).</p>
+    <h2>马来西亚所得税如何运作</h2>
+    <p>马来西亚采用累进税制，收入的不同部分按不同的税率征税。 2025 课税年的税率范围为 0%（前 5,000 令吉）至 30%（收入超过 2,000,000 令吉）。</p>
     
-    <h3>What is Chargeable Income?</h3>
-    <p>Your chargeable income is calculated by subtracting EPF contributions and all eligible tax reliefs from your gross annual income. This is the amount used to determine which tax brackets apply to you.</p>
+    <h3>什么是应税收入？</h3>
+    <p>您的应纳税收入是通过从您的年总收入中减去 EPF 缴款和所有符合条件的税收减免来计算的。这是用于确定哪些税级适用于您的金额。</p>
 
-    <h3>Key Tax Reliefs for YA 2025</h3>
-    <p>Every Malaysian taxpayer receives an automatic RM9,000 individual relief. Additional reliefs include lifestyle purchases (up to RM2,500), medical and education insurance premiums (up to RM3,000), EPF contributions (up to RM4,000), education fees (up to RM7,000), and more.</p>
+    <h3>2025 财年的主要税收减免</h3>
+    <p>每个马来西亚纳税人都会自动获得 RM9,000 的个人减免。其他减免包括生活方式购买（高达 RM2,500）、医疗和教育保险费（高达 RM3,000）、EPF 缴款（高达 RM4,000）、教育费（高达 RM7,000）等。</p>
 
-    <h3>Tax Rebate</h3>
-    <p>If your chargeable income is RM35,000 or below, you are entitled to a RM400 tax rebate that directly reduces your tax payable. Married couples filing jointly may receive a combined rebate of RM800.</p>
+    <h3>退税</h3>
+    <p>如果您的应课税收入为 RM35,000 或以下，您有权获得 RM400 退税，直接减少您的应缴税款。已婚夫妇联合报税可获得 RM800 的综合回扣。</p>
 
-    <h3>Filing Deadline</h3>
-    <p>Filing deadlines and relief eligibility can change. Check the current guidance in LHDN MyTax before submitting a return.</p>
+    <h3>提交截止日期</h3>
+    <p>申请截止日期和救济资格可能会发生变化。提交报税表之前，请检查 LHDN MyTax 中的当前指南。</p>
   </div>
 </div>
 
 <section class="trust-panel" aria-labelledby="method-title">
-  <div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 21 June 2026</span></div>
+  <div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">审核日期：2026 年 6 月 21 日</span></div>
   <div class="trust-grid">
-    <div class="trust-box"><strong>Worked example</strong><p>Gross income RM60,000, standard EPF contribution, and no optional reliefs → EPF relief capped at RM4,000 → chargeable income RM47,000 → estimated tax before other rebates: RM1,320.</p></div>
-    <div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">LHDN — Individual tax</a></li><li><a href="https://mytax.hasil.gov.my/" target="_blank" rel="noreferrer">LHDN MyTax</a></li></ul></div>
+    <div class="trust-box"><strong>计算示例</strong><p>总收入 RM60,000，标准 EPF 供款，无可选减免 → EPF 减免上限为 RM4,000 → 应课税收入 RM47,000 → 其他回扣前的预估税额：RM1,320。</p></div>
+    <div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.hasil.gov.my/en/individual/" target="_blank" rel="noreferrer">LHDN——个人税</a></li><li><a href="https://mytax.hasil.gov.my/" target="_blank" rel="noreferrer">LHDN 我的税务</a></li></ul></div>
   </div>
-  <p class="trust-warning">Simplified resident-individual estimate for YA 2025. It does not cover every income type, relief condition, PCB credit, spouse assessment, or special case. Verify against your EA form and LHDN guidance.</p>
+  <p class="trust-warning">2025 年纳税年度的简化居民个人估算。它并不涵盖所有收入类型、救济条件、PCB 信贷、配偶评估或特殊情况。根据您的 EA 表格和 LHDN 指南进行验证。</p>
 </section>
 
 <footer>
-  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
-  <p style="margin-top:8px;">This calculator is for reference only. Consult LHDN or a tax professional for official advice.</p>
+  <p>KiraMY © 2026 · 免费马来西亚金融计算器</p>
+  <p style="margin-top:8px;">此计算器仅供参考。请咨询 LHDN 或税务专业人士以获得官方建议。</p>
 </footer>
 
 <script>

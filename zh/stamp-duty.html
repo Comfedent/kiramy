@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stamp Duty Calculator Malaysia 2026 – MOT, Legal Fees & Loan Duty | KiraMY</title>
-<meta name="description" content="Calculate Malaysian stamp duty (MOT), loan agreement duty, and legal fees for property purchases. Updated for 2026 with foreigner 8% rate.">
+<title>马来西亚印花税计算器 2026 – MOT、法律费用和贷款税 |基拉米</title>
+<meta name="description" content="计算马来西亚印花税 (MOT)、贷款协议税和购买房产的法律费用。更新为 2026 年，外国人税率为 8%。">
 <meta name="keywords" content="stamp duty calculator Malaysia, MOT stamp duty, duti setem Malaysia, legal fees property Malaysia 2026">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0a1628;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--red:#ef4444;--purple:#8b5cf6;--orange:#f59e0b}
@@ -49,46 +49,46 @@ footer a{color:var(--teal);text-decoration:none}
 #results{display:none}
 </style>
 <link rel="stylesheet" href="trust.css">
-<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/stamp-duty.html" />
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/stamp-duty.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/stamp-duty.html" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/stamp-duty.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/stamp-duty.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/stamp-duty.html">
 </head>
 <body>
-<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← All Calculators</a></nav>
+<nav><a href="index.html" class="logo">Kira<span>MY</span></a><a href="index.html" class="back">← 所有计算器</a></nav>
 <div class="page-header">
-  <h1>Stamp Duty Calculator</h1>
-  <p>MOT stamp duty, loan agreement duty & legal fees for property purchases in Malaysia</p>
+  <h1>印花税计算器</h1>
+  <p>在马来西亚购买房产的 MOT 印花税、贷款协议税和法律费用</p>
 </div>
 <div class="container">
   <div class="grid">
     <div class="card">
-      <div class="card-title">Property Details</div>
-      <div class="field"><label>Property Price (RM)</label><input type="number" id="price" placeholder="e.g. 500000"></div>
-      <div class="field"><label>Buyer Status</label>
+      <div class="card-title">物业详情</div>
+      <div class="field"><label>楼价 (RM)</label><input type="number" id="price" placeholder="例如50万"></div>
+      <div class="field"><label>买家状态</label>
         <select id="status">
-          <option value="citizen">Malaysian Citizen</option>
-          <option value="pr">Permanent Resident</option>
-          <option value="foreigner">Foreigner / Foreign Company</option>
+          <option value="citizen">马来西亚公民</option>
+          <option value="pr">永久居民</option>
+          <option value="foreigner">外国人/外国公司</option>
         </select>
       </div>
-      <div class="field"><label>First-Time Buyer?</label>
-        <select id="firstTime"><option value="no">No</option><option value="yes">Yes</option></select>
-        <div class="hint">Exemption for citizens buying ≤ RM500k (until Dec 2027)</div>
+      <div class="field"><label>首次买家？</label>
+        <select id="firstTime"><option value="no">不</option><option value="yes">是的</option></select>
+        <div class="hint">公民购买 ≤ RM50 万可豁免（截至 2027 年 12 月）</div>
       </div>
-      <div class="field"><label>Loan Amount (RM)</label><input type="number" id="loan" placeholder="e.g. 450000">
-        <div class="hint">For loan agreement stamp duty (0.5%)</div>
+      <div class="field"><label>贷款金额 (RM)</label><input type="number" id="loan" placeholder="例如450000">
+        <div class="hint">贷款协议印花税（0.5%）</div>
       </div>
-      <button class="calc-btn" onclick="calculate()">Calculate Stamp Duty</button>
+      <button class="calc-btn" onclick="calculate()">计算印花税</button>
     </div>
     <div>
       <div class="card" id="results">
-        <div class="card-title">Cost Breakdown</div>
-        <div class="result-hero"><div class="label">Total Upfront Costs</div><div class="amount" id="total">RM 0</div></div>
-        <div class="result-row"><span class="r-label">MOT Stamp Duty</span><span class="r-value" id="rMot">-</span></div>
-        <div class="result-row"><span class="r-label">Loan Agreement Duty (0.5%)</span><span class="r-value" id="rLoan">-</span></div>
-        <div class="result-row"><span class="r-label">Legal Fees (MOT)</span><span class="r-value" id="rLegalMot">-</span></div>
-        <div class="result-row"><span class="r-label">Legal Fees (Loan)</span><span class="r-value" id="rLegalLoan">-</span></div>
-        <div class="result-row"><span class="r-label">Disbursement (est.)</span><span class="r-value" id="rDisburse">-</span></div>
+        <div class="card-title">成本明细</div>
+        <div class="result-hero"><div class="label">前期总成本</div><div class="amount" id="total">RM 0</div></div>
+        <div class="result-row"><span class="r-label">交通运输部印花税</span><span class="r-value" id="rMot">-</span></div>
+        <div class="result-row"><span class="r-label">贷款协议税（0.5%）</span><span class="r-value" id="rLoan">-</span></div>
+        <div class="result-row"><span class="r-label">法律费用（MOT）</span><span class="r-value" id="rLegalMot">-</span></div>
+        <div class="result-row"><span class="r-label">法律费用（贷款）</span><span class="r-value" id="rLegalLoan">-</span></div>
+        <div class="result-row"><span class="r-label">支出（预计）</span><span class="r-value" id="rDisburse">-</span></div>
         <div id="exemptionNote" class="exemption-note" style="display:none"></div>
       </div>
     </div>
@@ -96,18 +96,18 @@ footer a{color:var(--teal);text-decoration:none}
 </div>
 <div class="info-section">
   <div class="info-card">
-    <h2>How Stamp Duty Works in Malaysia</h2>
-    <p>Stamp duty on property transfers (MOT) uses a progressive tiered system for Malaysian citizens and PRs: 1% on the first RM100,000, 2% on RM100,001–500,000, 3% on RM500,001–1,000,000, and 4% above RM1,000,000.</p>
-    <h3>Foreign Buyers (2026)</h3>
-    <p>From 1 January 2026, non-citizens and foreign companies pay a flat 8% stamp duty on residential property transfers, up from 4%. Permanent residents are exempt from the foreign rate.</p>
-    <h3>First-Time Buyer Exemption</h3>
-    <p>Malaysian citizens purchasing their first home at RM500,000 or below receive full stamp duty exemption on both MOT and loan agreement, valid for SPAs executed until 31 December 2027.</p>
-    <h3>Loan Agreement Stamp Duty</h3>
-    <p>A flat 0.5% stamp duty applies to loan/financing agreements for property purchases.</p>
+    <h2>马来西亚的印花税如何运作</h2>
+    <p>财产转让印花税（MOT）对马来西亚公民和永久居民采用累进分层制度：首100,000令吉征收1%，100,001-500,000令吉征收2%，500,001-1,000,000令吉征收3%，1,000,000令吉以上征收4%。</p>
+    <h3>外国买家 (2026)</h3>
+    <p>自 2026 年 1 月 1 日起，非公民和外国公司对住宅物业转让缴纳 8% 的固定印花税，高于 4%。永久居民免征外国人税率。</p>
+    <h3>首次购房者豁免</h3>
+    <p>马来西亚公民以 RM500,000 或以下的价格购买第一套房子时，可享受 MOT 和贷款协议的全额印花税豁免，适用于 2027 年 12 月 31 日之前执行的 SPA。</p>
+    <h3>贷款协议印花税</h3>
+    <p>购买房产的贷款/融资协议适用 0.5% 的固定印花税。</p>
   </div>
 </div>
-<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 21 June 2026</span></div><div class="trust-grid"><div class="trust-box"><strong>Worked example</strong><p>RM500,000 property, Malaysian/PR, no first-home exemption → MOT duty RM9,000. A RM450,000 financing agreement adds RM2,250 loan duty, before legal fees and disbursements.</p></div><div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.hasil.gov.my/en/stamp-duty/" target="_blank" rel="noreferrer">LHDN — Stamp duty</a></li><li><a href="https://belanjawan.mof.gov.my/en/" target="_blank" rel="noreferrer">Ministry of Finance — Budget documents</a></li><li><a href="https://www.malaysianbar.org.my/" target="_blank" rel="noreferrer">Malaysian Bar — Legal fee rules</a></li></ul></div></div><p class="trust-warning">Reference estimate only. Exemptions depend on eligibility and instrument dates; legal fees can vary within permitted rules. Confirm with LHDN and your solicitor before a transaction.</p></section>
-<footer><p>KiraMY © 2026 · Free Malaysian Financial Calculators</p><p style="margin-top:8px;">For reference only. Consult a lawyer for exact costs.</p></footer>
+<section class="trust-panel" aria-labelledby="method-title"><div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">审核日期：2026 年 6 月 21 日</span></div><div class="trust-grid"><div class="trust-box"><strong>计算示例</strong><p>RM500,000 财产，马来西亚人/PR，无首套房豁免 → MOT 税 RM9,000。价值 45 万令吉的融资协议在法律费用和支出之前增加了 2,250 令吉的贷款税。</p></div><div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.hasil.gov.my/en/stamp-duty/" target="_blank" rel="noreferrer">LHDN — 印花税</a></li><li><a href="https://belanjawan.mof.gov.my/en/" target="_blank" rel="noreferrer">财政部——预算文件</a></li><li><a href="https://www.malaysianbar.org.my/" target="_blank" rel="noreferrer">马来西亚律师协会 — 法律费用规则</a></li></ul></div></div><p class="trust-warning">仅供参考估计。豁免取决于资格和文书日期；法律费用可以在允许的规则范围内有所不同。交易前请与 LHDN 和您的律师确认。</p></section>
+<footer><p>KiraMY © 2026 · 免费马来西亚金融计算器</p><p style="margin-top:8px;">仅供参考。具体费用请咨询律师。</p></footer>
 <script>
 function val(id){return parseFloat(document.getElementById(id).value)||0}
 function fmt(n){return'RM '+n.toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2})}

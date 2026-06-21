@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPF Retirement Calculator Malaysia 2026 – KWSP Savings Projection | KiraMY</title>
-<meta name="description" content="Project your EPF (KWSP) retirement savings in Malaysia. Calculate how much you'll have at age 55/60 based on salary, contribution rate, and dividend growth.">
+<title>马来西亚 EPF 退休计算器 2026 – KWSP 储蓄预测 |基拉米</title>
+<meta name="description" content="预测您在马来西亚的 EPF (KWSP) 退休储蓄。根据工资、缴款率和股息增长计算您在 55/60 岁时将拥有多少钱。">
 <meta name="keywords" content="EPF calculator Malaysia, KWSP calculator, EPF retirement calculator, Malaysia EPF dividend, Kalkulator KWSP">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0a1628;--navy-light:#111d35;--teal:#14b8a6;--teal-glow:rgba(20,184,166,0.15);--gold:#f5c542;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(17,29,53,0.7);--border:rgba(148,163,184,0.12);--green:#22c55e;--blue:#3b82f6;--orange:#f59e0b;--purple:#8b5cf6}
@@ -77,128 +77,128 @@ footer a{color:var(--teal);text-decoration:none}
 #results{display:none}
 </style>
 <link rel="stylesheet" href="trust.css">
-<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/epf.html" />
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/epf.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/epf.html" />
+<link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/epf.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/epf.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/epf.html">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">Kira<span>MY</span></a>
-  <a href="index.html" class="back">← All Calculators</a>
+  <a href="index.html" class="back">← 所有计算器</a>
 </nav>
 
 <div class="page-header">
-  <h1>EPF Retirement Calculator</h1>
-  <p>Project your KWSP savings at retirement based on salary, contributions & dividends</p>
+  <h1>EPF 退休计算器</h1>
+  <p>根据工资、缴款和股息预测您退休时的 KWSP 储蓄</p>
 </div>
 
 <div class="container">
   <div class="grid">
 
     <div class="card">
-      <div class="card-title">Your Details</div>
+      <div class="card-title">您的详细信息</div>
 
       <div class="field-row">
         <div class="field">
-          <label>Current Age</label>
+          <label>当前年龄</label>
           <input type="number" id="age" value="25" min="18" max="59">
         </div>
         <div class="field">
-          <label>Retirement Age</label>
+          <label>退休年龄</label>
           <select id="retireAge">
-            <option value="55">55 (EPF withdrawal)</option>
-            <option value="60" selected>60 (Standard)</option>
-            <option value="65">65 (Extended)</option>
+            <option value="55">55（公积金提款）</option>
+            <option value="60" selected>60（标准）</option>
+            <option value="65">65（扩展）</option>
           </select>
         </div>
       </div>
 
       <div class="field">
-        <label>Monthly Gross Salary (RM)</label>
-        <input type="number" id="salary" placeholder="e.g. 5000">
+        <label>每月工资总额 (RM)</label>
+        <input type="number" id="salary" placeholder="例如5000">
       </div>
 
       <div class="field">
-        <label>Current EPF Balance (RM)</label>
+        <label>当前 EPF 余额 (RM)</label>
         <input type="number" id="balance" value="0" placeholder="0">
-        <div class="hint">Check your balance on i-Akaun (KWSP)</div>
+        <div class="hint">在 i-Akaun (KWSP) 上查看您的余额</div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>Employee Rate (%)</label>
+          <label>员工比例（%）</label>
           <select id="empRate">
-            <option value="11" selected>11% (Standard)</option>
-            <option value="9">9% (Custom scenario)</option>
-            <option value="7">7% (Custom scenario)</option>
+            <option value="11" selected>11%（标准）</option>
+            <option value="9">9%（自定义场景）</option>
+            <option value="7">7%（自定义场景）</option>
           </select>
         </div>
         <div class="field">
-          <label>Employer Rate (%)</label>
+          <label>雇主率（%）</label>
           <select id="erRate">
-            <option value="13" selected>13% (Salary ≤ RM5k)</option>
-            <option value="12">12% (Salary > RM5k)</option>
+            <option value="13" selected>13% (薪水 ≤ RM5k)</option>
+            <option value="12">12% (薪水 &gt; RM5,000)</option>
           </select>
         </div>
       </div>
 
       <div class="field">
-        <label>Expected Annual Salary Increment (%)</label>
+        <label>预期年薪增幅 (%)</label>
         <input type="number" id="increment" value="3" step="0.5" min="0">
       </div>
 
       <div class="field">
-        <label>Expected EPF Dividend Rate (% p.a.)</label>
+        <label>预期 EPF 股息率（每年%）</label>
         <input type="number" id="dividend" value="5.5" step="0.1" min="0">
-        <div class="hint">10-year average conventional: ~5.5%</div>
+        <div class="hint">10年平均常规：~5.5%</div>
       </div>
 
-      <button class="calc-btn" onclick="calculate()">Project Retirement Savings</button>
+      <button class="calc-btn" onclick="calculate()">项目退休储蓄</button>
     </div>
 
     <div>
       <div class="card" id="results">
-        <div class="card-title">Retirement Projection</div>
+        <div class="card-title">退休预测</div>
 
         <div class="result-hero">
-          <div class="label">Total EPF at Retirement</div>
+          <div class="label">退休时的公积金总额</div>
           <div class="amount" id="totalEpf">RM 0</div>
-          <div class="sub" id="retireInfo">At age 60 · In 35 years</div>
+          <div class="sub" id="retireInfo">60 岁 · 35 年后</div>
         </div>
 
         <div class="stat-grid">
           <div class="stat-box blue">
             <div class="s-val" id="sContrib">-</div>
-            <div class="s-label">Total Contributions</div>
+            <div class="s-label">总贡献</div>
           </div>
           <div class="stat-box green">
             <div class="s-val" id="sDividend">-</div>
-            <div class="s-label">Total Dividends</div>
+            <div class="s-label">总股息</div>
           </div>
           <div class="stat-box gold">
             <div class="s-val" id="sYears">-</div>
-            <div class="s-label">Years to Retirement</div>
+            <div class="s-label">退休年数</div>
           </div>
           <div class="stat-box purple">
             <div class="s-val" id="sFinalSalary">-</div>
-            <div class="s-label">Final Monthly Salary</div>
+            <div class="s-label">最终月薪</div>
           </div>
         </div>
 
         <div class="monthly-box">
           <div class="m-val" id="monthlyIncome">RM 0</div>
-          <div class="m-label">Estimated Monthly Retirement Income</div>
-          <div class="m-sub" id="monthlyNote">Based on 20-year drawdown after retirement</div>
+          <div class="m-label">预计每月退休收入</div>
+          <div class="m-sub" id="monthlyNote">基于退休后20年的提款</div>
         </div>
 
-        <!-- Growth chart -->
+        <!-- 成长图 -->
         <div style="margin-top:24px">
-          <div class="card-title">Growth Over Time</div>
+          <div class="card-title">随着时间的推移增长</div>
           <div class="bar-chart" id="barChart"></div>
           <div class="bar-legend">
-            <div><span class="dot" style="background:var(--blue)"></span> Contributions</div>
-            <div><span class="dot" style="background:var(--green)"></span> Dividends</div>
+            <div><span class="dot" style="background:var(--blue)"></span> 贡献</div>
+            <div><span class="dot" style="background:var(--green)"></span> 股息</div>
           </div>
         </div>
       </div>
@@ -208,32 +208,32 @@ footer a{color:var(--teal);text-decoration:none}
 
 <div class="info-section">
   <div class="info-card">
-    <h2>Understanding EPF (KWSP) in Malaysia</h2>
-    <p>The Employees Provident Fund (EPF), or Kumpulan Wang Simpanan Pekerja (KWSP), is Malaysia's mandatory retirement savings scheme. Both employees and employers contribute a percentage of the employee's monthly salary.</p>
+    <h2>了解马来西亚的 EPF (KWSP)</h2>
+    <p>雇员公积金 (EPF) 或 Kumpulan Wang Simpanan Pekerja (KWSP) 是马来西亚的强制性退休储蓄计划。雇员和雇主均按雇员月薪的一定比例缴纳。</p>
 
-    <h3>Contribution Rates (2025-2026)</h3>
-    <p>For Malaysian members below age 60, the standard employee share is 11%. The standard employer share is 13% for monthly wages of RM5,000 and below, and 12% for wages above RM5,000. Actual payroll contributions follow KWSP's Third Schedule wage table rather than simple percentage multiplication.</p>
+    <h3>贡献率（2025-2026）</h3>
+    <p>对于60岁以下的马来西亚会员，标准员工份额为11%。月薪5,000令吉或以下的标准雇主份额为13%，月薪5,000令吉以上的标准雇主份额为12%。实际工资缴款遵循 KWSP 的第三附表工资表，而不是简单的百分比乘法。</p>
 
-    <h3>EPF Dividends</h3>
-    <p>EPF declares annual dividends on members' savings. The conventional dividend rate has averaged approximately 5.5% over the past decade. Simpanan Shariah averages around 5.0%.</p>
+    <h3>公积金股息</h3>
+    <p>EPF 宣派会员储蓄的年度红利。过去十年传统股息率平均约为 5.5%。 Simpanan Shariah 平均为 5.0% 左右。</p>
 
-    <h3>Withdrawal at Retirement</h3>
-    <p>Members can make full withdrawals at age 55. Partial withdrawals from Account 2 are available for housing, education, and medical purposes before retirement age.</p>
+    <h3>退休时提款</h3>
+    <p>会员可在 55 岁时全额提款。账户 2 的部分提款可用于退休年龄前的住房、教育和医疗用途。</p>
 
-    <h3>Retirement adequacy</h3>
-    <p>KWSP savings benchmarks are periodically revised. Treat this projection as a planning scenario and compare it with the latest Retirement Income Adequacy guidance published by KWSP.</p>
+    <h3>退休充足性</h3>
+    <p>KWSP 储蓄基准定期修订。将此预测视为规划方案，并将其与 KWSP 发布的最新退休收入充足性指南进行比较。</p>
   </div>
 </div>
 
 <section class="trust-panel" aria-labelledby="method-title">
-  <div class="trust-top"><h2 id="method-title">Method, example & sources</h2><span class="trust-date">Reviewed 21 June 2026</span></div>
-  <div class="trust-grid"><div class="trust-box"><strong>Worked example</strong><p>At RM5,000 monthly wages, the simplified 11% employee + 13% employer model adds about RM1,200 monthly, or RM14,400 yearly, before dividends. Payroll figures may differ because KWSP uses a wage table.</p></div><div class="trust-box"><strong>Official checks</strong><ul><li><a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP — Mandatory contribution</a></li><li><a href="https://www.kwsp.gov.my/en/member/savings/dividend" target="_blank" rel="noreferrer">KWSP — Dividend</a></li></ul></div></div>
-  <p class="trust-warning">Projection only. It assumes steady annual salary growth and a constant dividend rate; it excludes contribution-table rounding, withdrawals, age-based rate changes, and future policy changes.</p>
+  <div class="trust-top"><h2 id="method-title">计算方法、示例与来源</h2><span class="trust-date">审核日期：2026 年 6 月 21 日</span></div>
+  <div class="trust-grid"><div class="trust-box"><strong>计算示例</strong><p>按月薪 5,000 令吉计算，简化的 11% 雇员 + 13% 雇主模式在股息前增加每月约 1,200 令吉，或每年约 14,400 令吉。由于 KWSP 使用工资表，工资数字可能有所不同。</p></div><div class="trust-box"><strong>官方来源核对</strong><ul><li><a href="https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" target="_blank" rel="noreferrer">KWSP：强制性缴款</a></li><li><a href="https://www.kwsp.gov.my/en/member/savings/dividend" target="_blank" rel="noreferrer">KWSP：股息</a></li></ul></div></div>
+  <p class="trust-warning">仅投影。它假设年薪稳定增长和股息率恒定；它不包括缴费表四舍五入、提款、基于年龄的利率变化和未来的政策变化。</p>
 </section>
 
 <footer>
-  <p>KiraMY © 2026 · Free Malaysian Financial Calculators</p>
-  <p style="margin-top:8px;">This calculator is for reference only. Check i-Akaun for your actual EPF balance.</p>
+  <p>KiraMY © 2026 · 免费马来西亚金融计算器</p>
+  <p style="margin-top:8px;">此计算器仅供参考。检查 i-Akaun 了解您的实际 EPF 余额。</p>
 </footer>
 
 <script>

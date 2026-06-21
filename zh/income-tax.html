@@ -76,6 +76,12 @@ nav {
 
 /* ─── RELIEF SECTION ─── */
 .relief-toggle {
+  appearance: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
   display: flex; align-items: center; gap: 10px;
   cursor: pointer; padding: 10px 0; color: var(--teal);
   font-size: 14px; font-weight: 600; user-select: none;
@@ -162,6 +168,7 @@ footer a { color: var(--teal); text-decoration: none; }
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/income-tax.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/income-tax.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/income-tax.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/income-tax.html">
@@ -186,15 +193,15 @@ footer a { color: var(--teal); text-decoration: none; }
       <div class="card-title">您的收入</div>
 
       <div class="field">
-        <label>年总收入 (RM)</label>
+        <label for="income">年总收入 (RM)</label>
         <input type="number" id="income" placeholder="例如72000" value="">
         <div class="hint">扣除任何费用前的总就业收入</div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>公积金率 (%)</label>
-          <select id="epfRate">
+          <label for="epfRate">公积金率 (%)</label>
+        <select id="epfRate">
             <option value="11" selected>11%（标准）</option>
             <option value="0">0%（豁免）</option>
             <option value="7">7%（减少）</option>
@@ -202,8 +209,8 @@ footer a { color: var(--teal); text-decoration: none; }
           </select>
         </div>
         <div class="field">
-          <label>婚姻状况</label>
-          <select id="marital">
+          <label for="marital">婚姻状况</label>
+        <select id="marital">
             <option value="single">单身的</option>
             <option value="married">已婚</option>
           </select>
@@ -211,47 +218,47 @@ footer a { color: var(--teal); text-decoration: none; }
       </div>
 
       <!-- 减压开关 -->
-      <div class="relief-toggle" onclick="toggleRelief()" id="reliefToggle">
+      <button class="relief-toggle" type="button" onclick="toggleRelief()" id="reliefToggle" aria-expanded="false" aria-controls="reliefPanel">
         <span class="arrow">▶</span> 额外税收减免（可选）
-      </div>
+      </button>
 
       <div class="relief-panel" id="reliefPanel">
         <div class="field">
-          <label>生活方式救济 (RM) — 最高 2,500</label>
-          <input type="number" id="lifestyle" placeholder="0" value="0">
+          <label for="lifestyle">生活方式救济 (RM) — 最高 2,500</label>
+        <input type="number" id="lifestyle" placeholder="0" value="0">
           <div class="hint">书籍、电脑、运动器材、互联网</div>
         </div>
         <div class="field">
-          <label>医疗和教育保险 (RM) — 最高 3,000</label>
-          <input type="number" id="insurance" placeholder="0" value="0">
+          <label for="insurance">医疗和教育保险 (RM) — 最高 3,000</label>
+        <input type="number" id="insurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>人寿保险 (RM) — 最高 3,000</label>
-          <input type="number" id="lifeInsurance" placeholder="0" value="0">
+          <label for="lifeInsurance">人寿保险 (RM) — 最高 3,000</label>
+        <input type="number" id="lifeInsurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>教育费用 (RM) — 最高 7,000</label>
-          <input type="number" id="education" placeholder="0" value="0">
+          <label for="education">教育费用 (RM) — 最高 7,000</label>
+        <input type="number" id="education" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>医疗费用 – 自己 (RM) – 最高 8,000</label>
-          <input type="number" id="medical" placeholder="0" value="0">
+          <label for="medical">医疗费用 – 自己 (RM) – 最高 8,000</label>
+        <input type="number" id="medical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>父母医疗费 (RM) — 最高 8,000</label>
-          <input type="number" id="parentsMedical" placeholder="0" value="0">
+          <label for="parentsMedical">父母医疗费 (RM) — 最高 8,000</label>
+        <input type="number" id="parentsMedical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>SSPN 节省 (RM) — 最多 8,000</label>
-          <input type="number" id="sspn" placeholder="0" value="0">
+          <label for="sspn">SSPN 节省 (RM) — 最多 8,000</label>
+        <input type="number" id="sspn" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>国内旅行 (RM) — 最高 1,000</label>
-          <input type="number" id="travel" placeholder="0" value="0">
+          <label for="travel">国内旅行 (RM) — 最高 1,000</label>
+        <input type="number" id="travel" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>天课 (RM)</label>
-          <input type="number" id="zakat" placeholder="0" value="0">
+          <label for="zakat">天课 (RM)</label>
+        <input type="number" id="zakat" placeholder="0" value="0">
           <div class="hint">无限制——直接减少应纳税额</div>
         </div>
       </div>
@@ -373,8 +380,9 @@ function fmt(n) { return 'RM ' + n.toLocaleString('en-MY', { minimumFractionDigi
 function toggleRelief() {
   const t = document.getElementById('reliefToggle');
   const p = document.getElementById('reliefPanel');
-  t.classList.toggle('open');
-  p.classList.toggle('open');
+  const open = p.classList.toggle('open');
+  t.classList.toggle('open', open);
+  t.setAttribute('aria-expanded', String(open));
 }
 
 function calculate() {

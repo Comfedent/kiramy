@@ -10,6 +10,8 @@ Each rule file exposes metadata alongside the constants or assumptions used by a
 - `assumptions`
 - `knownLimitations`
 
+Calculator pages should also expose a user-facing way to report mismatches. The shared next-steps module links to a prefilled GitHub issue so rule errors, edge cases, and missing official-source updates can be tracked instead of disappearing into private messages.
+
 Current migration status:
 
 - Done: `income-tax.html`, `home-loan.html`

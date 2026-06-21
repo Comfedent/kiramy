@@ -57,6 +57,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/car-loan.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/car-loan.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/car-loan.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/car-loan.html">
@@ -68,12 +69,12 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="grid">
     <div class="card">
       <div class="card-title">汽车贷款详情</div>
-      <div class="field"><label>车价 (RM)</label><input type="number" id="price" placeholder="例如100000"></div>
-      <div class="field"><label>首付 （％）</label><input type="number" id="down" value="10" min="0" max="100"><div class="hint">新车通常为 10%</div></div>
+      <div class="field"><label for="price">车价 (RM)</label><input type="number" id="price" placeholder="例如100000"></div>
+      <div class="field"><label for="down">首付 （％）</label><input type="number" id="down" value="10" min="0" max="100"><div class="hint">新车通常为 10%</div></div>
       <div class="field-row">
-        <div class="field"><label>利率（年利率%）</label><input type="number" id="rate" value="3.5" step="0.1"><div class="hint">新：2.5-3.5% · 二手：4-6%</div></div>
-        <div class="field"><label>贷款期限（年）</label>
-          <select id="tenure"><option value="5">5年</option><option value="7" selected>7年</option><option value="9">9年</option></select>
+        <div class="field"><label for="rate">利率（年利率%）</label><input type="number" id="rate" value="3.5" step="0.1"><div class="hint">新：2.5-3.5% · 二手：4-6%</div></div>
+        <div class="field"><label for="tenure">贷款期限（年）</label>
+        <select id="tenure"><option value="5">5年</option><option value="7" selected>7年</option><option value="9">9年</option></select>
         </div>
       </div>
       <button class="calc-btn" onclick="calculate()">计算付款</button>

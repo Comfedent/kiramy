@@ -78,6 +78,7 @@ footer a{color:var(--teal);text-decoration:none}
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/epf.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/epf.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/epf.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/epf.html" />
@@ -102,12 +103,12 @@ footer a{color:var(--teal);text-decoration:none}
 
       <div class="field-row">
         <div class="field">
-          <label>Current Age</label>
-          <input type="number" id="age" value="25" min="18" max="59">
+          <label for="age">Current Age</label>
+        <input type="number" id="age" value="25" min="18" max="59">
         </div>
         <div class="field">
-          <label>Retirement Age</label>
-          <select id="retireAge">
+          <label for="retireAge">Retirement Age</label>
+        <select id="retireAge">
             <option value="55">55 (EPF withdrawal)</option>
             <option value="60" selected>60 (Standard)</option>
             <option value="65">65 (Extended)</option>
@@ -116,28 +117,28 @@ footer a{color:var(--teal);text-decoration:none}
       </div>
 
       <div class="field">
-        <label>Monthly Gross Salary (RM)</label>
+        <label for="salary">Monthly Gross Salary (RM)</label>
         <input type="number" id="salary" placeholder="e.g. 5000">
       </div>
 
       <div class="field">
-        <label>Current EPF Balance (RM)</label>
+        <label for="balance">Current EPF Balance (RM)</label>
         <input type="number" id="balance" value="0" placeholder="0">
         <div class="hint">Check your balance on i-Akaun (KWSP)</div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>Employee Rate (%)</label>
-          <select id="empRate">
+          <label for="empRate">Employee Rate (%)</label>
+        <select id="empRate">
             <option value="11" selected>11% (Standard)</option>
             <option value="9">9% (Custom scenario)</option>
             <option value="7">7% (Custom scenario)</option>
           </select>
         </div>
         <div class="field">
-          <label>Employer Rate (%)</label>
-          <select id="erRate">
+          <label for="erRate">Employer Rate (%)</label>
+        <select id="erRate">
             <option value="13" selected>13% (Salary ≤ RM5k)</option>
             <option value="12">12% (Salary > RM5k)</option>
           </select>
@@ -145,12 +146,12 @@ footer a{color:var(--teal);text-decoration:none}
       </div>
 
       <div class="field">
-        <label>Expected Annual Salary Increment (%)</label>
+        <label for="increment">Expected Annual Salary Increment (%)</label>
         <input type="number" id="increment" value="3" step="0.5" min="0">
       </div>
 
       <div class="field">
-        <label>Expected EPF Dividend Rate (% p.a.)</label>
+        <label for="dividend">Expected EPF Dividend Rate (% p.a.)</label>
         <input type="number" id="dividend" value="5.5" step="0.1" min="0">
         <div class="hint">10-year average conventional: ~5.5%</div>
       </div>

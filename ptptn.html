@@ -50,6 +50,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/ptptn.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/ptptn.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/ptptn.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/ptptn.html" />
@@ -61,11 +62,11 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="grid">
     <div class="card">
       <div class="card-title">Loan Details</div>
-      <div class="field"><label>Total PTPTN Loan (RM)</label><input type="number" id="loan" placeholder="e.g. 30000"><div class="hint">Total amount borrowed including ujrah/interest</div></div>
-      <div class="field"><label>Ujrah / Interest Rate (% p.a.)</label>
+      <div class="field"><label for="loan">Total PTPTN Loan (RM)</label><input type="number" id="loan" placeholder="e.g. 30000"><div class="hint">Total amount borrowed including ujrah/interest</div></div>
+      <div class="field"><label for="rate">Ujrah / Interest Rate (% p.a.)</label>
         <select id="rate"><option value="1">1% (Conventional – current)</option><option value="0">0% (If eligible for waiver)</option><option value="3">3% (Older loans)</option></select>
       </div>
-      <div class="field"><label>Monthly Payment (RM)</label><input type="number" id="monthly" placeholder="e.g. 300"><div class="hint">Minimum RM50/month. Salary deduction or voluntary.</div></div>
+      <div class="field"><label for="monthly">Monthly Payment (RM)</label><input type="number" id="monthly" placeholder="e.g. 300"><div class="hint">Minimum RM50/month. Salary deduction or voluntary.</div></div>
       <button class="calc-btn" onclick="calculate()">Calculate Repayment</button>
     </div>
     <div>

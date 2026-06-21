@@ -69,6 +69,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/rent-vs-buy.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/rent-vs-buy.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/rent-vs-buy.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/rent-vs-buy.html">
@@ -80,19 +81,19 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="input-grid">
     <div class="card">
       <div class="card-title buy-t">🏠 购买</div>
-      <div class="field"><label>楼价 (RM)</label><input type="number" id="price" placeholder="500000"></div>
-      <div class="field"><label>首付 （％）</label><input type="number" id="down" value="10"></div>
-      <div class="field"><label>贷款利率（年利率%）</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
-      <div class="field"><label>贷款期限（年）</label><input type="number" id="tenure" value="30"></div>
-      <div class="field"><label>房产增值（每年%）</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">马来西亚房地产平均每年约 3-5%</div></div>
-      <div class="field"><label>维护和保养（RM/月）</label><input type="number" id="maintenance" value="300"></div>
+      <div class="field"><label for="price">楼价 (RM)</label><input type="number" id="price" placeholder="500000"></div>
+      <div class="field"><label for="down">首付 （％）</label><input type="number" id="down" value="10"></div>
+      <div class="field"><label for="loanRate">贷款利率（年利率%）</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
+      <div class="field"><label for="tenure">贷款期限（年）</label><input type="number" id="tenure" value="30"></div>
+      <div class="field"><label for="appreciation">房产增值（每年%）</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">马来西亚房地产平均每年约 3-5%</div></div>
+      <div class="field"><label for="maintenance">维护和保养（RM/月）</label><input type="number" id="maintenance" value="300"></div>
     </div>
     <div class="card">
       <div class="card-title rent-t">🏢 出租</div>
-      <div class="field"><label>月租 (RM)</label><input type="number" id="rent" placeholder="1500"></div>
-      <div class="field"><label>年租金涨幅（%）</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">通常每年增长 3-5%</div></div>
-      <div class="field"><label>储蓄投资回报率（每年%）</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">如果您将首付用于投资</div></div>
-      <div class="field"><label>比较期（年）</label><input type="number" id="period" value="10" min="1" max="30"></div>
+      <div class="field"><label for="rent">月租 (RM)</label><input type="number" id="rent" placeholder="1500"></div>
+      <div class="field"><label for="rentIncrease">年租金涨幅（%）</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">通常每年增长 3-5%</div></div>
+      <div class="field"><label for="investReturn">储蓄投资回报率（每年%）</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">如果您将首付用于投资</div></div>
+      <div class="field"><label for="period">比较期（年）</label><input type="number" id="period" value="10" min="1" max="30"></div>
     </div>
   </div>
   <button class="calc-btn" onclick="calculate()">比较租赁与购买</button>

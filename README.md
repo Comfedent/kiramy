@@ -70,6 +70,8 @@ Links: [Case study](https://www.kira-malaysia.com/case-studies/balik-pulau-nutme
 - **Vanilla JavaScript:** Interactions and calculators are implemented with plain JS modules.
 - **LocalStorage where used:** Shiye Notes and KiraStart MY store user data in the current browser, with JSON export/import for portability.
 - **Rules and calculator modules:** Financial rules and pure calculation logic are being separated from DOM rendering for easier testing and maintenance.
+- **Accessibility basics:** Calculator labels are explicitly bound to their controls, and expandable calculator sections use real buttons with `aria-expanded`.
+- **Deployment hardening:** `vercel.json` adds security headers, static asset caching, and trailing-slash canonicalization for directory routes.
 - **Node.js built-in test runner:** Tests use `node --test` without adding a separate test framework.
 - **Vercel deployment:** The site is deployed as a static project.
 
@@ -156,6 +158,7 @@ sitemap-zh.xml                     Chinese sitemap
 - Expand rule versioning and official source metadata.
 - Add more test fixtures for edge cases and yearly rule changes.
 - Keep known limitations visible on calculator pages.
+- Track calculator mismatch reports through prefilled GitHub issues from the result next-steps panel.
 
 ### Product validation
 

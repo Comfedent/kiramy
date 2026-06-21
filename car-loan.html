@@ -57,6 +57,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/car-loan.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/car-loan.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/car-loan.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/car-loan.html" />
@@ -68,12 +69,12 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="grid">
     <div class="card">
       <div class="card-title">Car Loan Details</div>
-      <div class="field"><label>Car Price (RM)</label><input type="number" id="price" placeholder="e.g. 100000"></div>
-      <div class="field"><label>Down Payment (%)</label><input type="number" id="down" value="10" min="0" max="100"><div class="hint">Typically 10% for new cars</div></div>
+      <div class="field"><label for="price">Car Price (RM)</label><input type="number" id="price" placeholder="e.g. 100000"></div>
+      <div class="field"><label for="down">Down Payment (%)</label><input type="number" id="down" value="10" min="0" max="100"><div class="hint">Typically 10% for new cars</div></div>
       <div class="field-row">
-        <div class="field"><label>Interest Rate (% p.a.)</label><input type="number" id="rate" value="3.5" step="0.1"><div class="hint">New: 2.5-3.5% · Used: 4-6%</div></div>
-        <div class="field"><label>Loan Tenure (Years)</label>
-          <select id="tenure"><option value="5">5 years</option><option value="7" selected>7 years</option><option value="9">9 years</option></select>
+        <div class="field"><label for="rate">Interest Rate (% p.a.)</label><input type="number" id="rate" value="3.5" step="0.1"><div class="hint">New: 2.5-3.5% · Used: 4-6%</div></div>
+        <div class="field"><label for="tenure">Loan Tenure (Years)</label>
+        <select id="tenure"><option value="5">5 years</option><option value="7" selected>7 years</option><option value="9">9 years</option></select>
         </div>
       </div>
       <button class="calc-btn" onclick="calculate()">Calculate Payment</button>

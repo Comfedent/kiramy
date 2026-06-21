@@ -221,7 +221,7 @@
     (config.income ? incomeBlock() : "") +
     dynamicBlock(config.dynamic) +
     '<div class="next-step-grid">' + config.cards.map(cardHtml).join("") + "</div>" +
-    '<div class="next-step-actions">' + config.actions.map(actionHtml).join("") + "</div>";
+    '<div class="next-step-actions">' + config.actions.map(actionHtml).join("") + feedbackActionHtml() + "</div>";
   results.appendChild(section);
 
   const printSheet = document.createElement("section");
@@ -248,6 +248,18 @@
     const classes = "next-step-button" + (action.primary ? " primary" : "");
     if (action.href) return '<a class="' + classes + '" href="' + action.href + '" target="_blank" rel="noreferrer">' + action.label + "</a>";
     return '<button class="' + classes + '" type="button" data-next-action="' + action.type + '">' + action.label + "</button>";
+  }
+
+  function feedbackActionHtml() {
+    const title = encodeURIComponent("Calculation feedback: " + document.title);
+    const body = encodeURIComponent(
+      "Page: " + window.location.href +
+      "\n\nWhat looks wrong?\n\nExpected result or official source:\n\nInput values used:"
+    );
+    return '<a class="next-step-button" href="https://github.com/Comfedent/kiramy/issues/new?title=' +
+      title + "&body=" + body + '" target="_blank" rel="noreferrer">' +
+      T("Report calculation issue", "报告计算问题") +
+      "</a>";
   }
 
   function incomeBlock() {

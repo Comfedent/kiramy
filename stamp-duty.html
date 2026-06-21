@@ -50,6 +50,7 @@ footer a{color:var(--teal);text-decoration:none}
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/stamp-duty.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/stamp-duty.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/stamp-duty.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/stamp-duty.html" />
@@ -64,19 +65,19 @@ footer a{color:var(--teal);text-decoration:none}
   <div class="grid">
     <div class="card">
       <div class="card-title">Property Details</div>
-      <div class="field"><label>Property Price (RM)</label><input type="number" id="price" placeholder="e.g. 500000"></div>
-      <div class="field"><label>Buyer Status</label>
+      <div class="field"><label for="price">Property Price (RM)</label><input type="number" id="price" placeholder="e.g. 500000"></div>
+      <div class="field"><label for="status">Buyer Status</label>
         <select id="status">
           <option value="citizen">Malaysian Citizen</option>
           <option value="pr">Permanent Resident</option>
           <option value="foreigner">Foreigner / Foreign Company</option>
         </select>
       </div>
-      <div class="field"><label>First-Time Buyer?</label>
+      <div class="field"><label for="firstTime">First-Time Buyer?</label>
         <select id="firstTime"><option value="no">No</option><option value="yes">Yes</option></select>
         <div class="hint">Exemption for citizens buying ≤ RM500k (until Dec 2027)</div>
       </div>
-      <div class="field"><label>Loan Amount (RM)</label><input type="number" id="loan" placeholder="e.g. 450000">
+      <div class="field"><label for="loan">Loan Amount (RM)</label><input type="number" id="loan" placeholder="e.g. 450000">
         <div class="hint">For loan agreement stamp duty (0.5%)</div>
       </div>
       <button class="calc-btn" onclick="calculate()">Calculate Stamp Duty</button>

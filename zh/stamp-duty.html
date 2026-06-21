@@ -50,6 +50,7 @@ footer a{color:var(--teal);text-decoration:none}
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/stamp-duty.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/stamp-duty.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/stamp-duty.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/stamp-duty.html">
@@ -64,19 +65,19 @@ footer a{color:var(--teal);text-decoration:none}
   <div class="grid">
     <div class="card">
       <div class="card-title">物业详情</div>
-      <div class="field"><label>楼价 (RM)</label><input type="number" id="price" placeholder="例如50万"></div>
-      <div class="field"><label>买家状态</label>
+      <div class="field"><label for="price">楼价 (RM)</label><input type="number" id="price" placeholder="例如50万"></div>
+      <div class="field"><label for="status">买家状态</label>
         <select id="status">
           <option value="citizen">马来西亚公民</option>
           <option value="pr">永久居民</option>
           <option value="foreigner">外国人/外国公司</option>
         </select>
       </div>
-      <div class="field"><label>首次买家？</label>
+      <div class="field"><label for="firstTime">首次买家？</label>
         <select id="firstTime"><option value="no">不</option><option value="yes">是的</option></select>
         <div class="hint">公民购买 ≤ RM50 万可豁免（截至 2027 年 12 月）</div>
       </div>
-      <div class="field"><label>贷款金额 (RM)</label><input type="number" id="loan" placeholder="例如450000">
+      <div class="field"><label for="loan">贷款金额 (RM)</label><input type="number" id="loan" placeholder="例如450000">
         <div class="hint">贷款协议印花税（0.5%）</div>
       </div>
       <button class="calc-btn" onclick="calculate()">计算印花税</button>

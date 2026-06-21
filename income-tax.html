@@ -76,6 +76,12 @@ nav {
 
 /* ─── RELIEF SECTION ─── */
 .relief-toggle {
+  appearance: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
   display: flex; align-items: center; gap: 10px;
   cursor: pointer; padding: 10px 0; color: var(--teal);
   font-size: 14px; font-weight: 600; user-select: none;
@@ -162,6 +168,7 @@ footer a { color: var(--teal); text-decoration: none; }
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/income-tax.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/income-tax.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/income-tax.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/income-tax.html" />
@@ -186,15 +193,15 @@ footer a { color: var(--teal); text-decoration: none; }
       <div class="card-title">Your Income</div>
 
       <div class="field">
-        <label>Annual Gross Income (RM)</label>
+        <label for="income">Annual Gross Income (RM)</label>
         <input type="number" id="income" placeholder="e.g. 72000" value="">
         <div class="hint">Total employment income before any deductions</div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>EPF Rate (%)</label>
-          <select id="epfRate">
+          <label for="epfRate">EPF Rate (%)</label>
+        <select id="epfRate">
             <option value="11" selected>11% (Standard)</option>
             <option value="0">0% (Exempt)</option>
             <option value="7">7% (Reduced)</option>
@@ -202,8 +209,8 @@ footer a { color: var(--teal); text-decoration: none; }
           </select>
         </div>
         <div class="field">
-          <label>Marital Status</label>
-          <select id="marital">
+          <label for="marital">Marital Status</label>
+        <select id="marital">
             <option value="single">Single</option>
             <option value="married">Married</option>
           </select>
@@ -211,47 +218,47 @@ footer a { color: var(--teal); text-decoration: none; }
       </div>
 
       <!-- Relief toggle -->
-      <div class="relief-toggle" onclick="toggleRelief()" id="reliefToggle">
+      <button class="relief-toggle" type="button" onclick="toggleRelief()" id="reliefToggle" aria-expanded="false" aria-controls="reliefPanel">
         <span class="arrow">▶</span> Additional Tax Reliefs (Optional)
-      </div>
+      </button>
 
       <div class="relief-panel" id="reliefPanel">
         <div class="field">
-          <label>Lifestyle Relief (RM) — max 2,500</label>
-          <input type="number" id="lifestyle" placeholder="0" value="0">
+          <label for="lifestyle">Lifestyle Relief (RM) — max 2,500</label>
+        <input type="number" id="lifestyle" placeholder="0" value="0">
           <div class="hint">Books, computers, sports equipment, internet</div>
         </div>
         <div class="field">
-          <label>Medical & Education Insurance (RM) — max 3,000</label>
-          <input type="number" id="insurance" placeholder="0" value="0">
+          <label for="insurance">Medical & Education Insurance (RM) — max 3,000</label>
+        <input type="number" id="insurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Life Insurance (RM) — max 3,000</label>
-          <input type="number" id="lifeInsurance" placeholder="0" value="0">
+          <label for="lifeInsurance">Life Insurance (RM) — max 3,000</label>
+        <input type="number" id="lifeInsurance" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Education Fees (RM) — max 7,000</label>
-          <input type="number" id="education" placeholder="0" value="0">
+          <label for="education">Education Fees (RM) — max 7,000</label>
+        <input type="number" id="education" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Medical Expenses – Self (RM) — max 8,000</label>
-          <input type="number" id="medical" placeholder="0" value="0">
+          <label for="medical">Medical Expenses – Self (RM) — max 8,000</label>
+        <input type="number" id="medical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Parents Medical (RM) — max 8,000</label>
-          <input type="number" id="parentsMedical" placeholder="0" value="0">
+          <label for="parentsMedical">Parents Medical (RM) — max 8,000</label>
+        <input type="number" id="parentsMedical" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>SSPN Savings (RM) — max 8,000</label>
-          <input type="number" id="sspn" placeholder="0" value="0">
+          <label for="sspn">SSPN Savings (RM) — max 8,000</label>
+        <input type="number" id="sspn" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Domestic Travel (RM) — max 1,000</label>
-          <input type="number" id="travel" placeholder="0" value="0">
+          <label for="travel">Domestic Travel (RM) — max 1,000</label>
+        <input type="number" id="travel" placeholder="0" value="0">
         </div>
         <div class="field">
-          <label>Zakat (RM)</label>
-          <input type="number" id="zakat" placeholder="0" value="0">
+          <label for="zakat">Zakat (RM)</label>
+        <input type="number" id="zakat" placeholder="0" value="0">
           <div class="hint">No limit — directly reduces tax payable</div>
         </div>
       </div>
@@ -373,8 +380,9 @@ function fmt(n) { return 'RM ' + n.toLocaleString('en-MY', { minimumFractionDigi
 function toggleRelief() {
   const t = document.getElementById('reliefToggle');
   const p = document.getElementById('reliefPanel');
-  t.classList.toggle('open');
-  p.classList.toggle('open');
+  const open = p.classList.toggle('open');
+  t.classList.toggle('open', open);
+  t.setAttribute('aria-expanded', String(open));
 }
 
 function calculate() {

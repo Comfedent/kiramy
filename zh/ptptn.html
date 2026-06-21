@@ -50,6 +50,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/ptptn.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/ptptn.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/ptptn.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/ptptn.html">
@@ -61,11 +62,11 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="grid">
     <div class="card">
       <div class="card-title">贷款详情</div>
-      <div class="field"><label>PTPTN 贷款总额 (RM)</label><input type="number" id="loan" placeholder="例如30000"><div class="hint">借款总额，包括乌吉拉/利息</div></div>
-      <div class="field"><label>乌吉拉 / 利率（年利率%）</label>
+      <div class="field"><label for="loan">PTPTN 贷款总额 (RM)</label><input type="number" id="loan" placeholder="例如30000"><div class="hint">借款总额，包括乌吉拉/利息</div></div>
+      <div class="field"><label for="rate">乌吉拉 / 利率（年利率%）</label>
         <select id="rate"><option value="1">1%（传统-当前）</option><option value="0">0%（如果符合豁免条件）</option><option value="3">3%（旧贷款）</option></select>
       </div>
-      <div class="field"><label>每月付款 (RM)</label><input type="number" id="monthly" placeholder="例如300"><div class="hint">每月最低 RM50。工资扣除或自愿。</div></div>
+      <div class="field"><label for="monthly">每月付款 (RM)</label><input type="number" id="monthly" placeholder="例如300"><div class="hint">每月最低 RM50。工资扣除或自愿。</div></div>
       <button class="calc-btn" onclick="calculate()">计算还款额</button>
     </div>
     <div>

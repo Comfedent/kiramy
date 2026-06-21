@@ -69,6 +69,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/rent-vs-buy.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/rent-vs-buy.html" />
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/rent-vs-buy.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/rent-vs-buy.html" />
@@ -80,19 +81,19 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;fo
   <div class="input-grid">
     <div class="card">
       <div class="card-title buy-t">🏠 Buying</div>
-      <div class="field"><label>Property Price (RM)</label><input type="number" id="price" placeholder="500000"></div>
-      <div class="field"><label>Down Payment (%)</label><input type="number" id="down" value="10"></div>
-      <div class="field"><label>Loan Interest Rate (% p.a.)</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
-      <div class="field"><label>Loan Tenure (Years)</label><input type="number" id="tenure" value="30"></div>
-      <div class="field"><label>Property Appreciation (% p.a.)</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">Malaysian property avg ~3-5% p.a.</div></div>
-      <div class="field"><label>Maintenance & Upkeep (RM/month)</label><input type="number" id="maintenance" value="300"></div>
+      <div class="field"><label for="price">Property Price (RM)</label><input type="number" id="price" placeholder="500000"></div>
+      <div class="field"><label for="down">Down Payment (%)</label><input type="number" id="down" value="10"></div>
+      <div class="field"><label for="loanRate">Loan Interest Rate (% p.a.)</label><input type="number" id="loanRate" value="4.0" step="0.1"></div>
+      <div class="field"><label for="tenure">Loan Tenure (Years)</label><input type="number" id="tenure" value="30"></div>
+      <div class="field"><label for="appreciation">Property Appreciation (% p.a.)</label><input type="number" id="appreciation" value="3" step="0.5"><div class="hint">Malaysian property avg ~3-5% p.a.</div></div>
+      <div class="field"><label for="maintenance">Maintenance & Upkeep (RM/month)</label><input type="number" id="maintenance" value="300"></div>
     </div>
     <div class="card">
       <div class="card-title rent-t">🏢 Renting</div>
-      <div class="field"><label>Monthly Rent (RM)</label><input type="number" id="rent" placeholder="1500"></div>
-      <div class="field"><label>Annual Rent Increase (%)</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">Typical 3-5% annual increase</div></div>
-      <div class="field"><label>Investment Return on Savings (% p.a.)</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">If you invest the down payment instead</div></div>
-      <div class="field"><label>Comparison Period (Years)</label><input type="number" id="period" value="10" min="1" max="30"></div>
+      <div class="field"><label for="rent">Monthly Rent (RM)</label><input type="number" id="rent" placeholder="1500"></div>
+      <div class="field"><label for="rentIncrease">Annual Rent Increase (%)</label><input type="number" id="rentIncrease" value="3" step="0.5"><div class="hint">Typical 3-5% annual increase</div></div>
+      <div class="field"><label for="investReturn">Investment Return on Savings (% p.a.)</label><input type="number" id="investReturn" value="6" step="0.5"><div class="hint">If you invest the down payment instead</div></div>
+      <div class="field"><label for="period">Comparison Period (Years)</label><input type="number" id="period" value="10" min="1" max="30"></div>
     </div>
   </div>
   <button class="calc-btn" onclick="calculate()">Compare Rent vs Buy</button>

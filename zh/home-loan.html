@@ -56,7 +56,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,22,40,0.85);b
 .pie-legend .dot{width:10px;height:10px;border-radius:50%}
 
 /* Amortization */
-.amort-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 0;color:var(--teal);font-size:14px;font-weight:600;user-select:none}
+.amort-toggle{appearance:none;width:100%;border:0;background:transparent;text-align:left;font-family:inherit;display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 0;color:var(--teal);font-size:14px;font-weight:600;user-select:none}
 .amort-toggle .arrow{transition:transform 0.3s}
 .amort-toggle.open .arrow{transform:rotate(90deg)}
 .amort-panel{display:none;max-height:400px;overflow-y:auto;margin-top:10px}
@@ -78,6 +78,7 @@ footer a{color:var(--teal);text-decoration:none}
 </style>
 <link rel="stylesheet" href="trust.css">
 <link rel="stylesheet" href="/calculator-next-steps.css">
+<link rel="canonical" href="https://www.kira-malaysia.com/zh/home-loan.html" />
 <link rel="alternate" hreflang="en" href="https://www.kira-malaysia.com/home-loan.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.kira-malaysia.com/zh/home-loan.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kira-malaysia.com/home-loan.html">
@@ -101,29 +102,29 @@ footer a{color:var(--teal);text-decoration:none}
       <div class="card-title">贷款详情</div>
 
       <div class="field">
-        <label>楼价 (RM)</label>
+        <label for="price">楼价 (RM)</label>
         <input type="number" id="price" placeholder="例如50万">
       </div>
 
       <div class="field">
-        <label>首付 （％）</label>
+        <label for="downPct">首付 （％）</label>
         <input type="number" id="downPct" value="10" min="0" max="100">
         <div class="hint">大多数马来西亚银行至少 10%</div>
       </div>
 
       <div class="field">
-        <label>贷款金额 (RM)</label>
+        <label for="loanAmt">贷款金额 (RM)</label>
         <input type="number" id="loanAmt" placeholder="自动计算" readonly style="opacity:0.7">
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label>利率（年利率%）</label>
-          <input type="number" id="rate" value="4.0" step="0.1" min="0">
+          <label for="rate">利率（年利率%）</label>
+        <input type="number" id="rate" value="4.0" step="0.1" min="0">
         </div>
         <div class="field">
-          <label>贷款期限（年）</label>
-          <input type="number" id="tenure" value="30" min="1" max="35">
+          <label for="tenure">贷款期限（年）</label>
+        <input type="number" id="tenure" value="30" min="1" max="35">
         </div>
       </div>
 
@@ -167,9 +168,9 @@ footer a{color:var(--teal);text-decoration:none}
         </div>
 
         <!-- 摊销 -->
-        <div class="amort-toggle" onclick="toggleAmort()" id="amortToggle">
+        <button class="amort-toggle" type="button" onclick="toggleAmort()" id="amortToggle" aria-expanded="false" aria-controls="amortPanel">
           <span class="arrow">▶</span> 查看年度摊销表
-        </div>
+        </button>
         <div class="amort-panel" id="amortPanel">
           <table class="amort-table">
             <thead><tr><th>年</th><th>主要的</th><th>兴趣</th><th>平衡</th></tr></thead>
@@ -220,8 +221,11 @@ function updateLoan(){
 }
 
 function toggleAmort(){
-  document.getElementById('amortToggle').classList.toggle('open');
-  document.getElementById('amortPanel').classList.toggle('open');
+  const toggle = document.getElementById('amortToggle');
+  const panel = document.getElementById('amortPanel');
+  const open = panel.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
 }
 
 function calculate(){

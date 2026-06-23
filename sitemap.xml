@@ -13,6 +13,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kira-malaysia.com/resources.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kira-malaysia.com/affiliate-disclosure.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.kira-malaysia.com/projects/shiye-notes/</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
